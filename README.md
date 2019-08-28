@@ -1,3 +1,31 @@
+# Don Townsend Creative
+
+## Source Code
+
+If you landed here from my portfolio website, it's likely that you're here
+to inspect my code quality! Please take a look around and see what you think.
+
+### Code Quality
+
+I have a committment to code that satisfies these principles:
+
+- Highly Modular
+- Highly Maintainable
+- Efficient, Elegant and Effective
+
+My goal is to make my code easier for anyone (including myself in the future)
+to be able to tweak and apply patches to code.
+
+### UX
+
+I have a strong committment to User Experience (UX). I believe that
+websites and apps should be highly intuitive and not require a lot of
+🤔.
+
+
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
