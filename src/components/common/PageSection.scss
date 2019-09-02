@@ -1,0 +1,10 @@
+
+// each page section expands to the full
+// height of the viewport.
+.page-section {
+  min-height: 100vh;
+  display: flex;
+  // flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+}
