@@ -1,12 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import { hideSplashScreen } from './utils/main';
+
 import routes from './routes';
 
 import './scss/main.scss';
 
 function App() {
-  console.log(routes);
+  React.useEffect(() => {
+    hideSplashScreen();
+  });
   return (
     <Router>
       <div className="App">

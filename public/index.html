@@ -7,10 +7,10 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Portfolio website of Don Townsend - Full Stack Web Developer"
     />
     <link rel="apple-touch-icon" href="logo192.png" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Playfair+Display|Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Raleway|Roboto+Mono|Titillium+Web&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!--
@@ -18,29 +18,209 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
+    <!--
+      DON'S INLINE CSS NOTES:
+      =======================
+      I understand that the following css ain't pretty. However it:
+      1) Doesn't block initial DOM rendering
+      2) Was a quick and dirty solution to initial css up-and-running
     -->
-    <title>React App</title>
+    <style>
+      /* see: https://www.w3schools.com/css/css3_animations.asp */
+      @-webkit-keyframes splash-fade-from-black {
+        from { background-color: #000; }
+        20% { background-color: #000; }
+        to { background-color: #fefefe; }
+      }
+      @keyframes splash-fade-from-black {
+        from { background-color: #000; }
+        20% { background-color: #000; }
+        to { background-color: #fefefe; }
+      }
+      @-webkit-keyframes splash-fade-in-title {
+        /* slightly exponential scaling */
+        0% { opacity: 0; color: white; }
+        10% { opacity: 0.0758; color: palegoldenrod; }
+        20% { opacity: 0.1010; color: yellow; }
+        30% { opacity: 0.1347; color: orange; }
+        40% { opacity: 0.1797; color: red; }
+        50% { opacity: 0.2396; color: #800080; }
+        60% { opacity: 0.3195; color: #1436cf; }
+        70% { opacity: 0.4260; color: #1c51c2; }
+        80% { opacity: 0.5681; color: #304677; }
+        90% { opacity: 0.7575; color: #383f4e; }
+        100% { opacity: 1; color: #282c34; }
+      }
+      @keyframes splash-fade-in-title {
+        /* slightly exponential scaling */
+        0% { opacity: 0; color: white; }
+        10% { opacity: 0.0758; color: palegoldenrod; }
+        20% { opacity: 0.1010; color: yellow; }
+        30% { opacity: 0.1347; color: orange; }
+        40% { opacity: 0.1797; color: red; }
+        50% { opacity: 0.2396; color: #800080; }
+        60% { opacity: 0.3195; color: #1436cf; }
+        70% { opacity: 0.4260; color: #1c51c2; }
+        80% { opacity: 0.5681; color: #304677; }
+        90% { opacity: 0.7575; color: #383f4e; }
+        100% { opacity: 1; color: #282c34; }
+      }
+      @-webkit-keyframes splash-zoom-title {
+        0% { opacity: 0; transform: scale(0.9, 0.9); }
+        40% { opacity: 0; transform: scale(0.9, 0.9); }
+        100% { opacity: 1; transform: scale(1, 1); }
+      }
+      @keyframes splash-zoom-title {
+        0% { opacity: 0; transform: scale(0.98, 0.98); }
+        40% { opacity: 0; transform: scale(0.98, 0.98); }
+        100% { opacity: 1; transform: scale(1, 1); }
+      }
+      @keyframes splash-fizzle-out {
+        0% { background-color: #fefefe; }
+        10% { background-color: palegoldenrod; }
+        20% { background-color: yellow; }
+        30% { background-color: orange; }
+        40% { background-color: red; }
+        50% { background-color: #800080; }
+        60% { background-color: #1436cf; }
+        70% { background-color: #1c51c2; }
+        80% { background-color: #304677; }
+        90% { background-color: #383f4e; }
+        100% { background-color: #282c34; }
+      }
+
+      .splash {
+        opacity: 1;
+        z-index: 1337;
+        position: fixed;
+        overflow: hidden;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        -webkit-transition: left 265ms linear;
+        transition: left 265ms linear;
+      }
+
+      .splash.hide {
+        left: -100%;
+      }
+
+      .splash.hide .inner {
+        left: 100%;
+      }
+
+      .splash .inner {
+        z-index: 7777;
+        position: absolute;
+        white-space: nowrap;
+        display: flex;
+        height: 100%;
+        left: 0;
+        width: 100vw;
+        padding: 20px;
+        padding-left: 0;
+        align-items: center;
+        -webkit-box-align: center;
+        justify-content: center;
+        -webkit-transition: padding 265ms linear, left 265ms linear;
+        transition: padding 265ms linear, left 265ms linear;
+      }
+
+      .splash.hide .scroller {
+        left: -2px;
+      }
+
+      .scroller {
+        content: '';
+        position: fixed;
+        z-index: 7777;
+        left: 100%;
+        top: -10px;
+        bottom: -10px;
+        width: 2px;
+        filter: blur(2px);
+        background-color: white;
+        -webkit-transition: left 265ms linear;
+        transition: left 265ms linear;
+      }
+
+      .splash .bg {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -1000%;
+        right: 0;
+        background-color: #fefefe;
+        -webkit-animation-name: splash-fade-from-black;
+        -webkit-animation-duration: 1.2s;
+        -webkit-animation-timing-function: cubic-bezier(0.165, 0.3, 0.5, 1);
+        animation-name: splash-fade-from-black;
+        animation-duration: 1.2s;
+        animation-timing-function: cubic-bezier(0.165, 0.3, 0.5, 1);
+      }
+
+      .splash-fg {
+        position: relative;
+        z-index: 1337;
+        margin: auto;
+        max-width: 100%;
+      }
+
+      .splash h1,
+      .splash h2 {
+        opacity: 1;
+        color: #495a69;
+        -webkit-transition: color 265ms ease-in-out;
+        transition: color 265ms ease-in-out;
+      }
+
+      .splash.hide h1,
+      .splash.hide h2 {
+        color: rgb(231, 66, 25);
+      }
+
+      .splash-fade-in-title {
+        -webkit-animation-name: splash-fade-in-title;
+        -webkit-animation-duration: 1s;
+        animation-name: splash-fade-in-title;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-timing-function: cubic-bezier(0.165, 0.3, 0.5, 1);
+        opacity: 1;
+      }
+
+      .splash-zoom-title {
+        -webkit-animation-name: splash-zoom-title;
+        -webkit-animation-duration: 3s;
+        animation-name: splash-zoom-title;
+        animation-duration: 3s;
+        animation-timing-function: cubic-bezier(0.165, 0.3, 0.5, 1);
+      }
+    </style>
+    <title>Don Townsend | Full Stack Web Dev</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+
     <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
+      S P L A S H    S C R E E N
     -->
+    <div id="splash" class="splash d-flex align-items-center justify-content-center">
+      <div class="inner">
+      <div class="bg"></div>
+        <section class="splash-fg">
+          <h1 class="splash-fade-in-title">Don Townsend</h1>
+          <h2 class="splash-fade-in-title splash-zoom-title">Passionate about clean, performant, and intuitive code.</h2>
+        </section>
+      </div>
+      <div class="scroller"></div>
+    </div>
+
+    <!--
+      R E A C T    A P P
+    -->
+    <div id="root"></div>
   </body>
 </html>

@@ -1,3 +1,5 @@
+/* This stylesheet controls how things are first rendered, e.g. first paint. */
+
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;

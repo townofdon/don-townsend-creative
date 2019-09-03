@@ -62,16 +62,6 @@
   line-height: calculaterem($size);
 }
 
-/**
- * Transitions
- */
-@mixin transition($args...) {
-  @include prefix((transition: $args), webkit moz ms o);
-}
-@mixin ease-in-out($time){
-  @include transition(all $time ease-in-out);
-}
-
 /// Mixin to customize scrollbars
 /// Beware, this does not work in all browsers
 /// @author Hugo Giraudel
