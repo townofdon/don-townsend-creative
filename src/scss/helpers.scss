@@ -1,0 +1,52 @@
+// helper classes - generic, reusable, and non-specific.
+
+@mixin background-color($colorXs) {
+  background-color: $colorXs!important;
+}
+@mixin background-color-md($colorMd) {
+  @include respond($BREAKPOINT_TABLET) {
+    background-color: $colorMd!important;
+  }
+}
+@mixin background-color-lg($colorLg) {
+  @include respond($BREAKPOINT_LAPTOP) {
+    background-color: $colorLg!important;
+  }
+}
+@mixin background-color-lg($colorXl) {
+  @include respond($BREAKPOINT_DESKTOP) {
+    background-color: $colorXl!important;
+  }
+}
+
+@mixin addColorClasses($colorName: 'black', $colorVal: '#000000') {
+  .color-bg-#{$colorName} { background-color: $colorVal!important; }
+  .color-#{$colorName} { color: $colorVal!important; }
+}
+
+// this mixin must be added later in order for media-specific classes to
+// override the non-media-specific classes.
+@mixin addResponsiveColorClasses($colorName: 'black', $colorVal: '#000000') {
+  @include respond($BREAKPOINT_TABLET) {
+    .color-md-bg-#{$colorName} { background-color: $colorVal!important; }
+    .color-md-#{$colorName} { color: $colorVal!important; }
+  }
+
+  @include respond($BREAKPOINT_LAPTOP) {
+    .color-lg-bg-#{$colorName} { background-color: $colorVal!important; }
+    .color-lg-#{$colorName} { color: $colorVal!important; }
+  }
+
+  @include respond($BREAKPOINT_DESKTOP) {
+    .color-xl-bg-#{$colorName} { background-color: $colorVal!important; }
+    .color-xl-#{$colorName} { color: $colorVal!important; }
+  }
+}
+
+@include addColorClasses('white', #fff);
+@include addColorClasses('blue-light', $colorBlueLight);
+@include addColorClasses('blue-dark', $colorBlueDark);
+
+@include addResponsiveColorClasses('white', #fff);
+@include addResponsiveColorClasses('blue-light', $colorBlueLight);
+@include addResponsiveColorClasses('blue-dark', $colorBlueDark);

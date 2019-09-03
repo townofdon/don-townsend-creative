@@ -1,0 +1,87 @@
+
+@mixin title-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+@mixin title-sans-serif {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+@mixin sans-serif {
+  font-family: 'Open Sans', sans-serif;
+}
+
+@mixin monospace () {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.title-serif,
+.serif {
+  @include title-serif();
+}
+
+.title-sans {
+  @include title-sans-serif();
+}
+
+.sans {
+  @include sans-serif();
+}
+
+.monospace {
+  @include monospace();
+}
+
+@mixin h-font-size($fontSizeXs: false, $fontSizeMd: false, $fontSizeLg: false, $fontSizeXl: false) {
+  @include font-size($fontSizeXs);
+
+  @if $fontSizeMd {
+    @include respond($BREAKPOINT_TABLET) {
+      @include font-size($fontSizeMd);
+    }
+  }
+
+  @if $fontSizeLg {
+    @include respond($BREAKPOINT_LAPTOP) {
+      @include font-size($fontSizeLg);
+    }
+  }
+
+  @if $fontSizeXl {
+    @include respond($BREAKPOINT_DESKTOP) {
+      @include font-size($fontSizeXl);
+    }
+  }
+}
+
+@mixin h-line-height($lineHeightXs: false, $lineHeightMd: false, $lineHeightLg: false, $lineHeightXl: false) {
+  line-height: $lineHeightXs;
+
+  @if $lineHeightMd {
+    @include respond($BREAKPOINT_TABLET) {
+      line-height: $lineHeightMd;
+    }
+  }
+
+  @if $lineHeightLg {
+    @include respond($BREAKPOINT_LAPTOP) {
+      line-height: $lineHeightLg;
+    }
+  }
+
+  @if $lineHeightXl {
+    @include respond($BREAKPOINT_DESKTOP) {
+      line-height: $lineHeightXl;
+    }
+  }
+}
+
+// font sizing, line height, and family
+h1 { @include h-font-size(60px, 70px, 85px); @include h-line-height(1.2em, 1.3em, 1.5em); @extend .title-serif;  }
+h2 { @include h-font-size(50px, 55px, 60px); @include h-line-height(1.2em, 1.2em, 1.3em); @extend .title-sans; }
+h3 { @include h-font-size(35px, 35px, 40px); @include h-line-height(1.2em, 1.2em, 1.3em); @extend .title-sans; }
+h4 { @include h-font-size(30px, 32px, 35px); @include h-line-height(1.2em, 1.2em, 1.2em); @extend .title-sans; }
+h5 { @include h-font-size(30px, 32px, 35px); @include h-line-height(1.2em, 1.2em, 1.2em); @extend .sans; }
+h6 { @include h-font-size(25px, 25px, 25px); @include h-line-height(1.2em, 1.2em, 1.2em); @extend .title-sans; }
+
+code { @extend .monospace; }

@@ -1,10 +1,11 @@
 
 import React from 'react';
+import cx from 'classnames';
 
 import './PageSection.scss';
 
-const PageSection = ({ children }) => (
-  <div className="page-section">
+const PageSection = ({ children, className }) => (
+  <div className={cx('page-section', className)}>
     {children}
   </div>
 );
