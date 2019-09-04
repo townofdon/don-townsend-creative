@@ -1,0 +1,203 @@
+
+@import '../../scss/mixins.scss';
+
+$dashboardTimeShowDuration: 500ms;
+$dashboardTimeTransition: 500ms;
+
+//
+// dashboard main positioning
+//
+.dashboard {
+  position: fixed;
+  z-index: 7777;
+  left: 0;
+  right: 0;
+  height: 30px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  &.bottom {
+    bottom: 0;
+  }
+
+  &.top {
+    top: 0;
+  }
+
+  & > .left,
+  & > .right {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+  }
+
+  & > .right {
+    left: 50%;
+  }
+}
+
+//
+// dashboard animate on show
+//
+.dashboard {
+
+  &.top > .left,
+  &.top > .right,
+  &.bottom > .left,
+  &.bottom > .right {
+    @include transition(transform $dashboardTimeShowDuration ease-in-out);
+  }
+
+  &.top {
+
+    > .left {
+      transform: translate(-30px, -30px);
+    }
+
+    > .right {
+      transform: translate(30px, -30px);
+    }
+  }
+
+  &.bottom {
+
+    > .left {
+      transform: translate(30px, 30px);
+    }
+
+    > .right {
+      transform: translate(-30px, 30px);
+    }
+  }
+}
+
+.dashboard.show {
+
+  &.top > .left,
+  &.top > .right,
+  &.bottom > .left,
+  &.bottom > .right {
+    transform: translate(0, 0)!important;
+  }
+}
+
+//
+// dashboard colors
+//
+.dashboard {
+
+  .bg,
+  .inner,
+  .dashboard-item,
+  .dashboard-item a {
+    @include ease-in-out($dashboardTimeTransition);
+  }
+
+  &.light-theme {
+    color: #333333;
+
+    .dashboard-item {
+      color: #333333;
+    }
+
+    .bg {
+      background-color: rgba(0,0,0,0.8);
+    }
+  }
+
+  &.dark-theme {
+    color: #fefefe;
+
+    .dashboard-item {
+      color: #fefefe;
+    }
+
+    .bg {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+@mixin dashboard-diagonal($r, $tX, $tY, $sX) {
+  @include prefix((transform: rotate($r) translateX($tX) translateY($tY) skewX($sX)), webkit moz ms o)
+}
+
+//
+// dashboard inner positioning
+//
+.dashboard {
+
+  ul {
+    line-height: 30px;
+    color: inherit;
+  }
+
+  .inner {
+    position: relative;
+    height: 100%;
+    color: inherit;
+  }
+
+  > .left > .inner {
+    margin-right: 100px;
+
+    @include prefix((border-top-right-radius: 2px), webkit moz);
+  }
+
+  > .right > .inner {
+    margin-left: 100px;
+
+    @include prefix((border-top-right-radius: 2px), webkit moz);
+  }
+
+  &.top > .left > .inner {
+    @include prefix((border-top-right-radius: 0), webkit moz);
+    @include prefix((border-bottom-right-radius: 2px), webkit moz);
+  }
+
+  &.top > .right > .inner {
+    @include prefix((border-top-left-radius: 0), webkit moz);
+    @include prefix((border-bottom-left-radius: 2px), webkit moz);
+  }
+
+  .diagonal {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    height: 100%;
+    width: 60px;
+    background: rgba(0,0,0,0.8);
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+
+  > .left .diagonal {
+    left: 100%;
+
+    @include prefix((border-top-left-radius: 1px), webkit moz);
+    @include dashboard-diagonal(45deg, 13.5px, 26px, 45deg);
+  }
+
+  > .right .diagonal {
+    right: 100%;
+
+    @include prefix((border-top-right-radius: 1px), webkit moz);
+    @include dashboard-diagonal(-45deg, -13.5px, 26px, -45deg);
+  }
+
+  &.top > .left .diagonal {
+    @include prefix((border-top-left-radius: 0), webkit moz);
+    @include prefix((border-bottom-left-radius: 1px), webkit moz);
+    @include dashboard-diagonal(-45deg, 13.5px, -26px, -45deg);
+  }
+
+  &.top > .right .diagonal {
+    @include prefix((border-top-right-radius: 0), webkit moz);
+    @include prefix((border-bottom-right-radius: 1px), webkit moz);
+    @include dashboard-diagonal(45deg, -13.5px, -26px, 45deg);
+  }
+}
