@@ -1,5 +1,4 @@
 
-
 /* Mixin to prefix several properties at once
  * @author Hugo Giraudel
  * Shouldn't need after autoprefixer
@@ -17,12 +16,43 @@
   }
 }
 
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animate($name, $duration, $timing-function: 'ease-in-out') {
+  @include prefix((animation-name: $name), webkit);
+  @include prefix((animation-duration: $duration), webkit);
+  @include prefix((animation-timing-function: $timing-function), webkit);
+}
+
+
 @mixin clearfix() {
   &::after {
     content: '';
     display: table;
     clear: both;
   }
+}
+
+@mixin d-flex() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex-center() {
+  @include d-flex();
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
 }
 
 @mixin antialiased() { -webkit-font-smoothing: antialiased; }
