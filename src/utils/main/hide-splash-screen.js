@@ -1,9 +1,10 @@
 
+import {
+  timeSplashScreenWaitBeforeHide,
+  timeSplashScreenEndOfHide,
+} from '../../globals/constants';
+
 export default function hideSplashScreen() {
-  // note that these timings need to align with animation times specified in ~/index.css
-  const tWaitBeforeHide = 3000;
-  const tHideDuration = 1000;
-  const tEndOfHide = tWaitBeforeHide + tHideDuration;
   // Show the splash screen for X number of ms before hiding it.
   // Since the splash screen is a non-React element, we need to
   // grab it directly by ID.
@@ -20,6 +21,7 @@ export default function hideSplashScreen() {
     $splashScreen.remove();
   };
 
-  setTimeout(hideBegin, tWaitBeforeHide);
-  setTimeout(hideEnd, tEndOfHide);
+  // note that these timings need to align with animation times specified in ~/index.css
+  setTimeout(hideBegin, timeSplashScreenWaitBeforeHide);
+  setTimeout(hideEnd, timeSplashScreenEndOfHide);
 }
