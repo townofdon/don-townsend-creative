@@ -11,6 +11,9 @@
 # production
 /build
 
+# exclude test assets
+/public/*/demo*
+
 # misc
 .DS_Store
 .env.local
