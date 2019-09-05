@@ -109,3 +109,13 @@ h3 { text-transform: uppercase; }
 
 
 code { @extend .font-monospace; }
+
+a {
+  color: $colorBlueLight;
+
+  @include ease-in-out(0.2s);
+  @include hover() {
+    color: darken($colorBlueLight, 10%);
+    text-decoration: none;
+  }
+}

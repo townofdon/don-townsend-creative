@@ -3,9 +3,6 @@
 import React, { useRef } from 'react';
 
 import PageSection from '../../components/common/PageSection';
-import PageSectionInner from '../../components/common/PageSectionInner';
-import DynamicBackground from '../../components/home/DynamicBackground';
-import { Row, Col } from '../../components/grid';
 
 const SectionMain = () => {
   const refs = {
@@ -15,14 +12,14 @@ const SectionMain = () => {
     mainTitle04: useRef(null),
   };
   return (
-    <PageSection>
-      <div className="color-md-blue-dark position-relative">
-        <h1
+    <PageSection className="color-bg-black color-md-white d-flex align-items-center justify-content-center">
+      <div>
+        <h2
           ref={refs.mainTitle01}
           className="text-reset"
         >
           Don
-        </h1>
+        </h2>
 
         <h2
           ref={refs.mainTitle02}

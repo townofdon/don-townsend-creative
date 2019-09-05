@@ -15,15 +15,13 @@ const DashboardBar = ({
   left,
   right,
   isShowing = false,
-  isDarkTheme = false,
+  theme = 'light',
   isTop = false,
 }) => {
   return (
-    <nav className={cx('dashboard', {
+    <nav className={cx('dashboard', `${theme}-theme`, {
       top: isTop,
       bottom: !isTop,
-      'dark-theme': isDarkTheme,
-      'light-theme': !isDarkTheme,
       'show': isShowing,
     })}>
       <div className="left">
