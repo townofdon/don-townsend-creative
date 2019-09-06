@@ -1,0 +1,20 @@
+
+@mixin view-height-range($start, $end) {
+  @for $i from $start through $end {
+    &.view-height-#{$i} { min-height: 100vh * $i }
+  }
+}
+
+// each scroll section expands to the full
+// height of the viewport.
+.scroll-section {
+  position: relative;
+  z-index: 7;
+  min-height: 100vh;
+  display: flex;
+  // flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+
+  @include view-height-range(2, 10);
+}
