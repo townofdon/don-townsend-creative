@@ -1,20 +1,28 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import DashboardBar from './DashboardBar';
 import DashboardItem from './DashboardItem';
+
+import ControlContext from '../../contexts/ControlContext';
 
 import { timeDashboardWaitBeforeShow } from '../../globals/constants';
 import { urlLinkedIn, urlResume, urlGitHub } from '../../globals/urls';
 import VideoWarpSpeed from './VideoWarpSpeed';
 
+import defaults from '../../globals/defaults';
+
 const DashboardWindow = () => {
-  const themeDefault = 'light';
-  const [theme, setTheme] = useState(themeDefault);
   const [tooltip, setTooltip] = useState('');
   const [isShowing, setIsShowing] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isShowingThanks, setIsShowingThanks] = useState(false);
-  const [isShowingPanelNavigation, setIsShowingPanelNavigation] = useState(false);
+  const {
+    theme,
+    setTheme,
+    isVideoPlaying,
+    setIsVideoPlaying,
+    isShowingThanks,
+    setIsShowingThanks,
+    setIsShowingPanelNavigation,
+  } = useContext(ControlContext);
   const refVideo = useRef(null);
   const timeout = {
     thanks: useRef(null),
@@ -40,8 +48,8 @@ const DashboardWindow = () => {
   };
 
   const reset = () => {
-    setTheme(themeDefault);
-    setIsPlaying(false);
+    setTheme(defaults.theme);
+    setIsVideoPlaying(false);
     setIsShowingThanks(false);
   };
 
@@ -53,13 +61,13 @@ const DashboardWindow = () => {
 
   const handleGoToWarpSpeed = () => {
     clearTimeout(timeout.thanks.current);
-    if (isPlaying) {
+    if (isVideoPlaying) {
       setTheme('dark');
       pauseVideo();
       return;
     }
     setTheme('red');
-    setIsPlaying(true);
+    setIsVideoPlaying(true);
     timeout.thanks.current = setTimeout(() => { sayThankYou(); }, 15000);
     playVideo();
   }
@@ -67,7 +75,7 @@ const DashboardWindow = () => {
   return (
     <>
       <VideoWarpSpeed
-        isPlaying={isPlaying}
+        isPlaying={isVideoPlaying}
         isShowingThanks={isShowingThanks}
         refVideo={refVideo}
       />

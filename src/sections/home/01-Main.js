@@ -13,6 +13,8 @@ const SectionMain = () => {
   };
   return (
     <ScrollSection
+      id="main"
+      theme="light"
       className="color-bg-black color-md-black d-flex align-items-center justify-content-center"
       backgroundColor="#fefefe"
       backgroundImage="/img/bg-star-port-faded.jpg"

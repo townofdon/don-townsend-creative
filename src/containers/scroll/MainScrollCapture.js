@@ -32,7 +32,6 @@ const MainScrollCapture = ({ children }) => {
     }
     // cleanup
     return () => {
-      console.log('cleaning up.');
       window.removeEventListener('scroll', onScroll, false);
       window.removeEventListener('resize', onResize, false);
     };
