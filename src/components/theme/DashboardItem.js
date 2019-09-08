@@ -30,7 +30,7 @@ const DashboardItem = ({
         {children}
       </a>
     ) : (
-      <span>
+      <span className={cx(className)}>
         {children}
       </span>
     )}

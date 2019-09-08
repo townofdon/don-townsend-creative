@@ -1,0 +1,28 @@
+
+.video-contain {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+
+.video-warp-speed {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  min-height: 50%;
+  min-width: 50%;
+
+  &.playing {
+    z-index: 4321;
+  }
+}
+
+.thanks {
+  position: relative;
+  z-index: 4321;
+}

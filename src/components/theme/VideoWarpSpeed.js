@@ -4,6 +4,8 @@ import cx from 'classnames';
 
 import Container from '../grid/Container';
 
+import './VideoWarpSpeed.style.scss';
+
 const WarpSpeed = ({
   refVideo,
   isPlaying,

@@ -5,7 +5,7 @@ import DashboardItem from './DashboardItem';
 
 import { timeDashboardWaitBeforeShow } from '../../globals/constants';
 import { urlLinkedIn, urlResume } from '../../globals/urls';
-import WarpSpeed from './WarpSpeed';
+import VideoWarpSpeed from './VideoWarpSpeed';
 
 const DashboardWindow = () => {
   const themeDefault = 'dark';
@@ -64,7 +64,7 @@ const DashboardWindow = () => {
 
   return (
     <>
-      <WarpSpeed
+      <VideoWarpSpeed
         isPlaying={isPlaying}
         isShowingThanks={isShowingThanks}
         refVideo={refVideo}
@@ -75,12 +75,13 @@ const DashboardWindow = () => {
         isShowing={isShowing}
         left={(
           <ul>
-            <DashboardItem>
-              Don Townsend
+            <DashboardItem className="text-uppercase">
+              <strong>
+                Don Townsend
+              </strong>
             </DashboardItem>
-            |
-            <DashboardItem>
-              Full-Stack Web Developer
+            <DashboardItem className="text-uppercase">
+              Portfolio
             </DashboardItem>
           </ul>
         )}
@@ -101,10 +102,10 @@ const DashboardWindow = () => {
         left={(
           <ul>
             <DashboardItem>
-              I
+              Navigation&nbsp;
+              <i className="icon-atom"></i>
             </DashboardItem>
             <DashboardItem>
-              II
             </DashboardItem>
           </ul>
         )}
