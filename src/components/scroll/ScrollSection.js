@@ -12,7 +12,6 @@ import ScrollBg from './ScrollBg';
 import ScrollSectionContent from './ScrollSectionContent';
 
 import './ScrollSection.scss';
-import usePrevious from '../../custom-hooks/usePrevious';
 
 const ScrollSection = ({
   id,
@@ -30,9 +29,10 @@ const ScrollSection = ({
   const refSection = useRef(null);
   const calcs = useScrollCalculations(refSection, scrollProps);
   const { currentSection, setCurrentSection, setTheme, isRollingLeft, isRollingRight } = useContext(ControlContext);
-  const isScrollInSectionPrev = usePrevious(calcs.isScrollInSection);
-  const sectionIsActive = calcs.isSectionInView && !isScrollInSectionPrev;
-  if (sectionIsActive) {
+  const shouldSectionBecomeActive = currentSection !== id
+    && calcs.pctProgressSection >= 100
+    && calcs.pctProgressSection < 200
+  if (shouldSectionBecomeActive) {
     if (id) { setCurrentSection(id); }
     if (theme) { setTheme(theme); }
   }

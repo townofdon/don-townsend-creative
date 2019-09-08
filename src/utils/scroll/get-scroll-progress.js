@@ -6,7 +6,7 @@
  *
  * 0% => The element's top border is at the very bottom of the viewport (_just out of view_)
  * 50% => The element's top border is in the middle of the viewport (_assuming the element is 100% viewport height_)
- * 100% => The element's bottom border is at the very bottom of the viewport
+ * 100% => The element's top border is at the very top of the viewport
  * 150% => The element's bottom border is in the middle of the viewport (_assuming the element is 100% viewport height_)
  * 200% => The element's bottom border is at the very top of the viewport (_just out of view_)
  */
