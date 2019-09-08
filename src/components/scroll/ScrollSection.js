@@ -6,9 +6,23 @@ import withScroll from '../../hocs/withScroll';
 import useScrollCalculations from '../../custom-hooks/useScrollCalculations';
 import debugScrollSection from '../../utils/scroll/debug-scroll-section';
 
+import ScrollBg from './ScrollBg';
+import ScrollSectionContent from './ScrollSectionContent';
+
 import './ScrollSection.scss';
 
-const ScrollSection = ({ children, className, viewHeight = 1, debug = false, ...scrollProps }) => {
+const ScrollSection = ({
+  children,
+  render,
+  className,
+  viewHeight = 1,
+  debug = false,
+  backgroundFixed = false,
+  backgroundImage = '',
+  backgroundColor = '#000',
+  backgroundClassName = '',
+  ...scrollProps,
+}) => {
   const refSection = useRef(null);
   const calcs = useScrollCalculations(refSection, scrollProps);
 
@@ -19,7 +33,17 @@ const ScrollSection = ({ children, className, viewHeight = 1, debug = false, ...
       className={cx('scroll-section', className, `view-height-${viewHeight}`)}
       ref={refSection}
     >
-      {children}
+      <ScrollBg
+        className={backgroundClassName}
+        backgroundFixed={backgroundFixed && calcs.isSectionInView}
+        backgroundImage={backgroundImage}
+        backgroundColor={backgroundColor}
+      />
+      <ScrollSectionContent>
+        {typeof render === 'function' ? (
+          render({ ...scrollProps, ...calcs })
+        ) : children}
+      </ScrollSectionContent>
     </div>
   );
 };

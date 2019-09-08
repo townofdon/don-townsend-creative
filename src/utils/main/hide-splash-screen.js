@@ -19,6 +19,7 @@ export default function hideSplashScreen() {
   const hideEnd = () => {
     // see: https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove
     $splashScreen.remove();
+    window.scrollTo(0, 0);
   };
 
   // note that these timings need to align with animation times specified in ~/index.css

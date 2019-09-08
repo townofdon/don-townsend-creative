@@ -11,7 +11,7 @@ import './scss/main.scss';
 function App() {
   React.useEffect(() => {
     hideSplashScreen();
-  });
+  }, []);
   return (
     <Router>
       <MainScrollCapture>
@@ -19,9 +19,6 @@ function App() {
           {routes.map((route, index) => route.component ? (
             <Route key={index} path={route.path} exact component={route.component} />
           ) : null)}
-          <footer className="App-footer p-4 over-video bg-white">
-            The footer
-          </footer>
         </div>
       </MainScrollCapture>
     </Router>

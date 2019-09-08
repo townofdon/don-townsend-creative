@@ -10,14 +10,16 @@ const DashboardItem = ({
   classNameListItem = '',
   alt,
   download = false,
-  title,
+  setTooltip = () => {},
 }) => (
   <li className={cx(classNameListItem)}>
     {(typeof onClick === 'function' || href) ? (
       <a
         onClick={(ev) => {
-          ev.preventDefault();
-          onClick(ev);
+          if (typeof onClick === 'function') {
+            ev.preventDefault();
+            onClick(ev);
+          }
         }}
         className={cx(className)}
         href={href}
@@ -25,7 +27,12 @@ const DashboardItem = ({
         target="_blank"
         rel="noopener noreferrer"
         download={download}
-        title={title}
+        onMouseEnter={() => {
+          if (alt) { setTooltip(alt); }
+        }}
+        onMouseLeave={() => {
+          if (alt) { setTooltip(''); }
+        }}
       >
         {children}
       </a>

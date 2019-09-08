@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import debounce from 'lodash/debounce';
+
 import getScrollProgress from '../utils/scroll/get-scroll-progress';
 import getIsScrollInSection from '../utils/scroll/get-is-scroll-in-section';
 import getIsSectionInView from '../utils/scroll/get-is-section-in-view';
+import getElementPosition from '../utils/dom/get-element-position';
 
 const doesNotMatch = (a, b) => (
   b !== undefined && a !== b
@@ -16,7 +19,7 @@ export default function useScrollCalculations(refSection = {}, scrollProps = {})
       if (!refSection.current) {
         return;
       }
-      const { top, bottom, left, right } = refSection.current.getBoundingClientRect() || {};
+      const { top, bottom, left, right } = getElementPosition(refSection.current);
       if (false
         || doesNotMatch(position.top, top)
         || doesNotMatch(position.bottom, bottom)
@@ -26,15 +29,16 @@ export default function useScrollCalculations(refSection = {}, scrollProps = {})
         setPosition({ top, bottom, left, right });
       }
     };
+    const onResize = debounce(calculatePosition, 100);
     // calculate position on page load
     // see: https://stackoverflow.com/questions/588040/window-onload-vs-document-onload
     window.addEventListener('load', calculatePosition, false);
-    // last-ditch effort to calculate position
-    // if all else fails
-    setTimeout(calculatePosition, 500);
+    // re-calculate position on page resize
+    window.addEventListener('resize', onResize, false);
     // cleanup
     return () => {
       window.removeEventListener('load', calculatePosition, false);
+      window.removeEventListener('resize', onResize, false);
     };
   }, [refSection, position]);
 

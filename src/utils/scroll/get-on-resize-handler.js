@@ -29,6 +29,7 @@ function onThrottle(onResizeCaptured) {
  * ```
  *
  * @param {Function} onResizeCaptured
+ * @returns {Function}
  */
 export default function getOnResizeHandler(onResizeCaptured, timeBetweenFrames = 16) {  
   return throttle(onThrottle(onResizeCaptured), timeBetweenFrames);

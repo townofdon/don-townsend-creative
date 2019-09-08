@@ -4,15 +4,17 @@ import DashboardBar from './DashboardBar';
 import DashboardItem from './DashboardItem';
 
 import { timeDashboardWaitBeforeShow } from '../../globals/constants';
-import { urlLinkedIn, urlResume } from '../../globals/urls';
+import { urlLinkedIn, urlResume, urlGitHub } from '../../globals/urls';
 import VideoWarpSpeed from './VideoWarpSpeed';
 
 const DashboardWindow = () => {
-  const themeDefault = 'dark';
+  const themeDefault = 'light';
   const [theme, setTheme] = useState(themeDefault);
+  const [tooltip, setTooltip] = useState('');
   const [isShowing, setIsShowing] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isShowingThanks, setIsShowingThanks] = useState(false);
+  const [isShowingPanelNavigation, setIsShowingPanelNavigation] = useState(false);
   const refVideo = useRef(null);
   const timeout = {
     thanks: useRef(null),
@@ -80,50 +82,82 @@ const DashboardWindow = () => {
                 Don Townsend
               </strong>
             </DashboardItem>
+            <DashboardItem>
+              &bull;
+            </DashboardItem>
             <DashboardItem className="text-uppercase">
               Portfolio
             </DashboardItem>
           </ul>
         )}
         right={(
-          <ul>
-            <DashboardItem href={urlResume} alt="Download Resume" title="Download Resume">
-              <i className="fas fa-file-pdf"></i>
+          <ul className="text-right pr-2 pr-md-4 pr-lg-5">
+            <DashboardItem
+              href={urlResume}
+              alt="Download Resume"
+              setTooltip={setTooltip}
+            >
+              <i className="fas fa-user-astronaut"></i>
             </DashboardItem>
-            <DashboardItem href={urlLinkedIn} alt="LinkedIn">
+            <DashboardItem
+              href={urlGitHub}
+              alt="GitHub"
+              setTooltip={setTooltip}
+            >
+              <i className="icon-github"></i>
+            </DashboardItem>
+            <DashboardItem
+              href={urlLinkedIn}
+              alt="LinkedIn"
+              setTooltip={setTooltip}
+            >
               <i className="fab fa-linkedin-in"></i>
             </DashboardItem>
           </ul>
         )}
+        tooltip={tooltip}
       />
       <DashboardBar
         theme={theme}
         isShowing={isShowing}
         left={(
-          <ul>
-            <DashboardItem>
-              Navigation&nbsp;
-              <i className="icon-atom"></i>
+          <ul className="d-flex justify-content-between">
+            <DashboardItem
+              onClick={() => setIsShowingPanelNavigation(true)}
+              className="px-4 button-panel-navigation"
+            >
+              <strong>NAVIGATION</strong>
+              &nbsp;&nbsp;<i className="icon-atom"></i>
             </DashboardItem>
             <DashboardItem>
+              <img
+                className="cursor-pointer"
+                src="/img/btn-tech-white.png"
+                alt="Do a barrel roll"
+                width={35}
+                height={35}
+              />
             </DashboardItem>
           </ul>
         )}
         right={(
-          <ul>
+          <ul className="d-flex justify-content-between pl-0 pr-2 pr-md-4 pr-md-5">
             <DashboardItem>
-              III
-            </DashboardItem>
-            <DashboardItem>
-              IV
+              <img
+                className="cursor-pointer"
+                src="/img/btn-tech-white.png"
+                alt="Do a barrel roll"
+                width={35}
+                height={35}
+              />
             </DashboardItem>
             <DashboardItem
               onClick={handleGoToWarpSpeed}
-              className="warp"
+              className="px-4 button-panel-controls"
               title="Go To Warp"
             >
-              <strong>HYPERDRIVE</strong>
-              &nbsp;&nbsp;<i className="fas fa-rocket"></i>
+              <i className="fas fa-space-shuttle fa-rotate-270"></i>&nbsp;&nbsp;
+              <strong>CONTROLS</strong>
             </DashboardItem>
           </ul>
         )}

@@ -6,17 +6,13 @@ import './Dashboard.style.scss';
 
 // This is the part that displays at the top or bottom of the screen
 
-// inside create three parts using Bootstrap maybe?
-// Left
-// Right
-// Center connector piece
-
 const DashboardBar = ({
   left,
   right,
   isShowing = false,
   theme = 'light',
   isTop = false,
+  tooltip = '',
 }) => {
   return (
     <nav className={cx('dashboard', `${theme}-theme`, {
@@ -34,6 +30,9 @@ const DashboardBar = ({
         <div className="inner bg">
           {right}
           <div className="diagonal bg" />
+          <div className={cx('tooltip p-2', { show: !!tooltip })}>
+            &nbsp;{tooltip}
+          </div>
         </div>
       </div>
     </nav>

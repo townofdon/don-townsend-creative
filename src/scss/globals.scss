@@ -1,0 +1,23 @@
+
+
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.over-fullscreen {
+  position: relative;
+  z-index: 7;
+}
+
+.background-cover {
+  background-size: cover;
+  background-position: center;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

@@ -4,16 +4,22 @@
 
 $dashboardTimeShowDuration: 1000ms;
 $dashboardTimeTransition: 500ms;
-$dashboardColorBgDark: rgba(0,0,0,0.8);
-$dashboardColorBgWhite: rgba(255, 255, 255, 0.8);
-$dashboardColorBgLight: rgba(52, 128, 177, 0.57);
-$dashboardColorBgRed: rgba(177, 60, 52, 0.57);
-$dashboardColorFgDark: #333;
-$dashboardColorFgWhite: #fefefe;
-$dashboardColorFgLight: #c8e9f7;
-$dashboardColorFgLightShadow: rgba(202, 235, 255, 0.81);
-$dashboardColorFgRed: #f7c8c8;
-$dashboardColorFgRedShadow: rgba(255, 202, 202, 0.81);
+
+$themeLightColorBg: rgba(0,0,0,0.7);
+$themeLightColorFg: #fefefe;
+
+$themeDarkColorBg: rgba(255, 255, 255, 0.8);
+$themeDarkColorFg: #333;
+
+$themeBlueColorBg: rgba(52, 128, 177, 0.57);
+$themeBlueColorFg: #c8e9f7;
+$themeBlueColorFgShadow: rgba(202, 235, 255, 0.81);
+
+$themeRedColorBg: rgba(177, 60, 52, 0.57);
+$themeRedColorFg: #f7c8c8;
+$themeRedColorFgShadow: rgba(255, 202, 202, 0.81);
+
+
 
 //
 // dashboard main positioning
@@ -23,7 +29,7 @@ $dashboardColorFgRedShadow: rgba(255, 202, 202, 0.81);
   z-index: 7777;
   left: 0;
   right: 0;
-  height: 30px;
+  height: 40px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -63,22 +69,22 @@ $dashboardColorFgRedShadow: rgba(255, 202, 202, 0.81);
   &.top {
 
     > .left {
-      transform: translate(-30px, -30px);
+      transform: translate(-40px, -40px);
     }
 
     > .right {
-      transform: translate(30px, -30px);
+      transform: translate(40px, -40px);
     }
   }
 
   &.bottom {
 
     > .left {
-      transform: translate(-30px, 30px);
+      transform: translate(-40px, 40px);
     }
 
     > .right {
-      transform: translate(30px, 30px);
+      transform: translate(40px, 40px);
     }
   }
 }
@@ -106,40 +112,53 @@ $dashboardColorFgRedShadow: rgba(255, 202, 202, 0.81);
   }
 
   &.light-theme {
-    color: $dashboardColorFgDark;
+    color: $themeLightColorFg;
 
     .dashboard-item {
-      color: $dashboardColorFgDark;
+      color: $themeLightColorFg;
     }
 
     .bg {
-      background-color: $dashboardColorBgDark;
+      background-color: $themeLightColorBg;
     }
   }
 
   &.dark-theme {
-    color: $dashboardColorFgLight;
-    text-shadow: 0 0 3px $dashboardColorFgLightShadow;
+    color: $themeDarkColorFg;
+    text-shadow: none;
 
     .dashboard-item {
-      color: $dashboardColorFgLight;
+      color: $themeDarkColorFg;
     }
 
     .bg {
-      background-color: $dashboardColorBgLight;
+      background-color: $themeDarkColorBg;
+    }
+  }
+
+  &.blue-theme {
+    color: $themeBlueColorFg;
+    text-shadow: 0 0 3px $themeBlueColorFgShadow;
+
+    .dashboard-item {
+      color: $themeBlueColorFg;
+    }
+
+    .bg {
+      background-color: $themeBlueColorBg;
     }
   }
 
   &.red-theme {
-    color: $dashboardColorFgRed;
-    text-shadow: 0 0 3px $dashboardColorFgRedShadow;
+    color: $themeRedColorFg;
+    text-shadow: 0 0 3px $themeRedColorFgShadow;
 
     .dashboard-item {
-      color: $dashboardColorFgRed;
+      color: $themeRedColorFg;
     }
 
     .bg {
-      background-color: $dashboardColorBgRed;
+      background-color: $themeRedColorBg;
     }
 
   }
@@ -155,7 +174,7 @@ $dashboardColorFgRedShadow: rgba(255, 202, 202, 0.81);
 .dashboard {
 
   ul {
-    line-height: 30px;
+    line-height: 40px;
     color: inherit;
   }
 
@@ -166,13 +185,13 @@ $dashboardColorFgRedShadow: rgba(255, 202, 202, 0.81);
   }
 
   > .left > .inner {
-    margin-right: 100px;
+    margin-right: 140px;
 
     @include prefix((border-top-right-radius: 2px), webkit moz);
   }
 
   > .right > .inner {
-    margin-left: 100px;
+    margin-left: 140px;
 
     @include prefix((border-top-right-radius: 2px), webkit moz);
   }
@@ -246,6 +265,7 @@ $dashboardColorFgRedShadow: rgba(255, 202, 202, 0.81);
   li > a {
     display: inline-block;
     padding: 0 10px;
+    margin-left: 1px;
 
     @include ease-in-out(0.2s);
   }
@@ -256,32 +276,87 @@ $dashboardColorFgRedShadow: rgba(255, 202, 202, 0.81);
   }
 
   li > a.warp {
-    background-color: $dashboardColorBgRed!important;
+    background-color: $themeRedColorBg!important;
 
     @include hover() {
-      background-color: lighten($dashboardColorBgRed, 20%)!important;
+      background-color: lighten($themeRedColorBg, 20%)!important;
     }
   }
 
   &.light-theme li > a {
-    background-color: $dashboardColorBgDark;
+    background-color: transparentize($themeLightColorBg, 0.5);
+    color: $themeLightColorFg;
 
     @include hover() {
-      background-color: darken($dashboardColorBgDark, 20%);
+      background-color: transparentize($themeLightColorBg, 0.25);
     }
   }
   &.dark-theme li > a {
-    background-color: $dashboardColorBgLight;
+    background-color: $themeDarkColorBg;
+    color: $themeDarkColorFg;
 
     @include hover() {
-      background-color: lighten($dashboardColorBgLight, 20%);
+      background-color: lighten($themeDarkColorBg, 5%);
+    }
+  }
+  &.blue-theme li > a {
+    background-color: $themeBlueColorBg;
+    color: $themeBlueColorFg;
+
+    @include hover() {
+      background-color: lighten($themeBlueColorBg, 20%);
     }
   }
   &.red-theme li > a {
-    background-color: $dashboardColorBgRed;
+    background-color: $themeRedColorBg;
+    color: $themeRedColorFg;
 
     @include hover() {
-      background-color: lighten($dashboardColorBgRed, 20%);
+      background-color: lighten($themeRedColorBg, 20%);
     }
+  }
+}
+
+
+//
+// dashboard tooltip
+//
+.dashboard {
+
+  .tooltip {
+    position: absolute;
+    top: 102%;
+    top: calc(100% + 1px);
+    right: 0;
+    color: inherit;
+    background-color: inherit;
+    min-width: 205px;
+    text-align: center;
+    opacity: 0;
+    z-index: -1;
+    border-bottom-left-radius: 2px;
+
+    @include ease-in-out(0.2s);
+
+    &.show {
+      z-index: 777;
+      opacity: 100;
+    }
+  }
+
+  &.light-theme .tooltip {
+    background-color: transparentize($themeLightColorBg, 0.25);
+  }
+}
+
+//
+// button - navigation panel
+//
+
+.dashboard {
+
+  &.light-theme .button-panel-navigation {
+    // background-color: $themeDarkColorBg;
+    // color: $themeDarkColorFg;
   }
 }

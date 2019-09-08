@@ -12,13 +12,18 @@ const SectionMain = () => {
     mainTitle04: useRef(null),
   };
   return (
-    <>
-      <ScrollSection
-        className="color-bg-black color-md-white d-flex align-items-center justify-content-center"
-        viewHeight={2}
-      >
-        <div>
-          <h2
+    <ScrollSection
+      className="color-bg-black color-md-black d-flex align-items-center justify-content-center"
+      backgroundColor="#fefefe"
+      backgroundImage="/img/bg-star-port-faded.jpg"
+      backgroundFixed
+      viewHeight={2}
+      render={({
+        isSectionInView,
+        pctProgressSection,
+      }) => (
+        <>
+          {/* <h2
             ref={refs.mainTitle01}
             className="text-reset"
           >
@@ -44,16 +49,10 @@ const SectionMain = () => {
             className="text-reset"
           >
             Passionate about clean, performant, and intuitive code.
-          </h4>
-        </div>
-      </ScrollSection>
-      <ScrollSection
-        className="color-bg-cyan color-md-white d-flex align-items-center justify-content-center"
-        debug
-      >
-        <h1>Test</h1>
-      </ScrollSection>
-    </>
+          </h4> */}
+        </>
+      )}
+    />
   );
 };
 
