@@ -14,12 +14,12 @@ export default function hideSplashScreen() {
   const hideBegin = () => {
     // see: https://www.w3schools.com/howto/howto_js_add_class.asp
     $splashScreen.classList.add('hide');
+    window.scrollTo(0, 0);
   };
 
   const hideEnd = () => {
     // see: https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove
     $splashScreen.remove();
-    window.scrollTo(0, 0);
   };
 
   // note that these timings need to align with animation times specified in ~/index.css

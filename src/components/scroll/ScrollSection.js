@@ -25,15 +25,14 @@ const ScrollSection = ({
   backgroundFixed = false,
   backgroundImage = '',
   backgroundColor = '#000',
-  backgroundClassName = '',
   ...scrollProps,
 }) => {
   const refSection = useRef(null);
   const calcs = useScrollCalculations(refSection, scrollProps);
-  const { setCurrentSection, setTheme } = useContext(ControlContext);
-  const isSectionInViewPrev = usePrevious(calcs.isSectionInView);
-  const sectionJustCameIntoView = calcs.isSectionInView && !isSectionInViewPrev;
-  if (sectionJustCameIntoView) {
+  const { currentSection, setCurrentSection, setTheme, isRollingLeft, isRollingRight } = useContext(ControlContext);
+  const isScrollInSectionPrev = usePrevious(calcs.isScrollInSection);
+  const sectionIsActive = calcs.isSectionInView && !isScrollInSectionPrev;
+  if (sectionIsActive) {
     if (id) { setCurrentSection(id); }
     if (theme) { setTheme(theme); }
   }
@@ -47,7 +46,10 @@ const ScrollSection = ({
       ref={refSection}
     >
       <ScrollBg
-        className={backgroundClassName}
+        className={cx({
+          'roll-left': isRollingLeft && currentSection === id,
+          'roll-right': isRollingRight && currentSection === id,
+        })}
         backgroundFixed={backgroundFixed && calcs.isSectionInView}
         backgroundImage={backgroundImage}
         backgroundColor={backgroundColor}

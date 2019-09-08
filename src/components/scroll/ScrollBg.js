@@ -2,8 +2,6 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './ScrollBg.style.scss';
-
 const ScrollBg = ({
   className = '',
   backgroundFixed = false,

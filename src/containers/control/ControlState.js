@@ -11,18 +11,24 @@ const ControlState = ({ children }) => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isShowingThanks, setIsShowingThanks] = useState(false);
   const [isShowingPanelNavigation, setIsShowingPanelNavigation] = useState(false);
+  const [isRollingLeft, setIsRollingLeft] = useState(false);
+  const [isRollingRight, setIsRollingRight] = useState(false);
   return (
     <ControlContext.Provider value={{
       theme,
-      setTheme,
       currentSection,
-      setCurrentSection,
       isVideoPlaying,
-      setIsVideoPlaying,
       isShowingThanks,
-      setIsShowingThanks,
       isShowingPanelNavigation,
+      isRollingLeft,
+      isRollingRight,
+      setTheme,
+      setCurrentSection,
+      setIsVideoPlaying,
+      setIsShowingThanks,
       setIsShowingPanelNavigation,
+      setIsRollingLeft,
+      setIsRollingRight,
     }}>
       {children}
     </ControlContext.Provider>

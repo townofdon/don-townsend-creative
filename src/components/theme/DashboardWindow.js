@@ -20,8 +20,12 @@ const DashboardWindow = () => {
     isVideoPlaying,
     setIsVideoPlaying,
     isShowingThanks,
+    isRollingLeft,
+    isRollingRight,
     setIsShowingThanks,
     setIsShowingPanelNavigation,
+    setIsRollingRight,
+    setIsRollingLeft,
   } = useContext(ControlContext);
   const refVideo = useRef(null);
   const timeout = {
@@ -72,12 +76,30 @@ const DashboardWindow = () => {
     playVideo();
   }
 
+  const handleRollLeft = (ev) => {
+    ev.preventDefault();
+    setIsRollingLeft(true);
+    setTimeout(() => {
+      setIsRollingLeft(false);
+    }, 1000);
+  };
+
+  const handleRollRight = (ev) => {
+    ev.preventDefault();
+    setIsRollingRight(true);
+    setTimeout(() => {
+      setIsRollingRight(false);
+    }, 1000);
+  };
+
   return (
     <>
       <VideoWarpSpeed
         isPlaying={isVideoPlaying}
         isShowingThanks={isShowingThanks}
         refVideo={refVideo}
+        isRollingLeft={isRollingLeft}
+        isRollingRight={isRollingRight}
       />
       <DashboardBar
         isTop
@@ -140,7 +162,8 @@ const DashboardWindow = () => {
             <DashboardItem>
               <img
                 className="cursor-pointer"
-                src="/img/btn-tech-white.png"
+                onClick={handleRollLeft}
+                src="/img/btn-black.png"
                 alt="Do a barrel roll"
                 width={35}
                 height={35}
@@ -153,7 +176,8 @@ const DashboardWindow = () => {
             <DashboardItem>
               <img
                 className="cursor-pointer"
-                src="/img/btn-tech-white.png"
+                onClick={handleRollRight}
+                src="/img/btn-black.png"
                 alt="Do a barrel roll"
                 width={35}
                 height={35}
@@ -161,7 +185,7 @@ const DashboardWindow = () => {
             </DashboardItem>
             <DashboardItem
               onClick={handleGoToWarpSpeed}
-              className="px-4 button-panel-controls"
+              className="pl-3 pr-4 button-panel-controls"
               title="Go To Warp"
             >
               <i className="fas fa-space-shuttle fa-rotate-270"></i>&nbsp;&nbsp;

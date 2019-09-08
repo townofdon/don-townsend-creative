@@ -10,14 +10,18 @@ const WarpSpeed = ({
   refVideo,
   isPlaying,
   isShowingThanks,
+  isRollingRight,
+  isRollingLeft,
 }) => {
   return (
     <>
       <div className="video-contain">
         <video
           muted
-          className={cx('video-warp-speed', {
+          className={cx('video-warp-speed section-background', {
             'playing': isPlaying,
+            'roll-left': isRollingLeft,
+            'roll-right': isRollingRight,
           })}
           ref={refVideo}
         >

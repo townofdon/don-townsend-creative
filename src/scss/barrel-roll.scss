@@ -1,25 +1,21 @@
 
-
-@import '../../scss/vars.scss';
-@import '../../scss/mixins.scss';
-
 @include keyframes(bg-roll-left) {
   0% { transform: rotate(0deg) scale(1); }
-  10% { transform: rotate(-36deg) scale(1.75); }
-  25% { transform: rotate(-90deg) scale(1.75); }
-  50% { transform: rotate(-180deg) scale(1.75); }
-  75% { transform: rotate(-270deg) scale(1.75); }
-  90% { transform: rotate(-324deg) scale(1.75); }
+  10% { transform: rotate(-36deg) scale(2); }
+  25% { transform: rotate(-90deg) scale(2.5); }
+  50% { transform: rotate(-180deg) scale(2.5); }
+  75% { transform: rotate(-270deg) scale(2.5); }
+  90% { transform: rotate(-324deg) scale(2); }
   100% { transform: rotate(-360deg) scale(1); }
 }
 
 @include keyframes(bg-roll-right) {
   0% { transform: rotate(0deg) scale(1); }
-  10% { transform: rotate(36deg) scale(1.75); }
-  25% { transform: rotate(90deg) scale(1.75); }
-  50% { transform: rotate(180deg) scale(1.75); }
-  75% { transform: rotate(270deg) scale(1.75); }
-  90% { transform: rotate(324deg) scale(1.75); }
+  10% { transform: rotate(36deg) scale(2); }
+  25% { transform: rotate(90deg) scale(2.5); }
+  50% { transform: rotate(180deg) scale(2.5); }
+  75% { transform: rotate(270deg) scale(2.5); }
+  90% { transform: rotate(324deg) scale(2); }
   100% { transform: rotate(360deg) scale(1); }
 }
 
