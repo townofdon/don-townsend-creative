@@ -2,12 +2,15 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import getElementPosition from '../../utils/dom/get-element-position';
-// import useOnPageLoadOrResize from '../../custom-hooks/useOnPageLoadOrResize';
 import calculateTranslateX from '../../utils/scroll/calculate-translate-x';
 import calculateTranslateY from '../../utils/scroll/calculate-translate-y';
+import useOnPageLoadOrResize from '../../custom-hooks/useOnPageLoadOrResize';
+import easingFunctions from '../../utils/scroll/easing-functions';
 
 const ScrollItem = ({
   children,
+  classNameStart,
+  classNameEnd,
   pctProgressStart,
   pctProgressEnd,
   pctProgressSection,
@@ -16,6 +19,7 @@ const ScrollItem = ({
   winWidth,
   winHeight,
   percentageOf = 'section',
+  easing = 'linear',
   startPercentTop = undefined,
   startPercentBottom = undefined,
   startPercentLeft = undefined,
@@ -84,6 +88,8 @@ const ScrollItem = ({
     ) || 0);
   }, [
     refItem,
+    sectionWidth,
+    sectionHeight,
     maxWidth,
     maxHeight,
     startOffsetLeft,
@@ -130,12 +136,7 @@ const ScrollItem = ({
     endPercentBottom,
   ]);
 
-  useEffect(() => {
-    window.addEventListener('load', setInitialPosition, false);
-    return () => {
-      window.removeEventListener('load', setInitialPosition, false);
-    };
-  });
+  useOnPageLoadOrResize(setInitialPosition);
 
   const getPercent = num => Math.max(0, Math.min(1, num));
 
@@ -147,13 +148,15 @@ const ScrollItem = ({
 
   const coefficientStart = 1 - coefficientEnd;
 
-  const translateX = 0
-    + startTranslateX * coefficientStart
-    + endTranslateX * coefficientEnd;
+  const ease = easingFunctions[easing] || easingFunctions.linear;
 
-  const translateY = 0
-    + startTranslateY * coefficientStart
-    + endTranslateY * coefficientEnd;
+  const translateX = ease(0
+      + startTranslateX * coefficientStart
+      + endTranslateX * coefficientEnd);
+
+  const translateY = ease(0
+      + startTranslateY * coefficientStart
+      + endTranslateY * coefficientEnd);
 
   const style = {
     transform: `translate(${translateX}px, ${translateY}px)`,
