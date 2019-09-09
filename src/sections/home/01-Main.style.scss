@@ -1,0 +1,37 @@
+
+@import '../../scss/vars.scss';
+@import '../../scss/mixins.scss';
+
+.main-title-01,
+.main-title-02 {
+  letter-spacing: 0.3em;
+
+  @include respond($BREAKPOINT_TABLET) {
+    letter-spacing: 0.35em;
+  }
+  @include respond($BREAKPOINT_LAPTOP) {
+    letter-spacing: 0.4em;
+  }
+}
+
+.main-title-01-nudge-right {
+  @include respond($BREAKPOINT_TABLET) {
+    padding-left: 0.9em;
+  }
+}
+
+.main-title-03 {
+  letter-spacing: 0.1em;
+}
+
+.main-title-04 {
+  letter-spacing: 0;
+
+  @include font-size(29.2px);
+
+  @include respond($BREAKPOINT_LAPTOP) {
+    letter-spacing: 0.02em;
+
+    @include font-size(32px);
+  }
+}

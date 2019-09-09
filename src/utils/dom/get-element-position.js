@@ -19,5 +19,7 @@ export default function getElementPosition (elem) {
     left,
     bottom,
     right,
+    width: right - left,
+    height: bottom - top,
   }
 }

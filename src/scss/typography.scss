@@ -88,7 +88,7 @@ h1 { @include h-font-size(60px, 70px, 85px); @include h-line-height(1.2em, 1.3em
 h2 { @include h-font-size(50px, 55px, 60px); @include h-line-height(1.2em, 1.2em, 1.3em); }
 h3 { @include h-font-size(30px, 30px, 35px); @include h-line-height(1.2em, 1.2em, 1.3em); }
 h4 { @include h-font-size(30px, 32px, 35px); @include h-line-height(1.2em, 1.2em, 1.2em); }
-h5 { @include h-font-size(30px, 32px, 35px); @include h-line-height(1.2em, 1.2em, 1.2em); }
+h5 { @include h-font-size(30px, 30px, 32px); @include h-line-height(1.2em, 1.2em, 1.2em); }
 h6 { @include h-font-size(25px, 25px, 25px); @include h-line-height(1.2em, 1.2em, 1.2em); }
 
 // font family
@@ -96,7 +96,7 @@ h1 { @extend .font-titillium;  }
 h2 { @extend .font-sans; }
 h3 { @extend .font-roboto; }
 h4 { @extend .font-raleway; }
-h5 { @extend .font-roboto; }
+h5 { @extend .font-sans; }
 h6 { @extend .font-sans; }
 
 // font extras
