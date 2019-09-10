@@ -35,3 +35,13 @@
     @include font-size(32px);
   }
 }
+
+.the-reveal {
+  opacity: 0;
+
+  @include transition(opacity 0.5s ease-in-out);
+
+  .show-the-reveal & {
+    opacity: 1;
+  }
+}

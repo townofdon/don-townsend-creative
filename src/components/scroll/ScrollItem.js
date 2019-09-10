@@ -47,9 +47,7 @@ const ScrollItem = ({
     ? sectionWidth || 0
     : winWidth || 0;
 
-  const maxHeight = (percentageOf === 'section')
-    ? sectionHeight || 0
-    : winHeight || 0;
+  const maxHeight = winHeight || 0;
 
   const setInitialPosition = useCallback(() => {
     if (!refItem.current || !sectionWidth || !sectionHeight) { return; }
@@ -140,23 +138,23 @@ const ScrollItem = ({
 
   const getPercent = num => Math.max(0, Math.min(1, num));
 
-  const coefficientEnd = getPercent(
+  const ease = easingFunctions[easing] || easingFunctions.linear;
+
+  const coefficientEnd = ease(getPercent(
     (pctProgressSection - pctProgressStart)
     /
     (pctProgressEnd - pctProgressStart)
-  );
+  ));
 
   const coefficientStart = 1 - coefficientEnd;
 
-  const ease = easingFunctions[easing] || easingFunctions.linear;
-
-  const translateX = ease(0
+  const translateX = 0
       + startTranslateX * coefficientStart
-      + endTranslateX * coefficientEnd);
+      + endTranslateX * coefficientEnd;
 
-  const translateY = ease(0
+  const translateY = 0
       + startTranslateY * coefficientStart
-      + endTranslateY * coefficientEnd);
+      + endTranslateY * coefficientEnd;
 
   const style = {
     transform: `translate(${translateX}px, ${translateY}px)`,

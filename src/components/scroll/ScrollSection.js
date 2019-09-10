@@ -24,6 +24,7 @@ const ScrollSection = ({
   backgroundFixed = false,
   backgroundImage = '',
   backgroundColor = '#000',
+  scrollActions = [],
   ...scrollProps,
 }) => {
   const refSection = useRef(null);
@@ -36,6 +37,17 @@ const ScrollSection = ({
     if (id) { setCurrentSection(id); }
     if (theme) { setTheme(theme); }
   }
+
+  const { pctProgressSection } = calcs;
+  scrollActions.forEach((scrollAction = {}) => {
+    const { condition, callback } = scrollAction;
+    const passesCondition = typeof condition === 'function'
+      ? condition(pctProgressSection)
+      : !!condition;
+    if (passesCondition && typeof callback === 'function') {
+      callback();
+    }
+  });
 
   debugScrollSection(debug, scrollProps, calcs);
 
