@@ -50,8 +50,12 @@ const SectionMain = () => {
           <div className={cx('d-flex text-center align-items-center justify-content-center', {
             fullscreen: isSectionInView,
             'show-the-reveal': pctProgressSection >= pctProgressEnd,
+            'color-white': pctProgressSection >= pctProgressEnd,
           })}>
-            <div>
+            <div className={cx('the-reveal color-bg-black', {
+              fullscreen: isSectionInView,
+            })} />
+            <div className="over-fullscreen">
               <div className="main-title-01-nudge-right">
                 <h2
                   className="main-title-01 d-inline-block mb-5"
