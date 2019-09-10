@@ -22,18 +22,6 @@ export default function calculateTranslateX(
       - position.left
   }
   if (percentRight !== undefined) {
-    const x = 0
-      // start from widest point and work down
-      + maxWidth
-      // target X in %
-      - (percentRight * .01 * maxWidth)
-      // add additional offset, if any
-      - (offsetRight || 0)
-      // subtract element left pos
-      - position.left
-      // subtract element width
-      - position.width;
-    debugger;
     return 0
       // start from widest point and work down
       + maxWidth

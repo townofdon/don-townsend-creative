@@ -1,6 +1,8 @@
 
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
+
 import getElementPosition from '../../utils/dom/get-element-position';
 import calculateTranslateX from '../../utils/scroll/calculate-translate-x';
 import calculateTranslateY from '../../utils/scroll/calculate-translate-y';
@@ -9,8 +11,7 @@ import easingFunctions from '../../utils/scroll/easing-functions';
 
 const ScrollItem = ({
   children,
-  classNameStart,
-  classNameEnd,
+  className = 'd-inline-block',
   pctProgressStart,
   pctProgressEnd,
   pctProgressSection,
@@ -20,6 +21,10 @@ const ScrollItem = ({
   winHeight,
   percentageOf = 'section',
   easing = 'linear',
+  startNudgeTop = 0,
+  startNudgeLeft = 0,
+  endNudgeTop = 0,
+  endNudgeLeft = 0,
   startPercentTop = undefined,
   startPercentBottom = undefined,
   startPercentLeft = undefined,
@@ -149,12 +154,12 @@ const ScrollItem = ({
   const coefficientStart = 1 - coefficientEnd;
 
   const translateX = 0
-      + startTranslateX * coefficientStart
-      + endTranslateX * coefficientEnd;
+      + (startTranslateX + startNudgeLeft) * coefficientStart
+      + (endTranslateX + endNudgeLeft) * coefficientEnd;
 
   const translateY = 0
-      + startTranslateY * coefficientStart
-      + endTranslateY * coefficientEnd;
+      + (startTranslateY + startNudgeTop) * coefficientStart
+      + (endTranslateY + endNudgeTop) * coefficientEnd;
 
   const style = {
     transform: `translate(${translateX}px, ${translateY}px)`,
@@ -162,7 +167,7 @@ const ScrollItem = ({
 
   return (
     <div
-      className="d-inline-block"
+      className={cx(className)}
       ref={refItem}
       style={style}
     >

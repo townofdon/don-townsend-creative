@@ -1,6 +1,6 @@
 
 
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import cx from 'classnames';
 
 import ScrollSection from '../../components/scroll/ScrollSection';
@@ -16,7 +16,7 @@ const SectionMain = () => {
   return (
     <ScrollSection
       id="main"
-      className="color-bg-white color-md-black"
+      className="color-bg-white color-black"
       backgroundColor="#fefefe"
       backgroundImage="/img/bg-star-port-faded.jpg"
       backgroundFixed

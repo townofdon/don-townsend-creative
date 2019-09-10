@@ -5,3 +5,7 @@
 @import './typography.scss';
 @import './globals.scss';
 @import './barrel-roll.scss';
+
+// z-indexes
+#main {  z-index: 2; }
+#story { z-index: 1; }

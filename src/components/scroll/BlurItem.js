@@ -34,8 +34,8 @@ const BlurItem = ({
       + endOpacity * coefficientEnd;
 
   const style = {
-    filter: `blur(${blur}px)`,
-    opacity,
+    filter: `blur(${blur || 0}px)`,
+    opacity: opacity || 1,
   };
 
   return (
