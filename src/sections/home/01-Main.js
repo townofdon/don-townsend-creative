@@ -9,6 +9,7 @@ import ScrollItem from '../../components/scroll/ScrollItem';
 import ControlContext from '../../contexts/ControlContext';
 
 import './01-Main.style.scss';
+import BlurItem from '../../components/scroll/BlurItem';
 
 const SectionMain = () => {
   const { setTheme } = useContext(ControlContext);
@@ -46,6 +47,11 @@ const SectionMain = () => {
           winWidth,
           winHeight,
         };
+        const blurItemProps = {
+          pctProgressStart: 160,
+          pctProgressEnd: 200,
+          pctProgressSection,
+        };
         return (
           <div className={cx('d-flex text-center align-items-center justify-content-center', {
             fullscreen: isSectionInView,
@@ -55,85 +61,94 @@ const SectionMain = () => {
             <div className={cx('the-reveal color-bg-black', {
               fullscreen: isSectionInView,
             })} />
-            <div className="over-fullscreen">
-              <div className="main-title-01-nudge-right">
-                <h2
-                  className="main-title-01 d-inline-block mb-5"
+            <BlurItem
+              startBlur={0}
+              endBlur={10}
+              startOpacity={1}
+              endOpacity={0}
+              easing="easeInQuad"
+              {...blurItemProps}
+            >
+              <div className="over-fullscreen">
+                <div className="main-title-01-nudge-right">
+                  <h2
+                    className="main-title-01 d-inline-block mb-5"
+                  >
+                    <ScrollItem
+                      startPercentLeft={0}
+                      startOffsetLeft={10}
+                      startPercentTop={50}
+                      startOffsetTop={-30}
+                      easing="easeInOutQuad"
+                      {...scrollItemProps}
+                    >
+                      D
+                    </ScrollItem>
+                    <span className="the-reveal">ON&nbsp;</span>
+                  </h2>
+
+                  <h2
+                    className="main-title-02 d-inline-block mb-5"
+                  >
+                    <ScrollItem
+                      startPercentLeft={100}
+                      startOffsetLeft={-40}
+                      startPercentTop={50}
+                      startOffsetTop={-30}
+                      easing="easeInOutQuad"
+                      {...scrollItemProps}
+                    >
+                      T
+                    </ScrollItem>
+                    <span className="the-reveal">OWNSEND</span>
+                  </h2>
+                </div>
+
+                <h3
+                  className="main-title-03 mb-5"
                 >
+                  <span className="the-reveal">
+                    Full-Stack Web&nbsp;
+                  </span>
                   <ScrollItem
-                    startPercentLeft={0}
-                    startOffsetLeft={10}
-                    startPercentTop={50}
-                    startOffsetTop={-30}
+                    startOffsetLeft={-10}
+                    startPercentLeft={50}
+                    startPercentTop={22}
                     easing="easeInOutQuad"
                     {...scrollItemProps}
                   >
                     D
                   </ScrollItem>
-                  <span className="the-reveal">ON&nbsp;</span>
-                </h2>
-
-                <h2
-                  className="main-title-02 d-inline-block mb-5"
-                >
                   <ScrollItem
-                    startPercentLeft={100}
-                    startOffsetLeft={-40}
-                    startPercentTop={50}
-                    startOffsetTop={-30}
+                    startOffsetLeft={-10}
+                    startPercentLeft={50}
+                    startPercentTop={27.5}
                     easing="easeInOutQuad"
                     {...scrollItemProps}
                   >
-                    T
+                    e
                   </ScrollItem>
-                  <span className="the-reveal">OWNSEND</span>
-                </h2>
+                  <ScrollItem
+                    startOffsetLeft={-10}
+                    startPercentLeft={50}
+                    startPercentTop={33}
+                    easing="easeInOutQuad"
+                    {...scrollItemProps}
+                  >
+                    v
+                  </ScrollItem>
+                  <span className="the-reveal">eloper</span>
+                </h3>
+
+                <h5
+                  className="main-title-04 mb-0"
+                >
+                  <span className="the-reveal">
+                    Passionate about clean, performant, and intuitive code.
+                  </span>
+                </h5>
               </div>
-
-              <h3
-                className="main-title-03 mb-5"
-              >
-                <span className="the-reveal">
-                  Full-Stack Web&nbsp;
-                </span>
-                <ScrollItem
-                  startOffsetLeft={-10}
-                  startPercentLeft={50}
-                  startPercentTop={22}
-                  easing="easeInOutQuad"
-                  {...scrollItemProps}
-                >
-                  D
-                </ScrollItem>
-                <ScrollItem
-                  startOffsetLeft={-10}
-                  startPercentLeft={50}
-                  startPercentTop={27.5}
-                  easing="easeInOutQuad"
-                  {...scrollItemProps}
-                >
-                  e
-                </ScrollItem>
-                <ScrollItem
-                  startOffsetLeft={-10}
-                  startPercentLeft={50}
-                  startPercentTop={33}
-                  easing="easeInOutQuad"
-                  {...scrollItemProps}
-                >
-                  v
-                </ScrollItem>
-                <span className="the-reveal">eloper</span>
-              </h3>
-
-              <h5
-                className="main-title-04 mb-0"
-              >
-                <span className="the-reveal">
-                  Passionate about clean, performant, and intuitive code.
-                </span>
-              </h5>
-            </div>
+            </BlurItem>
           </div>
         );
       }}
