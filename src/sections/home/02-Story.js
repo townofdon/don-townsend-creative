@@ -12,6 +12,7 @@ const SectionMain = () => {
   return (
     <ScrollSection
       id="story"
+      theme="blue"
       className="color-bg-black color-white"
       backgroundColor="#000"
       viewHeight={4}
@@ -67,7 +68,7 @@ const SectionMain = () => {
                     <li className="text-uppercase"><small>Plan early and often</small></li>
                   </ul>
                   <p>
-                    With luck and the assistence of the rag-tag team of rebels,
+                    With luck and with the assistence of his rag-tag team of rebels,
                     Don joins the Resistance against bad UX and vows to bring
                     an end to their evil tyranny!
                   </p>

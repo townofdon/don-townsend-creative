@@ -5,11 +5,11 @@ import cx from 'classnames';
 
 import ScrollSection from '../../components/scroll/ScrollSection';
 import ScrollItem from '../../components/scroll/ScrollItem';
+import BlurItem from '../../components/scroll/BlurItem';
 
 import ControlContext from '../../contexts/ControlContext';
 
 import './01-Main.style.scss';
-import BlurItem from '../../components/scroll/BlurItem';
 
 const SectionMain = () => {
   const { setTheme } = useContext(ControlContext);
@@ -17,7 +17,9 @@ const SectionMain = () => {
     <ScrollSection
       id="main"
       className="color-bg-white color-black"
-      backgroundColor="#fefefe"
+      // background needs to be set to black to
+      // avoid flicker if page is scrolled too fast.
+      backgroundColor="#000"
       backgroundImage="/img/bg-star-port-faded.jpg"
       backgroundFixed
       viewHeight={4}
