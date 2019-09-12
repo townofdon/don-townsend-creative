@@ -1,16 +1,18 @@
 
 import React from 'react';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import easingFunctions from '../../utils/scroll/easing-functions';
 
 const BlurItem = ({
   children,
+  className = 'd-inline-block',
   pctProgressStart,
   pctProgressEnd,
   pctProgressSection,
   easing = 'linear',
   startBlur = 0,
-  endBlur = 5,
+  endBlur = 0,
   startOpacity = 1,
   endOpacity = 1,
 }) => {
@@ -35,12 +37,12 @@ const BlurItem = ({
 
   const style = {
     filter: `blur(${blur || 0}px)`,
-    opacity: opacity || 1,
+    opacity,
   };
 
   return (
     <div
-      className="d-inline-block"
+      className={cx(className)}
       style={style}
     >
       {children}
