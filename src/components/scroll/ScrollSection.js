@@ -38,13 +38,13 @@ const ScrollSection = ({
     if (theme) { setTheme(theme); }
   }
 
-  const { pctProgressSection } = calcs;
+  const { pctProgressSection, isSectionInView } = calcs;
   scrollActions.forEach((scrollAction = {}) => {
     const { condition, callback } = scrollAction;
     const passesCondition = typeof condition === 'function'
       ? condition(pctProgressSection)
       : !!condition;
-    if (passesCondition && typeof callback === 'function') {
+    if (passesCondition && isSectionInView && typeof callback === 'function') {
       callback();
     }
   });

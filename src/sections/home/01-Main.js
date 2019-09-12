@@ -24,10 +24,10 @@ const SectionMain = () => {
       backgroundFixed
       viewHeight={4}
       scrollActions={[{
-        condition: pct => pct <= 150,
+        condition: pct => pct <= 150 && pct < 0,
         callback: () => setTheme('light'),
       }, {
-        condition: pct => pct > 150,
+        condition: pct => pct > 150 && pct < 200,
         callback: () => setTheme('dark'),
       }]}
       render={({
