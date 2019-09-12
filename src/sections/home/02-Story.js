@@ -5,9 +5,9 @@ import cx from 'classnames';
 
 import ScrollSection from '../../components/scroll/ScrollSection';
 import ScrollItem from '../../components/scroll/ScrollItem';
+import BlurItem from '../../components/scroll/BlurItem';
 
 import './02-Story.style.scss';
-import BlurItem from '../../components/scroll/BlurItem';
 
 const SectionMain = () => {
   return (

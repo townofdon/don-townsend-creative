@@ -1,11 +1,25 @@
 
-
-.fullscreen {
-  position: fixed;
+@mixin expand() {
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.fullscreen {
+  position: fixed;
+  
+  @include expand();
+}
+
+.fill-absolute {
+  position: absolute;
+  
+  @include expand();
+}
+
+.ease-in-out {
+  @include ease-in-out(0.5s);
 }
 
 .over-fullscreen {

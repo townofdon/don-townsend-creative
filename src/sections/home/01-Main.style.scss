@@ -2,6 +2,47 @@
 @import '../../scss/vars.scss';
 @import '../../scss/mixins.scss';
 
+@include keyframes('fade-in-main-title') {
+  /* slightly exponential scaling */
+  0% { opacity: 0; color: white; }
+  10% { opacity: 0.0758; color: palegoldenrod; }
+  20% { opacity: 0.1010; color: yellow; }
+  30% { opacity: 0.1347; color: orange; }
+  40% { opacity: 0.1797; color: red; }
+  50% { opacity: 0.2396; color: #800080; }
+  60% { opacity: 0.3195; color: #1436cf; }
+  70% { opacity: 0.4260; color: #1c51c2; }
+  80% { opacity: 0.5681; color: #304677; }
+  90% { opacity: 0.7575; color: #383f4e; }
+  100% { opacity: 1; color: #282c34; }
+}
+
+.section-main {
+
+  .main-title-01,
+  .main-title-02,
+  .main-title-03,
+  .main-title-04 {
+    opacity: 0;
+  }
+
+  &.show-main-text {
+
+    .main-title-01,
+    .main-title-02,
+    .main-title-03,
+    .main-title-04 {
+      -webkit-animation-name: fade-in-main-title;
+      -webkit-animation-duration: 1s;
+      animation-name: splash-fade-in-title;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+      animation-timing-function: cubic-bezier(0.165, 0.3, 0.5, 1);
+      opacity: 1;
+    }
+  }
+}
+
 .main-title-01,
 .main-title-02 {
   letter-spacing: 0.3em;

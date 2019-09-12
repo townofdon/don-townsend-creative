@@ -47,8 +47,10 @@
 @include addColorClasses('white', #fff);
 @include addColorClasses('blue-light', $colorBlueLight);
 @include addColorClasses('blue-dark', $colorBlueDark);
+@include addColorClasses('transparent', transparent);
 
 @include addResponsiveColorClasses('black', #000);
 @include addResponsiveColorClasses('white', #fff);
 @include addResponsiveColorClasses('blue-light', $colorBlueLight);
 @include addResponsiveColorClasses('blue-dark', $colorBlueDark);
+@include addResponsiveColorClasses('transparent', transparent);

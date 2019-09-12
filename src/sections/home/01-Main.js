@@ -1,6 +1,6 @@
 
 
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import cx from 'classnames';
 
 import ScrollSection from '../../components/scroll/ScrollSection';
@@ -12,7 +12,13 @@ import ControlContext from '../../contexts/ControlContext';
 import './01-Main.style.scss';
 
 const SectionMain = () => {
+  const [isShowingMainText, setIsShowingMainText] = useState(false);
   const { setTheme } = useContext(ControlContext);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsShowingMainText(true);
+    }, 2000);
+  }, []);
   return (
     <ScrollSection
       id="main"
@@ -55,10 +61,11 @@ const SectionMain = () => {
           pctProgressSection,
         };
         return (
-          <div className={cx('d-flex text-center align-items-center justify-content-center', {
+          <div className={cx('section-main d-flex text-center align-items-center justify-content-center', {
             fullscreen: isSectionInView,
             'show-the-reveal': pctProgressSection >= pctProgressEnd,
             'color-white': pctProgressSection >= pctProgressEnd,
+            'show-main-text': isShowingMainText,
           })}>
             <div className={cx('the-reveal color-bg-black', {
               fullscreen: isSectionInView,

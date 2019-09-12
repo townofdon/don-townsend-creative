@@ -1,0 +1,11 @@
+
+@import '../../scss/vars.scss';
+@import '../../scss/mixins.scss';
+
+.section-skillset-inventory {
+
+  @include respond($BREAKPOINT_TABLET) {
+    // important tag needed to override bootstrap class
+    padding-top: 300px!important;
+  }
+}

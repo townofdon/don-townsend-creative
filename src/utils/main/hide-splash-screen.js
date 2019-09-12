@@ -23,6 +23,6 @@ export default function hideSplashScreen() {
   };
 
   // note that these timings need to align with animation times specified in ~/index.css
-  setTimeout(hideBegin, timeSplashScreenWaitBeforeHide);
-  setTimeout(hideEnd, timeSplashScreenEndOfHide);
+  // setTimeout(hideBegin, timeSplashScreenWaitBeforeHide);
+  // setTimeout(hideEnd, timeSplashScreenEndOfHide);
 }

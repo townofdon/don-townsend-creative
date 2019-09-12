@@ -17,13 +17,14 @@ const ScrollSection = ({
   id,
   theme,
   children,
-  render,
   className,
+  classNameContent,
+  render,
   viewHeight = 1,
   debug = false,
   backgroundFixed = false,
   backgroundImage = '',
-  backgroundColor = '#000',
+  backgroundColor = 'transparent',
   scrollActions = [],
   ...scrollProps,
 }) => {
@@ -51,10 +52,22 @@ const ScrollSection = ({
 
   debugScrollSection(debug, scrollProps, calcs);
 
+  const dynamicClassName = typeof className === 'function'
+    ? className(pctProgressSection)
+    : className;
+
+  const dynamicBackgroundImage = typeof backgroundImage === 'function'
+    ? backgroundImage(pctProgressSection)
+    : backgroundImage
+  
+  const dynamicBackgroundColor = typeof backgroundColor === 'function'
+    ? backgroundColor(pctProgressSection)
+    : backgroundColor
+
   return (
     <div
       id={id}
-      className={cx('scroll-section', className, `view-height-${viewHeight}`)}
+      className={cx('scroll-section', dynamicClassName, `view-height-${viewHeight}`)}
       ref={refSection}
     >
       <ScrollBg
@@ -63,10 +76,10 @@ const ScrollSection = ({
           'roll-right': isRollingRight && currentSection === id,
         })}
         backgroundFixed={backgroundFixed && calcs.isSectionInView}
-        backgroundImage={backgroundImage}
-        backgroundColor={backgroundColor}
+        backgroundImage={dynamicBackgroundImage}
+        backgroundColor={dynamicBackgroundColor}
       />
-      <ScrollSectionContent>
+      <ScrollSectionContent className={classNameContent}>
         {typeof render === 'function' ? (
           render({ ...scrollProps, ...calcs })
         ) : children}
