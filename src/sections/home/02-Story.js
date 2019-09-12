@@ -72,7 +72,7 @@ const SectionMain = () => {
                     <ul className="text-center">
                       <li className="text-uppercase"><small>Try to do it right the first time</small></li>
                       <li className="text-uppercase"><small>Always strive for excellence</small></li>
-                      <li className="text-uppercase"><small>Write intelligible code</small></li>
+                      <li className="text-uppercase"><small>Code should be easy to read</small></li>
                       <li className="text-uppercase"><small>Think like the end-user</small></li>
                       <li className="text-uppercase"><small>Plan early and often</small></li>
                     </ul>
