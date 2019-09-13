@@ -3,6 +3,7 @@ import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import easingFunctions from '../../utils/scroll/easing-functions';
+import isNumeric from '../../utils/math/is-numeric';
 
 const BlurItem = ({
   children,
@@ -34,10 +35,11 @@ const BlurItem = ({
   const opacity = 0
       + startOpacity * coefficientStart
       + endOpacity * coefficientEnd;
+  const getVal = (val, defaultVal = 0) => isNumeric(val) ? val : defaultVal;
 
   const style = {
-    filter: `blur(${blur || 0}px)`,
-    opacity,
+    filter: `blur(${getVal(blur)}px)`,
+    opacity: getVal(opacity),
   };
 
   return (
@@ -52,10 +54,6 @@ const BlurItem = ({
 
 BlurItem.propTypes = {
   pctProgressSection: PropTypes.number.isRequired,
-  sectionWidth: PropTypes.number.isRequired,
-  sectionHeight: PropTypes.number.isRequired,
-  winWidth: PropTypes.number.isRequired,
-  winHeight: PropTypes.number.isRequired,
 };
 
 export default BlurItem;
