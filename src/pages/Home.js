@@ -1,21 +1,27 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
+import cx from 'classnames';
 
 import SectionMain from '../sections/home/01-Main';
 import SectionStory from '../sections/home/02-Story';
 import SectionSkillsetInventory from '../sections/home/03-SkillsetInventory';
 import SectionWarpSpeed from '../sections/home/99-WarpSpeed';
 
-import DashboardWindow from '../components/theme/DashboardWindow';
+import ControlContext from '../contexts/ControlContext';
 
-const PageHome = () => (
-  <div className="page-home">
-    <SectionMain />
-    <SectionStory />
-    <SectionSkillsetInventory />
-    <SectionWarpSpeed />
-    <DashboardWindow />
-  </div>
-);
+import Theme from '../components/theme/Theme';
+
+const PageHome = () => {
+  const { currentSection } = useContext(ControlContext);
+  return (
+    <div className={cx('page-home', `current-section-${currentSection}`)}>
+      <SectionMain />
+      <SectionStory />
+      <SectionSkillsetInventory />
+      <SectionWarpSpeed />
+      <Theme />
+    </div>
+  );
+};
 
 export default PageHome;

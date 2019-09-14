@@ -25,10 +25,11 @@
   }
 }
 
-@mixin animate($name, $duration, $timing-function: 'ease-in-out') {
+@mixin animate($name, $duration, $timing-function: 'ease-in-out', $iteration-count: 1) {
   @include prefix((animation-name: $name), webkit);
   @include prefix((animation-duration: $duration), webkit);
   @include prefix((animation-timing-function: $timing-function), webkit);
+  @include prefix((animation-iteration-count: $iteration-count), webkit);
 }
 
 
@@ -61,6 +62,10 @@
 
 @mixin transition($args...) {
   @include prefix((transition: $args), webkit moz ms o);
+}
+
+@mixin transform($args...) {
+  @include prefix((transform: $args), webkit);
 }
 
 @mixin ease-in-out($time) {

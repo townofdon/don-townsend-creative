@@ -120,7 +120,7 @@ const SectionMain = () => {
                     Full-Stack Web&nbsp;
                   </span>
                   <ScrollItem
-                    startOffsetLeft={-10}
+                    startOffsetLeft={-6}
                     startPercentLeft={50}
                     startPercentTop={22}
                     easing="easeInOutQuad"
@@ -129,7 +129,7 @@ const SectionMain = () => {
                     D
                   </ScrollItem>
                   <ScrollItem
-                    startOffsetLeft={-10}
+                    startOffsetLeft={-6}
                     startPercentLeft={50}
                     startPercentTop={27.5}
                     easing="easeInOutQuad"
@@ -138,7 +138,7 @@ const SectionMain = () => {
                     e
                   </ScrollItem>
                   <ScrollItem
-                    startOffsetLeft={-10}
+                    startOffsetLeft={-6}
                     startPercentLeft={50}
                     startPercentTop={33}
                     easing="easeInOutQuad"
