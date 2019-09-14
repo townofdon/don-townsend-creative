@@ -84,7 +84,7 @@ const SectionMain = () => {
                     className="main-title-01 d-inline-block mb-5"
                   >
                     <ScrollItem
-                      startPercentLeft={0}
+                      startPercentLeft={20}
                       startOffsetLeft={10}
                       startPercentTop={50}
                       startOffsetTop={-30}
@@ -100,7 +100,7 @@ const SectionMain = () => {
                     className="main-title-02 d-inline-block mb-5"
                   >
                     <ScrollItem
-                      startPercentLeft={100}
+                      startPercentLeft={80}
                       startOffsetLeft={-40}
                       startPercentTop={50}
                       startOffsetTop={-30}
