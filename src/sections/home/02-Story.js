@@ -65,8 +65,8 @@ const SectionMain = () => {
                     </p>
                     <p>
                       But unbeknownst to them, a new force emerges,
-                      a beacon of hope and superior commitment to
-                      user experience and modular, reusable code — Don Townsend.
+                      a new hope for user experience and modular,
+                      reusable code — Don Townsend.
                     </p>
                     <p>Among Don's <strong>top priorities</strong> in development are:</p>
                     <ul className="text-center">
@@ -77,7 +77,7 @@ const SectionMain = () => {
                       <li className="text-uppercase"><small>Plan early and often</small></li>
                     </ul>
                     <p>
-                      With luck and with the assistence of his rag-tag team of rebels,
+                      With luck and with the assistance of the rebel fleet,
                       Don joins the Resistance against bad UX and vows to bring
                       an end to their evil tyranny!
                     </p>
