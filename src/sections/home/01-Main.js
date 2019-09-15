@@ -130,7 +130,7 @@ const SectionMain = () => {
                   <ScrollItem
                     startOffsetLeft={-6}
                     startPercentLeft={50}
-                    startPercentTop={22}
+                    startPercentTop={5}
                     easing="easeInOutQuad"
                     {...scrollItemProps}
                   >
@@ -139,7 +139,7 @@ const SectionMain = () => {
                   <ScrollItem
                     startOffsetLeft={-6}
                     startPercentLeft={50}
-                    startPercentTop={27.5}
+                    startPercentTop={10.5}
                     easing="easeInOutQuad"
                     {...scrollItemProps}
                   >
@@ -148,7 +148,7 @@ const SectionMain = () => {
                   <ScrollItem
                     startOffsetLeft={-6}
                     startPercentLeft={50}
-                    startPercentTop={33}
+                    startPercentTop={16}
                     easing="easeInOutQuad"
                     {...scrollItemProps}
                   >

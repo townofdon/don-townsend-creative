@@ -30,6 +30,7 @@ const SectionSkills = () => {
       className={dynamicClassName}
       classNameContent="w-100"
       viewHeight={1}
+      scrollToOffset={200}
       render={({
         isSectionInView,
         pctProgressSection,

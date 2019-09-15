@@ -24,8 +24,8 @@ const DashboardWindow = () => {
     isRollingRight,
     setIsShowingThanks,
     setIsShowingPanelNavigation,
-    setIsRollingRight,
-    setIsRollingLeft,
+    // setIsRollingRight,
+    // setIsRollingLeft,
   } = useContext(ControlContext);
   const refVideo = useRef(null);
   const timeout = {
@@ -76,21 +76,21 @@ const DashboardWindow = () => {
     playVideo();
   }
 
-  const handleRollLeft = (ev) => {
-    ev.preventDefault();
-    setIsRollingLeft(true);
-    setTimeout(() => {
-      setIsRollingLeft(false);
-    }, 1000);
-  };
+  // const handleRollLeft = (ev) => {
+  //   ev.preventDefault();
+  //   setIsRollingLeft(true);
+  //   setTimeout(() => {
+  //     setIsRollingLeft(false);
+  //   }, 1000);
+  // };
 
-  const handleRollRight = (ev) => {
-    ev.preventDefault();
-    setIsRollingRight(true);
-    setTimeout(() => {
-      setIsRollingRight(false);
-    }, 1000);
-  };
+  // const handleRollRight = (ev) => {
+  //   ev.preventDefault();
+  //   setIsRollingRight(true);
+  //   setTimeout(() => {
+  //     setIsRollingRight(false);
+  //   }, 1000);
+  // };
 
   return (
     <>
@@ -151,7 +151,7 @@ const DashboardWindow = () => {
         theme={theme}
         isShowing={isShowing}
         left={(
-          <ul className="d-flex justify-content-between">
+          <ul className="d-flex justify-content-start">
             <DashboardItem
               onClick={() => setIsShowingPanelNavigation(true)}
               className="px-4 button-panel-navigation"
@@ -159,30 +159,10 @@ const DashboardWindow = () => {
               <strong>NAVIGATION</strong>
               &nbsp;&nbsp;<i className="icon-atom"></i>
             </DashboardItem>
-            <DashboardItem>
-              <img
-                className="cursor-pointer"
-                onClick={handleRollLeft}
-                src="/img/btn-black.png"
-                alt="Do a barrel roll"
-                width={35}
-                height={35}
-              />
-            </DashboardItem>
           </ul>
         )}
         right={(
-          <ul className="d-flex justify-content-between pl-0 pr-2 pr-md-4 pr-md-5">
-            <DashboardItem>
-              <img
-                className="cursor-pointer"
-                onClick={handleRollRight}
-                src="/img/btn-black.png"
-                alt="Do a barrel roll"
-                width={35}
-                height={35}
-              />
-            </DashboardItem>
+          <ul className="d-flex justify-content-end pl-0 pr-2 pr-md-4 pr-md-5">
             <DashboardItem
               onClick={handleGoToWarpSpeed}
               className="pl-3 pr-4 button-panel-controls"

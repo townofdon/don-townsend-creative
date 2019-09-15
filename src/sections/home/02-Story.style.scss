@@ -35,12 +35,14 @@
   }
 }
 
+$story-color-fg: #fffd91;
+
 .story-text {
   position: absolute;
   top: 100%;
 
-  color: #40d8ff;
-  text-shadow: 0 0 15px #40d8ff;
+  color: $story-color-fg;
+  text-shadow: 0 0 15px lighten($story-color-fg, 10%);
 
   h2 {
     font-size: 3em;

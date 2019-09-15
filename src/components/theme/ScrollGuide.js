@@ -20,11 +20,9 @@ const ScrollGuide = () => {
     strokeWidth: 1,
   };
   const { theme = 'dark', currentSection } = useContext(ControlContext);
-  console.log('currentSection:', currentSection);
   const onClick = (ev) => {
     ev.preventDefault();
     const nextSection = getNextScrollSection(currentSection);
-    console.log('next section:', nextSection.id);
     if (nextSection && nextSection.id) {
       scrollToSection(nextSection.id);
     }

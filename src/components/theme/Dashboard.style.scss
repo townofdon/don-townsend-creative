@@ -313,7 +313,7 @@ $themeRedColorFgShadow: rgba(255, 202, 202, 0.81);
     color: $themeTransColorFg;
 
     @include hover() {
-      background-color: transparentize($themeTransColorBgButton, 0.25);
+      background-color: darken(opacify($themeTransColorBgButton, 0.2), 30%);
     }
   }
 
