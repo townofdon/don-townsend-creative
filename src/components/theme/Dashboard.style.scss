@@ -388,3 +388,30 @@ $themeRedColorFgShadow: rgba(255, 202, 202, 0.81);
     // color: $themeDarkColorFg;
   }
 }
+
+//
+// H Y P E R D R I V E   S T A T U S
+//
+.hyperdrive-status {
+  opacity: 1;
+
+  @include ease-in-out(0.3s);
+
+  .dashboard.transparent-theme & {
+    opacity: 0;
+  }
+}
+
+.text-hyperdrive-offline {
+  color: rgba(206, 134, 111, 0.75);
+
+  .dashboard.dark-theme & {
+    color: gray;
+  }
+}
+.text-hyperdrive-powering-up {
+  color: #e68e00;
+}
+.text-hyperdrive-engaged {
+  color: #a728a3;
+}

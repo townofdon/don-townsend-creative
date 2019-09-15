@@ -1,20 +1,24 @@
 
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import DashboardBar from './DashboardBar';
-import DashboardItem from './DashboardItem';
-
-import ControlContext from '../../contexts/ControlContext';
+import cx from 'classnames';
 
 import { timeDashboardWaitBeforeShow } from '../../globals/constants';
 import { urlLinkedIn, urlResume, urlGitHub } from '../../globals/urls';
-import VideoWarpSpeed from './VideoWarpSpeed';
 
-import defaults from '../../globals/defaults';
+import disableScrolling from '../../utils/scroll/disable-scrolling';
+import enableScrolling from '../../utils/scroll/enable-scrolling';
+
+import ControlContext from '../../contexts/ControlContext';
+
+import DashboardBar from './DashboardBar';
+import DashboardItem from './DashboardItem';
+import VideoWarpSpeed from './VideoWarpSpeed';
 
 const DashboardWindow = () => {
   const [tooltip, setTooltip] = useState('');
   const [isShowing, setIsShowing] = useState(false);
   const {
+    currentSection,
     theme,
     setTheme,
     isVideoPlaying,
@@ -43,36 +47,38 @@ const DashboardWindow = () => {
     if (!refVideo || !refVideo.current) { return; }
     // see: https://www.w3schools.com/tags/ref_av_dom.asp
     refVideo.current.play();
+    setIsShowingThanks(false);
+    disableScrolling();
   };
 
   const pauseVideo = () => {
     if (!refVideo || !refVideo.current) { return; }
     // see: https://www.w3schools.com/tags/ref_av_dom.asp
     refVideo.current.pause();
+    enableScrolling();
   };
 
   const reset = () => {
-    setTheme(defaults.theme);
     setIsVideoPlaying(false);
-    setIsShowingThanks(false);
+    enableScrolling();
   };
 
   const sayThankYou = () => {
     clearTimeout(timeout.reset.current);
     setIsShowingThanks(true);
-    timeout.reset.current = setTimeout(() => { reset(); }, 15000);
+    timeout.reset.current = setTimeout(() => { reset(); }, 5000);
   };
 
   const handleGoToWarpSpeed = () => {
     clearTimeout(timeout.thanks.current);
     if (isVideoPlaying) {
-      setTheme('dark');
+      setTheme('blue');
       pauseVideo();
       return;
     }
-    setTheme('red');
+    setTheme('light');
     setIsVideoPlaying(true);
-    timeout.thanks.current = setTimeout(() => { sayThankYou(); }, 15000);
+    timeout.thanks.current = setTimeout(() => { sayThankYou(); }, 13000);
     playVideo();
   }
 
@@ -92,11 +98,59 @@ const DashboardWindow = () => {
   //   }, 1000);
   // };
 
+  const getDerivedCurrentSection = () => {
+    if (/^main/i.test(currentSection)) {
+      return 'main';
+    }
+    if (/^story/i.test(currentSection)) {
+      return 'story';
+    }
+    if (/^warp/i.test(currentSection)) {
+      return 'warp';
+    }
+    if (/^skillset/i.test(currentSection)) {
+      return 'skillset';
+    }
+    return '';
+  };
+
+  const getHyperdriveStatusText = () => {
+    const currentSection = getDerivedCurrentSection();
+    if (currentSection === 'warp' && theme === 'light') {
+      return 'engaged';
+    }
+    switch (currentSection) {
+      case 'warp':
+        return 'ready';
+      case 'skillset':
+        return 'powering up';
+      case 'main':
+      case 'story':
+      default:
+        return 'offline';
+    }
+  }
+
+  const getHyperDriveStatusClass = () => {
+    switch (getHyperdriveStatusText()) {
+      case 'engaged':
+        return 'text-hyperdrive-engaged';
+      case 'online':
+      case 'ready':
+        return 'text-success';
+      case 'powering up':
+        return 'text-hyperdrive-powering-up'
+      case 'offline':
+      default:
+        return 'text-hyperdrive-offline';
+    }
+  };
+
   return (
     <>
       <VideoWarpSpeed
         isPlaying={isVideoPlaying}
-        isShowingThanks={isShowingThanks}
+        isShowingThanks={isShowingThanks && currentSection === 'warp-speed'}
         refVideo={refVideo}
         isRollingLeft={isRollingLeft}
         isRollingRight={isRollingRight}
@@ -163,6 +217,14 @@ const DashboardWindow = () => {
         )}
         right={(
           <ul className="d-flex justify-content-end pl-0 pr-2 pr-md-4 pr-md-5">
+            <DashboardItem
+              className="hyperdrive-status pl-3 pr-4 button-panel-controls"
+            >
+              <small>HYPERDRIVE STATUS:&nbsp;&nbsp;</small>
+              <span className={cx(getHyperDriveStatusClass())}>
+                {getHyperdriveStatusText()}
+              </span>
+            </DashboardItem>
             <DashboardItem
               onClick={handleGoToWarpSpeed}
               className="pl-3 pr-4 button-panel-controls"
