@@ -13,10 +13,21 @@ const SectionMain = () => {
   return (
     <ScrollSection
       id="story"
-      theme="blue"
+      theme="transparent"
       className="color-bg-black color-white"
       backgroundColor="#000"
       viewHeight={4}
+      scrollToOffset={800}
+      scrollPoints={[{
+        pct: 38,
+        id: 'story-b',
+      }, {
+        pct: 55,
+        id: 'story-c',
+      }, {
+        pct: 70,
+        id: 'story-d',
+      }]}
       render={({
         isSectionInView,
         pctProgressSection,

@@ -4,6 +4,7 @@ import cx from 'classnames';
 
 import withScroll from '../../hocs/withScroll';
 import useScrollCalculations from '../../custom-hooks/useScrollCalculations';
+import useSetCurrentSection from '../../custom-hooks/useSetCurrentSection';
 import debugScrollSection from '../../utils/scroll/debug-scroll-section';
 
 import ControlContext from '../../contexts/ControlContext';
@@ -26,18 +27,23 @@ const ScrollSection = ({
   backgroundImage = '',
   backgroundColor = 'transparent',
   scrollActions = [],
+  scrollPoints = [],
+  scrollToOffset = 0,
   ...scrollProps,
 }) => {
   const refSection = useRef(null);
   const calcs = useScrollCalculations(refSection, scrollProps);
   const { currentSection, setCurrentSection, setTheme, isRollingLeft, isRollingRight } = useContext(ControlContext);
-  const shouldSectionBecomeActive = currentSection !== id
-    && calcs.pctProgressSection >= 100
-    && calcs.pctProgressSection < 200
-  if (shouldSectionBecomeActive) {
-    if (id) { setCurrentSection(id); }
-    if (theme) { setTheme(theme); }
-  }
+
+  useSetCurrentSection({
+    id,
+    theme,
+    setTheme,
+    currentSection,
+    setCurrentSection,
+    calcs,
+    scrollPoints,
+  })
 
   const { pctProgressSection, isSectionInView } = calcs;
   scrollActions.forEach((scrollAction = {}) => {
@@ -69,7 +75,26 @@ const ScrollSection = ({
       id={`section-${id}`}
       className={cx('scroll-section', dynamicClassName, `view-height-${viewHeight}`)}
       ref={refSection}
+      data-scroll-to-offset={scrollToOffset}
     >
+      {(scrollPoints && scrollPoints.length) ? (
+        scrollPoints.map(scrollPoint => {
+          if (!scrollPoint.pct) {
+            throw new Error('scrollPoint needs a `pct` prop');
+          }
+          if (!scrollPoint.id) {
+            throw new Error('scrollPoint needs a `id` prop');
+          }
+          return (
+            <div
+              key={`section-${scrollPoint.id}`}
+              id={`section-${scrollPoint.id}`}
+              className="scroll-section fill-absolute"
+              style={{ top: `${scrollPoint.pct}%` }}
+            />
+          )
+        })
+      ) : null}
       <ScrollBg
         className={cx({
           'roll-left': isRollingLeft && currentSection === id,

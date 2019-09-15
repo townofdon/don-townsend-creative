@@ -3,8 +3,10 @@ import React, { useContext } from 'react';
 import cx from 'classnames';
 
 import ControlContext from '../../contexts/ControlContext';
+import getNextScrollSection from '../../utils/scroll/get-next-scroll-section';
 
 import './ScrollGuide.style.scss';
+import scrollToSection from '../../utils/scroll/scroll-to-section';
 
 const ScrollGuide = () => {
   const styleCircle = {
@@ -17,9 +19,21 @@ const ScrollGuide = () => {
   const styleText = {
     strokeWidth: 1,
   };
-  const { theme = 'dark' } = useContext(ControlContext);
+  const { theme = 'dark', currentSection } = useContext(ControlContext);
+  console.log('currentSection:', currentSection);
+  const onClick = (ev) => {
+    ev.preventDefault();
+    const nextSection = getNextScrollSection(currentSection);
+    console.log('next section:', nextSection.id);
+    if (nextSection && nextSection.id) {
+      scrollToSection(nextSection.id);
+    }
+  }
   return (
-    <div className={cx('scroll-guide text-center no-select', `theme-${theme}`)}>
+    <div
+      className={cx('scroll-guide text-center no-select', `theme-${theme}`)}
+      onClick={onClick}
+    >
       {/* circle */}
       <svg height={60} width={60}>
         <circle cx={30} cy={30} r={25} style={styleCircle} />

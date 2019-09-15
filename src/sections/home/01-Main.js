@@ -33,6 +33,10 @@ const SectionMain = () => {
       backgroundImage="/img/bg-star-port-faded.jpg"
       backgroundFixed
       viewHeight={4}
+      scrollPoints={[{
+        pct: 50,
+        id: 'main-b',
+      }]}
       scrollActions={[{
         condition: pct => pct <= 150 && pct > 0,
         callback: () => setTheme('light'),
@@ -51,7 +55,7 @@ const SectionMain = () => {
       }) => {
         const pctProgressEnd = 150;
         const scrollItemProps = {
-          pctProgressStart: 105,
+          pctProgressStart: 100,
           pctProgressEnd,
           pctProgressSection,
           sectionWidth: width,

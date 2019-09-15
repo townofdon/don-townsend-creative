@@ -17,6 +17,7 @@ $bounce-timing: 2.5s;
 .scroll-guide {
   position: fixed;
   z-index: 77;
+  cursor: pointer;
 
   @include ease-in-out(0.3s);
 
@@ -67,8 +68,7 @@ $bounce-timing: 2.5s;
 //
 // P O S I T I O N I N G
 //
-.scroll-guide,
-.current-section-main .scroll-guide {
+.scroll-guide {
   bottom: 20px;
   left: 50%;
   // offset for half item width to center on screen.
@@ -78,8 +78,8 @@ $bounce-timing: 2.5s;
 }
 
 .scroll-guide {
-  .current-section-story &,
-  .current-section-skillset-inventory & {
+  [class*="current-section-story"] &,
+  [class*="current-section-skillset-inventory"] & {
     bottom: 40%;
     left: 30px;
     margin-left: 0;
@@ -89,7 +89,7 @@ $bounce-timing: 2.5s;
 }
 
 .scroll-guide {
-  .current-section-warp-speed & {
+  [class*="current-section-warp-speed"] & {
     bottom: 40%;
     left: -60px;
     margin-left: 0;
@@ -110,6 +110,7 @@ $bounce-timing: 2.5s;
 }
 
 .scroll-guide.theme-dark,
+.scroll-guide.theme-transparent,
 .scroll-guide.theme-red,
 .scroll-guide.theme-blue {
   opacity: 0.8;

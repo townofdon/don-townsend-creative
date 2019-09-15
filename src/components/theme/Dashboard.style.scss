@@ -8,6 +8,10 @@ $dashboardTimeTransition: 500ms;
 $themeLightColorBg: rgba(0,0,0,0.7);
 $themeLightColorFg: #fefefe;
 
+$themeTransColorBg: transparent;
+$themeTransColorBgButton: rgba(255, 255, 255, 0.5);
+$themeTransColorFg: #fefefe;
+
 $themeDarkColorBg: rgba(255, 255, 255, 0.8);
 $themeDarkColorFg: #333;
 
@@ -120,6 +124,18 @@ $themeRedColorFgShadow: rgba(255, 202, 202, 0.81);
 
     .bg {
       background-color: $themeLightColorBg;
+    }
+  }
+
+  &.transparent-theme {
+    color: $themeTransColorFg;
+
+    .dashboard-item {
+      color: $themeTransColorFg;
+    }
+
+    .bg {
+      background-color: $themeTransColorBg;
     }
   }
 
@@ -291,6 +307,16 @@ $themeRedColorFgShadow: rgba(255, 202, 202, 0.81);
       background-color: transparentize($themeLightColorBg, 0.25);
     }
   }
+
+  &.transparent-theme li > a {
+    background-color: transparentize($themeTransColorBgButton, 0.5);
+    color: $themeTransColorFg;
+
+    @include hover() {
+      background-color: transparentize($themeTransColorBgButton, 0.25);
+    }
+  }
+
   &.dark-theme li > a {
     background-color: $themeDarkColorBg;
     color: $themeDarkColorFg;
@@ -299,6 +325,7 @@ $themeRedColorFgShadow: rgba(255, 202, 202, 0.81);
       background-color: lighten($themeDarkColorBg, 5%);
     }
   }
+
   &.blue-theme li > a {
     background-color: $themeBlueColorBg;
     color: $themeBlueColorFg;
@@ -307,6 +334,7 @@ $themeRedColorFgShadow: rgba(255, 202, 202, 0.81);
       background-color: lighten($themeBlueColorBg, 20%);
     }
   }
+
   &.red-theme li > a {
     background-color: $themeRedColorBg;
     color: $themeRedColorFg;
