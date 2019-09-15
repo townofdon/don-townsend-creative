@@ -3,6 +3,10 @@
 import React, { useContext, useState, useEffect } from 'react';
 import cx from 'classnames';
 
+import {
+  timeMainTextWaitBeforeShow,
+} from '../../globals/constants';
+
 import ScrollSection from '../../components/scroll/ScrollSection';
 import ScrollItem from '../../components/scroll/ScrollItem';
 import BlurItem from '../../components/scroll/BlurItem';
@@ -17,7 +21,7 @@ const SectionMain = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsShowingMainText(true);
-    }, 2000);
+    }, timeMainTextWaitBeforeShow);
   }, []);
   return (
     <ScrollSection

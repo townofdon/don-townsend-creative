@@ -4,4 +4,5 @@ export const timeSplashScreenWaitBeforeHide = 3000;
 export const timeSplashScreenHideDuration = 265;
 export const timeSplashScreenEndOfHide = timeSplashScreenWaitBeforeHide + timeSplashScreenHideDuration;
 
+export const timeMainTextWaitBeforeShow = timeSplashScreenEndOfHide;
 export const timeDashboardWaitBeforeShow = timeSplashScreenEndOfHide + 500;

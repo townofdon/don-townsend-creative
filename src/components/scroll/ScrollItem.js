@@ -12,6 +12,7 @@ import easingFunctions from '../../utils/scroll/easing-functions';
 const ScrollItem = ({
   children,
   className = 'd-inline-block',
+  debug = false,
   pctProgressStart,
   pctProgressEnd,
   pctProgressSection,
@@ -56,7 +57,7 @@ const ScrollItem = ({
 
   const setInitialPosition = useCallback(() => {
     if (!refItem.current || !sectionWidth || !sectionHeight) { return; }
-    const position = getElementPosition(refItem.current);
+    const position = getElementPosition(refItem.current, debug);
     setStartTranslateX(calculateTranslateX(
       startOffsetLeft,
       startPercentLeft,
@@ -90,6 +91,7 @@ const ScrollItem = ({
       maxHeight,
     ) || 0);
   }, [
+    debug,
     refItem,
     sectionWidth,
     sectionHeight,

@@ -3,13 +3,14 @@
 @import '../../scss/mixins.scss';
 
 $bounce-distance: 15px;
+$bounce-timing: 2.5s;
 
 @include keyframes('bouncing-scroll-guide') {
   0% { transform: translateY(0); }
-  5% { transform: translateY($bounce-distance); }
-  10% { transform: translateY(0); }
-  15% { transform: translateY($bounce-distance); }
-  20% { transform: translateY(0); }
+  65% { transform: translateY(0); }
+  72% { transform: translateY($bounce-distance); }
+  79% { transform: translateY(0); }
+  86% { transform: translateY($bounce-distance); }
   100% { transform: translateY(0); }
 }
 
@@ -28,23 +29,39 @@ $bounce-distance: 15px;
     stroke: inherit;
   }
 
-  text {
+  .scroll-guide-text {
     position: absolute;
     z-index: 77;
     width: 100%;
-    top: 50%;
+    top: 0;
     left: 0;
-    margin-top: -15px;
-    font-size: 8px;
+    margin-top: 15px;
     font-weight: 400;
-    line-height: 30px;
+    // line-height: 30px;
     text-align: center;
     color: inherit;
+
+    text {
+      font-size: 8px;
+      font-weight: 100;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+    }
   }
 }
 
 .scroll-guide-arrow {
-  @include animate(bouncing-scroll-guide, 3s, ease-in-out, infinite);
+  @include ease-in-out(0.2s);
+
+  .current-section-main .scroll-guide.theme-light:not(:hover) & {
+    @include animate(bouncing-scroll-guide, $bounce-timing, ease-in-out, infinite);
+  }
+}
+
+.scroll-guide:hover {
+  .scroll-guide-arrow {
+    transform: translateY($bounce-distance)!important;
+  }
 }
 
 //
@@ -67,7 +84,7 @@ $bounce-distance: 15px;
     left: 30px;
     margin-left: 0;
 
-    @include transform(scale(0.9));
+    @include transform(scale(0.7));
   }
 }
 
