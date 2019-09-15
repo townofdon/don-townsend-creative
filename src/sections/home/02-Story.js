@@ -67,7 +67,7 @@ const SectionMain = () => {
                 >
                   <div className="story-text text-justify">
                     <h2 className="text-center">DON TOWNSEND</h2>
-                    <h3 className="text-center">THE PURSUIT OF EXCELLENCE</h3>
+                    <h3 className="text-center">A NEW HOPE FOR UX</h3>
                     <p>
                       There is unrest in the galatic empire
                       of web development. The bad UX implementors
@@ -77,11 +77,11 @@ const SectionMain = () => {
                     <p>
                       But unbeknownst to them, a new force emerges,
                       a new hope for user experience and modular,
-                      reusable code — Don Townsend.
+                      reusable code - UX Jedi master Don.
                     </p>
-                    <p>Among Don's <strong>top priorities</strong> in development are:</p>
+                    <p className="text-center"><strong>Don's Top Coding Priorities</strong>:</p>
                     <ul className="text-center">
-                      <li className="text-uppercase"><small>Try to do it right the first time</small></li>
+                      <li className="text-uppercase"><small>Do it right the first time</small></li>
                       <li className="text-uppercase"><small>Always strive for excellence</small></li>
                       <li className="text-uppercase"><small>Code should be easy to read</small></li>
                       <li className="text-uppercase"><small>Think like the end-user</small></li>
