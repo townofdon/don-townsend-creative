@@ -3,6 +3,7 @@ import {
   timeSplashScreenWaitBeforeHide,
   timeSplashScreenEndOfHide,
 } from '../../globals/constants';
+import enableScrolling from '../scroll/enable-scrolling';
 
 export default function hideSplashScreen() {
   // Show the splash screen for X number of ms before hiding it.
@@ -14,6 +15,7 @@ export default function hideSplashScreen() {
   const hideBegin = () => {
     // see: https://www.w3schools.com/howto/howto_js_add_class.asp
     $splashScreen.classList.add('hide');
+    enableScrolling();
   };
 
   const hideEnd = () => {

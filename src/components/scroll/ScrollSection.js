@@ -66,7 +66,7 @@ const ScrollSection = ({
 
   return (
     <div
-      id={id}
+      id={`section-${id}`}
       className={cx('scroll-section', dynamicClassName, `view-height-${viewHeight}`)}
       ref={refSection}
     >
