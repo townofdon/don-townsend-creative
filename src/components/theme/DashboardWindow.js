@@ -24,10 +24,11 @@ const DashboardWindow = () => {
     isVideoPlaying,
     setIsVideoPlaying,
     isShowingThanks,
+    isShowingNavigation,
     isRollingLeft,
     isRollingRight,
     setIsShowingThanks,
-    setIsShowingPanelNavigation,
+    setIsShowingNavigation,
     // setIsRollingRight,
     // setIsRollingLeft,
   } = useContext(ControlContext);
@@ -67,6 +68,11 @@ const DashboardWindow = () => {
     clearTimeout(timeout.reset.current);
     setIsShowingThanks(true);
     timeout.reset.current = setTimeout(() => { reset(); }, 5000);
+  };
+
+  const handleToggleNavigation = (ev) => {
+    ev.preventDefault();
+    setIsShowingNavigation(!isShowingNavigation);
   };
 
   const handleGoToWarpSpeed = () => {
@@ -207,7 +213,7 @@ const DashboardWindow = () => {
         left={(
           <ul className="d-flex justify-content-start">
             <DashboardItem
-              onClick={() => setIsShowingPanelNavigation(true)}
+              onClick={handleToggleNavigation}
               className="px-4 button-panel-navigation"
             >
               <strong>NAVIGATION</strong>

@@ -19,12 +19,17 @@ const ScrollGuide = () => {
   const styleText = {
     strokeWidth: 1,
   };
-  const { theme = 'dark', currentSection } = useContext(ControlContext);
+  const {
+    theme = 'dark',
+    currentSection,
+    setIsShowingNavigation,
+  } = useContext(ControlContext);
   const onClick = (ev) => {
     ev.preventDefault();
     const nextSection = getNextScrollSection(currentSection);
     if (nextSection && nextSection.id) {
       scrollToSection(nextSection.id);
+      setIsShowingNavigation(false);
     }
   }
   return (

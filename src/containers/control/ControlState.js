@@ -10,7 +10,7 @@ const ControlState = ({ children }) => {
   const [currentSection, setCurrentSection] = useState(defaults.section);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isShowingThanks, setIsShowingThanks] = useState(false);
-  const [isShowingPanelNavigation, setIsShowingPanelNavigation] = useState(false);
+  const [isShowingNavigation, setIsShowingNavigation] = useState(false);
   const [isRollingLeft, setIsRollingLeft] = useState(false);
   const [isRollingRight, setIsRollingRight] = useState(false);
   return (
@@ -19,14 +19,14 @@ const ControlState = ({ children }) => {
       currentSection,
       isVideoPlaying,
       isShowingThanks,
-      isShowingPanelNavigation,
+      isShowingNavigation,
       isRollingLeft,
       isRollingRight,
       setTheme,
       setCurrentSection,
       setIsVideoPlaying,
       setIsShowingThanks,
-      setIsShowingPanelNavigation,
+      setIsShowingNavigation,
       setIsRollingLeft,
       setIsRollingRight,
     }}>

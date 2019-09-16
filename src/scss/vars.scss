@@ -9,3 +9,28 @@ $BREAKPOINT_MOBILE: 576px;
 $BREAKPOINT_TABLET: 768px;
 $BREAKPOINT_LAPTOP: 992px;
 $BREAKPOINT_DESKTOP: 1200px;
+
+$dashboardTimeShowDuration: 1000ms;
+$dashboardTimeTransition: 500ms;
+
+//
+// T H E M I N G
+//
+
+$themeLightColorBg: rgba(0,0,0,0.7);
+$themeLightColorFg: #fefefe;
+
+$themeTransColorBg: transparent;
+$themeTransColorBgButton: rgba(255, 255, 255, 0.5);
+$themeTransColorFg: #fefefe;
+
+$themeDarkColorBg: rgba(255, 255, 255, 0.8);
+$themeDarkColorFg: #333;
+
+$themeBlueColorBg: rgba(52, 128, 177, 0.57);
+$themeBlueColorFg: #c8e9f7;
+$themeBlueColorFgShadow: rgba(202, 235, 255, 0.81);
+
+$themeRedColorBg: rgba(177, 60, 52, 0.57);
+$themeRedColorFg: #f7c8c8;
+$themeRedColorFgShadow: rgba(255, 202, 202, 0.81);
