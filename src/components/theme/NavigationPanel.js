@@ -66,7 +66,7 @@ const NavigationPanel = () => {
         </svg>
       </div>
       <div className="fill-absolute bg bg-position" />
-      <div className="inner p-4 p-lg-5">
+      <div className="inner p-4">
         <Item sectionId="story">
           Coding Philosophy
         </Item>

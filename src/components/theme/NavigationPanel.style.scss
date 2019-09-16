@@ -8,7 +8,7 @@ $dashboardHeight: 40px;
 
 .navigation-panel {
   position: fixed;
-  z-index: 77;
+  z-index: 7777;
 
   padding-right: $rightOffset!important;
   width: calc(50% - 5px);
@@ -30,6 +30,8 @@ $dashboardHeight: 40px;
   .bg {
     background-color: rgba(0,0,0,0.5);
     fill: rgba(0,0,0,0.5);
+
+    @include ease-in-out($dashboardTimeTransition);
   }
 
   svg {
