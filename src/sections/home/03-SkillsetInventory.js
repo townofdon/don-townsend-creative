@@ -50,8 +50,10 @@ const SectionSkills = () => {
         // };
         return (
           <Container className={cx('section-skillset-inventory py-5')}>
-            <h2 className="text-center text-uppercase letter-spacing-1">Skillset Inventory</h2>
-            <Row>
+            <h2 className="text-center text-uppercase letter-spacing-1 pb-5">
+              Skillset Inventory
+            </h2>
+            <Row className="pb-4 pb-lg-5 mb-lg-5">
               <Col cx={12} md>
                 <Skill percentage={90}>Javascript</Skill>
                 <Skill percentage={98}>React</Skill>
