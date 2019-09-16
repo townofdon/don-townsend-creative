@@ -7,6 +7,7 @@ import { urlLinkedIn, urlResume, urlGitHub } from '../../globals/urls';
 
 import disableScrolling from '../../utils/scroll/disable-scrolling';
 import enableScrolling from '../../utils/scroll/enable-scrolling';
+import scrollToSection from '../../utils/scroll/scroll-to-section';
 
 import ControlContext from '../../contexts/ControlContext';
 
@@ -68,6 +69,12 @@ const DashboardWindow = () => {
     clearTimeout(timeout.reset.current);
     setIsShowingThanks(true);
     timeout.reset.current = setTimeout(() => { reset(); }, 5000);
+  };
+
+  const handleClickHome = (ev) => {
+    ev.preventDefault();
+    scrollToSection('main');
+    setIsShowingNavigation(false);
   };
 
   const handleToggleNavigation = (ev) => {
@@ -167,7 +174,10 @@ const DashboardWindow = () => {
         isShowing={isShowing}
         left={(
           <ul>
-            <DashboardItem className="text-uppercase">
+            <DashboardItem
+              className="text-uppercase color-bg-transparent"
+              onClick={handleClickHome}
+            >
               <strong>
                 Don Townsend
               </strong>
@@ -175,7 +185,10 @@ const DashboardWindow = () => {
             <DashboardItem>
               &bull;
             </DashboardItem>
-            <DashboardItem className="text-uppercase">
+            <DashboardItem
+              className="text-uppercase color-bg-transparent"
+              onClick={handleClickHome}
+            >
               Portfolio
             </DashboardItem>
           </ul>
