@@ -3,22 +3,36 @@ import React, { useContext } from 'react';
 import cx from 'classnames';
 
 import ControlContext from '../../contexts/ControlContext';
+import scrollToSection from '../../utils/scroll/scroll-to-section';
 
 import './NavigationPanel.style.scss';
 
 const Item = ({
   children,
-  onClick,
-}) => (
-  <p className="nav-panel-item">
-    <button
-      className="btn-link"
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  </p>
-);
+  sectionId,
+}) => {
+  const {
+    setIsShowingNavigation,
+  } = useContext(ControlContext);
+  const handleClick = (ev) => {
+    ev.preventDefault();
+    if (sectionId) {
+      console.log(sectionId);
+      scrollToSection(sectionId);
+      setIsShowingNavigation(false);
+    }
+  };
+  return (
+    <p className="nav-panel-item">
+      <button
+        className="btn-link"
+        onClick={handleClick}
+      >
+        {children}
+      </button>
+    </p>
+  );
+};
 
 const NavigationPanel = () => {
   const {
@@ -53,10 +67,18 @@ const NavigationPanel = () => {
       </div>
       <div className="fill-absolute bg bg-position" />
       <div className="inner p-4 p-lg-5">
-        <Item>Coding Philosophy</Item>
-        <Item>Skillset Inventory</Item>
-        <Item>View Mission Log</Item>
-        <Item>Go To Warp&nbsp;&nbsp;<span className="icon-space-shuttle"></span></Item>
+        <Item sectionId="story">
+          Coding Philosophy
+        </Item>
+        <Item sectionId="skillset-inventory">
+          Skillset Inventory
+        </Item>
+        <Item sectionId="portfolio">
+          View Mission Log
+        </Item>
+        <Item sectionId="warp-speed">
+          Go To Warp&nbsp;&nbsp;<span className="icon-space-shuttle"></span>
+        </Item>
       </div>
     </div>
   );

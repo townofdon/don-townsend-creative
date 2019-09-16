@@ -68,6 +68,8 @@ $dashboardHeight: 40px;
     // color will get set below in theming
     color: inherit;
     background: transparent;
+    user-select: none;
+    outline: none;
 
     @include ease-in-out(0.2s);
 

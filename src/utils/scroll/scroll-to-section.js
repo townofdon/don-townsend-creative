@@ -51,7 +51,9 @@ function scrollIt(destination, duration = 200, easing = 'linear', callback) {
 }
 
 export default function scrollToSection(sectionId, callback) {
-  const section = document.getElementById(sectionId);
+  let section;
+  if (!section) { section = document.getElementById(sectionId); }
+  if (!section) { section = document.getElementById(`section-${sectionId}`); }
   if (!section) { return; }
   scrollIt(section, 1000, 'easeInOutQuad', callback);
 }
