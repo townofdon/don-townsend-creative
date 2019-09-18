@@ -371,6 +371,7 @@
 //
 .hyperdrive-status {
   opacity: 1;
+  text-shadow: none;
 
   @include ease-in-out(0.3s);
 
@@ -380,7 +381,7 @@
 }
 
 .text-hyperdrive-offline {
-  color: rgba(206, 134, 111, 0.75);
+  color: rgba(206, 134, 111, 0.88);
 
   .dashboard.dark-theme & {
     color: gray;

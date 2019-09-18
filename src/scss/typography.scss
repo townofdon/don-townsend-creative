@@ -8,6 +8,10 @@
 }
 
 @mixin font-sans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+@mixin font-sans-condensed {
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
@@ -29,6 +33,10 @@
 
 .font-sans {
   @include font-sans();
+}
+
+.font-sans-condensed {
+  @include font-sans-condensed();
 }
 
 .font-raleway {
@@ -85,7 +93,7 @@
 
 // font sizing, line height
 h1 { @include h-font-size(60px, 70px, 85px); @include h-line-height(1.2em, 1.3em, 1.5em); }
-h2 { @include h-font-size(50px, 55px, 60px); @include h-line-height(1.2em, 1.2em, 1.3em); }
+h2 { @include h-font-size(45px, 45px, 50px); @include h-line-height(1.2em, 1.2em, 1.3em); }
 h3 { @include h-font-size(30px, 30px, 35px); @include h-line-height(1.2em, 1.2em, 1.3em); }
 h4 { @include h-font-size(30px, 32px, 35px); @include h-line-height(1.2em, 1.2em, 1.2em); }
 h5 { @include h-font-size(30px, 30px, 32px); @include h-line-height(1.2em, 1.2em, 1.2em); }
@@ -96,8 +104,16 @@ h1 { @extend .font-titillium;  }
 h2 { @extend .font-sans; }
 h3 { @extend .font-roboto; }
 h4 { @extend .font-raleway; }
-h5 { @extend .font-sans; }
-h6 { @extend .font-sans; }
+h5 { @extend .font-sans-condensed; }
+h6 { @extend .font-sans-condensed; }
+
+// font-weight
+// h1 { font-weight: 100; }
+h2 { font-weight: 100; }
+// h3 { font-weight: 100; }
+// h4 { font-weight: 100; }
+// h5 { font-weight: 100; }
+// h6 { font-weight: 100; }
 
 // font extras
 // h1 {}

@@ -66,7 +66,7 @@ const SectionMain = () => {
                   {...scrollItemProps}
                 >
                   <div className="story-text text-justify">
-                    <h2 className="text-center">DON TOWNSEND</h2>
+                    <h2 className="text-center font-sans-condensed">DON TOWNSEND</h2>
                     <h3 className="text-center">A NEW HOPE FOR UX</h3>
                     <p>
                       There is unrest in the galatic empire
@@ -79,7 +79,7 @@ const SectionMain = () => {
                       a new hope for user experience and modular,
                       reusable code - UX Jedi master Don.
                     </p>
-                    <p className="text-center"><strong>Don's Top Coding Priorities</strong>:</p>
+                    <p className="text-center text-uppercase"><strong>Top Coding Priorities</strong>:</p>
                     <ul className="text-center">
                       <li className="text-uppercase"><small>Do it right the first time</small></li>
                       <li className="text-uppercase"><small>Always strive for excellence</small></li>

@@ -16,11 +16,11 @@ import './03-SkillsetInventory.style.scss';
 const SectionSkills = () => {
   const dynamicClassName = pctProgressSection => {
     const baseClassName = 'color-white ease-in-out';
-    if (pctProgressSection < 50) {
+    if (pctProgressSection < 66) {
       return `${baseClassName} color-bg-black`;
     }
-    if (pctProgressSection >= 50) {
-      return `${baseClassName} color-bg-blue-light`;
+    if (pctProgressSection >= 66) {
+      return `${baseClassName} color-bg-silver`;
     }
   }
   return (
