@@ -55,6 +55,9 @@ const SectionPortfolio = () => {
               <h2 className="text-center text-uppercase letter-spacing-1 pb-5">
                 Portfolio
               </h2>
+
+              <div class="thumbnail-selection"></div>
+
             </Container>
             <DecoBottom />
           </div>
