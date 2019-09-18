@@ -1,0 +1,92 @@
+
+// since the viewboxes are square, both
+// height and width are the same val.
+$heightDeco: 20px;
+$offsetDeco: 250px;
+.deco-top,
+.deco-bottom {
+  position: absolute;
+  z-index: 77;
+  left: 0;
+  right: 0;
+
+  svg,
+  .fill,
+  .l-1-fill,
+  .l-2-fill {
+    position: absolute;
+    height: $heightDeco;
+  }
+
+  svg,
+  polygon {
+    width: $heightDeco;
+    height: $heightDeco;
+    background-color: transparent!important;
+  }
+
+  // the .bg class gets set on the svg element
+  polygon {
+    fill: inherit;
+  }
+}
+
+.deco-top {
+  bottom: 100%;
+  height: $heightDeco * 2;
+
+  .l-1-tri-left {
+    left: 0;
+    bottom: 0;
+  }
+
+  .l-1-tri-right {
+    right: 0;
+    bottom: 0;
+  }
+
+  .l-2-tri-left {
+    left: $offsetDeco - $heightDeco;
+    bottom: $heightDeco;
+  }
+
+  .l-2-tri-right {
+    right: $offsetDeco - $heightDeco;
+    bottom: $heightDeco;
+  }
+
+  .l-1-fill {
+    // left: $heightDeco;
+    // right: $heightDeco
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .l-2-fill {
+    left: $offsetDeco;
+    right: $offsetDeco;
+    bottom: $heightDeco;
+  }
+}
+
+.deco-bottom {
+  top: 100%;
+  height: $heightDeco;
+
+  .tri-left {
+    left: $offsetDeco - $heightDeco;
+    bottom: 0;
+  }
+
+  .tri-right {
+    right: $offsetDeco - $heightDeco;
+    bottom: 0;
+  }
+
+  .fill {
+    left: $offsetDeco;
+    right: $offsetDeco;
+    bottom: 0;
+  }
+}

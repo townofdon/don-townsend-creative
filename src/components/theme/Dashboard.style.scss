@@ -129,6 +129,19 @@
     }
   }
 
+  &.silver-theme {
+    color: $themeSilverColorFg;
+    text-shadow: none;
+
+    .dashboard-item {
+      color: $themeSilverColorFg;
+    }
+
+    .bg {
+      background-color: $themeSilverColorBg;
+    }
+  }
+
   &.blue-theme {
     color: $themeBlueColorFg;
     text-shadow: 0 0 3px $themeBlueColorFgShadow;
@@ -300,6 +313,15 @@
 
     @include hover() {
       background-color: lighten($themeDarkColorBg, 5%);
+    }
+  }
+
+  &.silver-theme li > a {
+    background-color: $themeSilverColorBg;
+    color: $themeSilverColorFg;
+
+    @include hover() {
+      background-color: lighten($themeSilverColorBg, 5%);
     }
   }
 

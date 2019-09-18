@@ -45,6 +45,7 @@
 
 @include addColorClasses('black', #000);
 @include addColorClasses('white', #fff);
+@include addColorClasses('white-snow', $colorWhiteSnow);
 @include addColorClasses('blue-light', $colorBlueLight);
 @include addColorClasses('blue-dark', $colorBlueDark);
 @include addColorClasses('silver', $colorSilver);
@@ -52,6 +53,7 @@
 
 @include addResponsiveColorClasses('black', #000);
 @include addResponsiveColorClasses('white', #fff);
+@include addResponsiveColorClasses('white-snow', $colorWhiteSnow);
 @include addResponsiveColorClasses('blue-light', $colorBlueLight);
 @include addResponsiveColorClasses('blue-dark', $colorBlueDark);
 @include addResponsiveColorClasses('silver', $colorSilver);

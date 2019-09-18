@@ -1,3 +1,32 @@
 
 @import '../../scss/vars.scss';
 @import '../../scss/mixins.scss';
+
+.section-portfolio {
+  position: relative;
+  min-height: 100vh;
+  min-height: calc(100vh + 40px);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .bg {
+    background-color: $colorWhiteSnow;
+    fill: $colorWhiteSnow;
+  }
+}
+
+// the purpose of the offset is to account for the
+// deco-bottom of the previous section.
+.section-portfolio-offset {
+  margin-top: 20px;
+}
+
+.section-portfolio-offset-fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  background-color: $colorWhiteSnow;
+}

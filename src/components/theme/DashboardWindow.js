@@ -77,6 +77,12 @@ const DashboardWindow = () => {
     setIsShowingNavigation(false);
   };
 
+  const handleClickPortfolio = (ev) => {
+    ev.preventDefault();
+    scrollToSection('portfolio');
+    setIsShowingNavigation(false);
+  };
+
   const handleToggleNavigation = (ev) => {
     ev.preventDefault();
     setIsShowingNavigation(!isShowingNavigation);
@@ -124,6 +130,9 @@ const DashboardWindow = () => {
     if (/^skillset/i.test(currentSection)) {
       return 'skillset';
     }
+    if (/^portfolio/i.test(currentSection)) {
+      return 'portfolio';
+    }
     return '';
   };
 
@@ -136,6 +145,7 @@ const DashboardWindow = () => {
       case 'warp':
         return 'ready';
       case 'skillset':
+      case 'portfolio':
         return 'powering up';
       case 'main':
       case 'story':
@@ -187,7 +197,7 @@ const DashboardWindow = () => {
             </DashboardItem>
             <DashboardItem
               className="text-uppercase color-bg-transparent"
-              onClick={handleClickHome}
+              onClick={handleClickPortfolio}
             >
               Portfolio
             </DashboardItem>

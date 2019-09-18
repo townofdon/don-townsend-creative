@@ -10,6 +10,8 @@ import Container from '../../components/grid/Container';
 import Row from '../../components/grid/Row';
 import Col from '../../components/grid/Col';
 import Skill from '../../components/skillset/Skill';
+import DecoTop from '../../components/decoration/DecoTop';
+import DecoBottom from '../../components/decoration/DecoBottom';
 
 import './03-SkillsetInventory.style.scss';
 
@@ -33,35 +35,10 @@ const SectionSkills = () => {
       viewHeight={1}
       scrollToOffset={200}
       before={(
-        <div className="deco-top">
-          {/* LEVEL ONE - note - this is currently hidden */}
-          <svg className="l-1-tri-left bg" viewBox="0 0 1 1">
-            <polygon points="0 1, 1 0, 1 1" />
-          </svg>
-          <svg className="l-1-tri-right bg" viewBox="0 0 1 1">
-            <polygon points="0 1, 0 0, 1 1" />
-          </svg>
-          <div className="l-1-fill bg" />
-          {/* LEVEL TWO */}
-          <svg className="l-2-tri-left bg" viewBox="0 0 1 1">
-            <polygon points="0 1, 1 0, 1 1" />
-          </svg>
-          <svg className="l-2-tri-right bg" viewBox="0 0 1 1">
-            <polygon points="0 1, 0 0, 1 1" />
-          </svg>
-          <div className="l-2-fill bg" />
-        </div>
+        <DecoTop />
       )}
       after={(
-        <div className="deco-bottom">
-          <svg className="tri-left bg" viewBox="0 0 1 1">
-            <polygon points="0 0, 1 0, 1 1" />
-          </svg>
-          <svg className="tri-right bg" viewBox="0 0 1 1">
-            <polygon points="0 0, 0 1, 1 0" />
-          </svg>
-          <div className="fill bg" />
-        </div>
+        <DecoBottom />
       )}
       render={({
         isSectionInView,

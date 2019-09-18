@@ -78,8 +78,7 @@ $bounce-timing: 2.5s;
 }
 
 .scroll-guide {
-  [class*="current-section-story"] &,
-  [class*="current-section-skillset-inventory"] & {
+  [class*="current-section-story"] & {
     bottom: 40%;
     left: 30px;
     margin-left: 0;
@@ -89,6 +88,8 @@ $bounce-timing: 2.5s;
 }
 
 .scroll-guide {
+  [class*="current-section-skillset-inventory"] &,
+  [class*="current-section-portfolio"] &,
   [class*="current-section-warp-speed"] & {
     bottom: 40%;
     left: -60px;
