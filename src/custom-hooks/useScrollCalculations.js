@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import getScrollProgress from '../utils/scroll/get-scroll-progress';
 import getIsScrollInSection from '../utils/scroll/get-is-scroll-in-section';
@@ -14,13 +14,30 @@ export default function useScrollCalculations(refSection = {}, scrollProps = {})
   const [position, setPosition] = useState({});
   const { currentScrollY, winHeight } = scrollProps;
 
-  useOnPageLoadOrResize(() => {
-    if (!refSection.current) {
+  // NOTE - elements MUST have a height greater than 0
+  // in order to be considered initialized .
+  const isInitialized = !!position && !!position.bottom;
+
+  const setInitialPosition = useCallback((_refSection, _setPosition) => {
+    if (!_refSection.current) {
       return;
     }
-    const { top, bottom, left, right } = getElementPosition(refSection.current);
+    // reset any tranforms before getting position.
+    _refSection.current.style.transform = null;
+    const { top, bottom, left, right } = getElementPosition(_refSection.current);
     setPosition({ top, bottom, left, right });
   }, []);
+
+  useOnPageLoadOrResize(() => {
+    setInitialPosition(refSection, setPosition);
+  });
+
+  // BACKUP - try and initialize (set the position) if not already initialized.
+  useEffect(() => {
+    if (!isInitialized) {
+      setInitialPosition(refSection, setPosition);
+    }
+  }, [setInitialPosition, refSection, isInitialized, currentScrollY]);
 
   return {
     isSectionInView: getIsSectionInView(currentScrollY, position.top, position.bottom, winHeight),

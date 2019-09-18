@@ -17,4 +17,6 @@
   justify-content: stretch;
 
   @include view-height-range(2, 10);
+
+  &.view-height-1-5 { min-height: 150vh }
 }

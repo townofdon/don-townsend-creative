@@ -11,7 +11,7 @@ import debounce from 'lodash/debounce';
  * @param {Function} callback
  * @param {Array} dependencies
  */
-export default function useOnPageLoadOrResize(callback, dependencies = []) {
+export default function useOnPageLoadOrResize(callback) {
   useEffect(() => {
     const onResize = debounce(callback, 100);
     // calculate position on page load
@@ -23,5 +23,5 @@ export default function useOnPageLoadOrResize(callback, dependencies = []) {
       window.removeEventListener('resize', onResize, false);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, dependencies);
+  }, []);
 }

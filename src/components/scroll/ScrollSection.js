@@ -64,16 +64,31 @@ const ScrollSection = ({
 
   const dynamicBackgroundImage = typeof backgroundImage === 'function'
     ? backgroundImage(pctProgressSection)
-    : backgroundImage
+    : backgroundImage;
   
   const dynamicBackgroundColor = typeof backgroundColor === 'function'
     ? backgroundColor(pctProgressSection)
-    : backgroundColor
+    : backgroundColor;
+
+  // given a number, return decimal text
+  // given 1, return '1'
+  // given 1.5, return '1-5'
+  // given 2, return '2'
+  const getViewHeightText = viewHeight => {
+    const viewHeightNum = parseInt(viewHeight);
+    if (!viewHeightNum) { return; }
+    const num = viewHeight - viewHeight % 1;
+    const rem = (viewHeight % 1) * 10;
+    if (!rem) {
+      return `${num}`;
+    }
+    return `${num}-${rem}`
+  };
 
   return (
     <div
       id={`section-${id}`}
-      className={cx('scroll-section', dynamicClassName, `view-height-${viewHeight}`)}
+      className={cx('scroll-section', dynamicClassName, `view-height-${getViewHeightText(viewHeight)}`)}
       ref={refSection}
       data-scroll-to-offset={scrollToOffset}
     >
