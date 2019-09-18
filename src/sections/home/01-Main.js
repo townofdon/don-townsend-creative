@@ -12,17 +12,43 @@ import ScrollItem from '../../components/scroll/ScrollItem';
 import BlurItem from '../../components/scroll/BlurItem';
 
 import ControlContext from '../../contexts/ControlContext';
+import scrollToSection from '../../utils/scroll/scroll-to-section';
 
 import './01-Main.style.scss';
 
 const SectionMain = () => {
   const [isShowingMainText, setIsShowingMainText] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
   const { setTheme } = useContext(ControlContext);
   useEffect(() => {
     setTimeout(() => {
       setIsShowingMainText(true);
     }, timeMainTextWaitBeforeShow);
   }, []);
+  useEffect(() => {
+    const handleWheel = (ev) => {
+      if (isScrolling) { return; }
+      // only trigger scroll-to-next-section if near top of page
+      if (window.scrollY > 200) { return; }
+      // see: https://stackoverflow.com/a/51276012/4262653
+      if (ev.deltaY > 0) {
+        setIsScrolling(true);
+        scrollToSection('main-b', () => {
+          setIsScrolling(false);
+        });
+      }
+    };
+    const handleScroll = (ev) => {
+      if (isScrolling) { ev.preventDefault(); }
+    }
+    window.addEventListener('wheel', handleWheel, false);
+    window.addEventListener('scroll', handleScroll, false);
+    // cleanup
+    return () => {
+      window.removeEventListener('wheel', handleWheel, false);
+      window.removeEventListener('scroll', handleWheel, false);
+    };
+  }, [isScrolling, setIsScrolling]);
   return (
     <ScrollSection
       id="main"

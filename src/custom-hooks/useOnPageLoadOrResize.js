@@ -17,6 +17,7 @@ export default function useOnPageLoadOrResize(callback) {
     // calculate position on page load
     // see: https://stackoverflow.com/questions/588040/window-onload-vs-document-onload
     window.addEventListener('load', callback, false);
+    window.addEventListener('resize', onResize, false);
     // cleanup
     return () => {
       window.removeEventListener('load', callback, false);
