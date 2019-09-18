@@ -1,11 +1,112 @@
 
 @import '../../scss/vars.scss';
 @import '../../scss/mixins.scss';
+@import '../../scss/colors.scss';
 
 .section-skillset-inventory {
+  position: relative;
+  // required to display the deco-bottom over the next section
+  z-index: 8;
 
-  @include respond($BREAKPOINT_TABLET) {
-    // important tag needed to override bootstrap class
-    padding-top: 300px!important;
+  svg {
+    background-color: transparent!important;
+  }
+
+  .bg {
+    background-color: $colorSilver;
+    fill: $colorSilver;
+
+    polygon {
+      fill: inherit;
+    }
+  }
+}
+
+// since the viewboxes are square, both
+// height and width are the same val.
+$heightDeco: 20px;
+$offsetDeco: 250px;
+.section-skillset-inventory .deco-top {
+  position: absolute;
+  z-index: 77;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  height: $heightDeco * 2;
+
+  svg,
+  .l-1-fill,
+  .l-2-fill {
+    position: absolute;
+    height: $heightDeco;
+  }
+
+  .l-1-tri-left {
+    left: 0;
+    bottom: 0;
+  }
+
+  .l-1-tri-right {
+    right: 0;
+    bottom: 0;
+  }
+
+  .l-2-tri-left {
+    left: $offsetDeco - $heightDeco;
+    bottom: $heightDeco;
+  }
+
+  .l-2-tri-right {
+    right: $offsetDeco - $heightDeco;
+    bottom: $heightDeco;
+  }
+
+  .l-1-fill {
+    // left: $heightDeco;
+    // right: $heightDeco
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .l-2-fill {
+    left: $offsetDeco;
+    right: $offsetDeco;
+    bottom: $heightDeco;
+  }
+}
+
+.section-skillset-inventory .deco-bottom {
+  position: absolute;
+  z-index: 77;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: $heightDeco;
+
+  svg,
+  .fill {
+    position: absolute;
+    height: $heightDeco;
+  }
+
+  polygon {
+    background-color: transparent;
+  }
+
+  .tri-left {
+    left: $offsetDeco - $heightDeco;
+    bottom: 0;
+  }
+
+  .tri-right {
+    right: $offsetDeco - $heightDeco;
+    bottom: 0;
+  }
+
+  .fill {
+    left: $offsetDeco;
+    right: $offsetDeco;
+    bottom: 0;
   }
 }

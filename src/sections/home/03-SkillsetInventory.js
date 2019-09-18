@@ -14,23 +14,55 @@ import Skill from '../../components/skillset/Skill';
 import './03-SkillsetInventory.style.scss';
 
 const SectionSkills = () => {
-  const dynamicClassName = pctProgressSection => {
-    const baseClassName = 'color-white ease-in-out';
-    if (pctProgressSection < 66) {
-      return `${baseClassName} color-bg-black`;
-    }
-    if (pctProgressSection >= 66) {
-      return `${baseClassName} color-bg-silver`;
-    }
-  }
+  // const dynamicClassName = pctProgressSection => {
+  //   const baseClassName = 'color-white ease-in-out';
+  //   if (pctProgressSection < 66) {
+  //     return `${baseClassName} color-bg-black`;
+  //   }
+  //   if (pctProgressSection >= 66) {
+  //     return `${baseClassName} color-bg-silver`;
+  //   }
+  // }
   return (
     <ScrollSection
       id="skillset-inventory"
       theme="dark"
-      className={dynamicClassName}
+      backgroundColor="silver"
+      className="section-skillset-inventory"
       classNameContent="w-100"
       viewHeight={1}
       scrollToOffset={200}
+      before={(
+        <div className="deco-top">
+          {/* LEVEL ONE - note - this is currently hidden */}
+          <svg className="l-1-tri-left bg" viewBox="0 0 1 1">
+            <polygon points="0 1, 1 0, 1 1" />
+          </svg>
+          <svg className="l-1-tri-right bg" viewBox="0 0 1 1">
+            <polygon points="0 1, 0 0, 1 1" />
+          </svg>
+          <div className="l-1-fill bg" />
+          {/* LEVEL TWO */}
+          <svg className="l-2-tri-left bg" viewBox="0 0 1 1">
+            <polygon points="0 1, 1 0, 1 1" />
+          </svg>
+          <svg className="l-2-tri-right bg" viewBox="0 0 1 1">
+            <polygon points="0 1, 0 0, 1 1" />
+          </svg>
+          <div className="l-2-fill bg" />
+        </div>
+      )}
+      after={(
+        <div className="deco-bottom">
+          <svg className="tri-left bg" viewBox="0 0 1 1">
+            <polygon points="0 0, 1 0, 1 1" />
+          </svg>
+          <svg className="tri-right bg" viewBox="0 0 1 1">
+            <polygon points="0 0, 0 1, 1 0" />
+          </svg>
+          <div className="fill bg" />
+        </div>
+      )}
       render={({
         isSectionInView,
         pctProgressSection,
@@ -49,10 +81,12 @@ const SectionSkills = () => {
         //   winHeight,
         // };
         return (
-          <Container className={cx('section-skillset-inventory py-5')}>
+          <Container className={cx('section-skillset-inventory-content py-5')}>
+            <div className="pb-5" />
             <h2 className="text-center text-uppercase letter-spacing-1 pb-5">
               Skillset Inventory
             </h2>
+            <div className="pb-5" />
             <Row className="pb-4 pb-lg-5 mb-lg-5">
               <Col cx={12} md>
                 <Skill percentage={90}>Javascript</Skill>

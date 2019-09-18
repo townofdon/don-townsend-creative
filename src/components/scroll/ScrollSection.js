@@ -18,6 +18,8 @@ const ScrollSection = ({
   id,
   theme,
   children,
+  before,
+  after,
   className,
   classNameContent,
   render,
@@ -92,6 +94,7 @@ const ScrollSection = ({
       ref={refSection}
       data-scroll-to-offset={scrollToOffset}
     >
+      {before || null}
       {(scrollPoints && scrollPoints.length) ? (
         scrollPoints.map(scrollPoint => {
           if (!scrollPoint.pct) {
@@ -124,6 +127,7 @@ const ScrollSection = ({
           render({ ...scrollProps, ...calcs })
         ) : children}
       </ScrollSectionContent>
+      {after || null}
     </div>
   );
 };
