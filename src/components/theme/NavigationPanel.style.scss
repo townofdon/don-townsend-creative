@@ -185,6 +185,8 @@ $dashboardHeight: 40px;
 
   &.dark-theme { color: $themeDarkColorFg; }
 
+  &.silver-theme { color: $themeSilverColorFg; }
+
   &.blue-theme { color: $themeBlueColorFg; }
 
   &.red-theme { color: $themeRedColorFg; }
@@ -211,6 +213,11 @@ $dashboardHeight: 40px;
   &.dark-theme .bg {
     background-color: $themeDarkColorBg;
     fill: $themeDarkColorBg;
+  }
+
+  &.silver-theme .bg {
+    background-color: $themeSilverColorBg;
+    fill: $themeSilverColorBg;
   }
 
   &.blue-theme .bg {
