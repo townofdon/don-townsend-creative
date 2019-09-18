@@ -1,17 +1,19 @@
 
 
-import React from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 
 import ScrollSection from '../../components/scroll/ScrollSection';
 import Container from '../../components/grid/Container';
 import DecoBottom from '../../components/decoration/DecoBottom';
+import PortfolioThumbnails from '../../components/portfolio/PortfolioThumbnails';
 // import ScrollItem from '../../components/scroll/ScrollItem';
 // import BlurItem from '../../components/scroll/BlurItem';
 
 import './04-Portfolio.style.scss';
 
 const SectionPortfolio = () => {
+  const [selectedItem, setSelectedItem] = useState(null);
   return (
     <ScrollSection
       id="portfolio"
@@ -41,7 +43,7 @@ const SectionPortfolio = () => {
         //   winWidth,
         //   winHeight,
         // };
-        const isFixed = isSectionInView && pctProgressSection < 100
+        const isFixed = isSectionInView && pctProgressSection < 100;
         return (
           <div
             className={cx('section-portfolio color-bg-white color-black h-100')}
@@ -56,7 +58,7 @@ const SectionPortfolio = () => {
                 Portfolio
               </h2>
 
-              <div class="thumbnail-selection"></div>
+              <PortfolioThumbnails setSelectedItem={setSelectedItem} />
 
             </Container>
             <DecoBottom />
