@@ -7,8 +7,6 @@ import ScrollSection from '../../components/scroll/ScrollSection';
 import Container from '../../components/grid/Container';
 import DecoBottom from '../../components/decoration/DecoBottom';
 import PortfolioItems from '../../components/portfolio/PortfolioItems';
-// import ScrollItem from '../../components/scroll/ScrollItem';
-// import BlurItem from '../../components/scroll/BlurItem';
 
 import './04-Portfolio.style.scss';
 
@@ -18,7 +16,6 @@ const SectionPortfolio = () => {
       id="portfolio"
       theme="silver"
       backgroundColor="transparent"
-      // theme="silver"
       className="section-portfolio-offset pb-4"
       classNameContent="w-100"
       viewHeight={1}
@@ -28,10 +25,6 @@ const SectionPortfolio = () => {
       render={({
         isSectionInView,
         pctProgressSection,
-        width,
-        height,
-        winWidth,
-        winHeight,
       }) => {
         const isFixed = isSectionInView && pctProgressSection < 100;
         return (

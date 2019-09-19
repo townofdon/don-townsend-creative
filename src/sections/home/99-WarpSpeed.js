@@ -40,13 +40,6 @@ const SectionWarpSpeed = () => {
     disableScrolling();
   };
 
-  // const pauseVideo = () => {
-  //   if (!refVideo || !refVideo.current) { return; }
-  //   // see: https://www.w3schools.com/tags/ref_av_dom.asp
-  //   refVideo.current.pause();
-  //   enableScrolling();
-  // };
-
   const reset = () => {
     setIsVideoPlaying(false);
     enableScrolling();
@@ -76,37 +69,32 @@ const SectionWarpSpeed = () => {
       className="color-md-white d-flex align-items-end justify-content-center"
       viewHeight={1}
       backgroundColor="transparent"
-      render={({
-        pctProgressSection,
-      }) => {
-        return (
-          <>
-            <VideoWarpSpeed
-              isPlaying={isVideoPlaying}
-              isShowingThanks={isShowingThanks && currentSection === 'warp-speed'}
-              refVideo={refVideo}
-              isRollingLeft={isRollingLeft}
-              isRollingRight={isRollingRight}
-            />
-            <div style={{ overflow: 'hidden' }}>
-              <div
-                className={cx('btn-hyperdrive-container', {
-                  hide: !isShowingButton || isShowingThanks,
-                  'cursor-pointer': !isVideoPlaying,
-                })}
-                onClick={handleGoToWarpSpeed}
-              >
-                <div class="btn-hyperdrive offline" />
-                <div class="btn-hyperdrive ready" />
-                <div class={cx('btn-hyperdrive active', {
-                  'd-none': !isVideoPlaying,
-                })} />
-              </div>
-            </div>
-          </>
-        );
-      }}
-    />
+    >
+      <>
+        <VideoWarpSpeed
+          isPlaying={isVideoPlaying}
+          isShowingThanks={isShowingThanks && currentSection === 'warp-speed'}
+          refVideo={refVideo}
+          isRollingLeft={isRollingLeft}
+          isRollingRight={isRollingRight}
+        />
+        <div style={{ overflow: 'hidden' }}>
+          <div
+            className={cx('btn-hyperdrive-container', {
+              hide: !isShowingButton || isShowingThanks,
+              'cursor-pointer': !isVideoPlaying,
+            })}
+            onClick={handleGoToWarpSpeed}
+          >
+            <div class="btn-hyperdrive offline" />
+            <div class="btn-hyperdrive ready" />
+            <div class={cx('btn-hyperdrive active', {
+              'd-none': !isVideoPlaying,
+            })} />
+          </div>
+        </div>
+      </>
+    </ScrollSection>
   );
 };
 
