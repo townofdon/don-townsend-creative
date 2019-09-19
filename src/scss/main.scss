@@ -7,6 +7,8 @@
 @import './barrel-roll.scss';
 
 // z-indexes
-#section-main {  z-index: 2; }
-#section-story { z-index: 1; }
+#section-main {  z-index: 7; }
+#section-story { z-index: 5; }
+#section-skillset-inventory { z-index: 6; }
+#section-portfolio { z-index: 4; }
 #section-warp-speed { z-index: 1; }

@@ -1,19 +1,16 @@
 
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import cx from 'classnames';
 
 import { timeDashboardWaitBeforeShow } from '../../globals/constants';
 import { urlLinkedIn, urlResume, urlGitHub } from '../../globals/urls';
 
-import disableScrolling from '../../utils/scroll/disable-scrolling';
-import enableScrolling from '../../utils/scroll/enable-scrolling';
 import scrollToSection from '../../utils/scroll/scroll-to-section';
 
 import ControlContext from '../../contexts/ControlContext';
 
 import DashboardBar from './DashboardBar';
 import DashboardItem from './DashboardItem';
-import VideoWarpSpeed from './VideoWarpSpeed';
 
 const DashboardWindow = () => {
   const [tooltip, setTooltip] = useState('');
@@ -21,55 +18,17 @@ const DashboardWindow = () => {
   const {
     currentSection,
     theme,
-    setTheme,
-    isVideoPlaying,
-    setIsVideoPlaying,
-    isShowingThanks,
     isShowingNavigation,
-    isRollingLeft,
-    isRollingRight,
-    setIsShowingThanks,
     setIsShowingNavigation,
     // setIsRollingRight,
     // setIsRollingLeft,
   } = useContext(ControlContext);
-  const refVideo = useRef(null);
-  const timeout = {
-    thanks: useRef(null),
-    reset: useRef(null),
-  };
 
   useEffect(() => {
     if (!isShowing) {
       setTimeout(() => { setIsShowing(true) }, timeDashboardWaitBeforeShow)
     }
   });
-
-  const playVideo = () => {
-    if (!refVideo || !refVideo.current) { return; }
-    // see: https://www.w3schools.com/tags/ref_av_dom.asp
-    refVideo.current.play();
-    setIsShowingThanks(false);
-    disableScrolling();
-  };
-
-  const pauseVideo = () => {
-    if (!refVideo || !refVideo.current) { return; }
-    // see: https://www.w3schools.com/tags/ref_av_dom.asp
-    refVideo.current.pause();
-    enableScrolling();
-  };
-
-  const reset = () => {
-    setIsVideoPlaying(false);
-    enableScrolling();
-  };
-
-  const sayThankYou = () => {
-    clearTimeout(timeout.reset.current);
-    setIsShowingThanks(true);
-    timeout.reset.current = setTimeout(() => { reset(); }, 5000);
-  };
 
   const handleClickHome = (ev) => {
     ev.preventDefault();
@@ -87,19 +46,6 @@ const DashboardWindow = () => {
     ev.preventDefault();
     setIsShowingNavigation(!isShowingNavigation);
   };
-
-  const handleGoToWarpSpeed = () => {
-    clearTimeout(timeout.thanks.current);
-    if (isVideoPlaying) {
-      setTheme('blue');
-      pauseVideo();
-      return;
-    }
-    setTheme('light');
-    setIsVideoPlaying(true);
-    timeout.thanks.current = setTimeout(() => { sayThankYou(); }, 13000);
-    playVideo();
-  }
 
   // const handleRollLeft = (ev) => {
   //   ev.preventDefault();
@@ -171,13 +117,6 @@ const DashboardWindow = () => {
 
   return (
     <>
-      <VideoWarpSpeed
-        isPlaying={isVideoPlaying}
-        isShowingThanks={isShowingThanks && currentSection === 'warp-speed'}
-        refVideo={refVideo}
-        isRollingLeft={isRollingLeft}
-        isRollingRight={isRollingRight}
-      />
       <DashboardBar
         isTop
         theme={theme}
@@ -255,7 +194,6 @@ const DashboardWindow = () => {
               </span>
             </DashboardItem>
             <DashboardItem
-              onClick={handleGoToWarpSpeed}
               className="pl-3 pr-4 button-panel-controls"
               title="Go To Warp"
             >

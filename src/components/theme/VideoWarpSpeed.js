@@ -29,15 +29,15 @@ const WarpSpeed = ({
         </video>
       </div>
       <div className={cx('fullscreen thanks align-items-center', {
-        'd-none': !isShowingThanks,
-        'd-flex': isShowingThanks,
+        'd-none': true || !isShowingThanks,
+        'd-block': isShowingThanks,
       })}>
-        <Container className="d-flex h-100 flex-column">
-          <div className="mt-auto pt-5 pb-5 mb-5">
+        <Container className="d-block h-100 w-100">
+          <div className="text">
             <h1 className="color-white">THE END</h1>
             <h2 className="color-white mb-5">Produced by Don Townsend</h2>
           </div>
-          <h4 className="color-white mb-5 pb-5">
+          <h4 className="color-white button">
             <button className="border border-white rounded btn btn-outline-light">
               INITIATE DOCKING PROCEDURE
             </button>

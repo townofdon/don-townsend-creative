@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { hideSplashScreen } from './utils/main';
-// import disableScrolling from './utils/scroll/disable-scrolling';
+import disableScrolling from './utils/scroll/disable-scrolling';
 import routes from './routes';
 
 import MainScrollCapture from './containers/scroll/MainScrollCapture';
@@ -19,7 +19,7 @@ function App() {
     window.onbeforeunload = function(){ window.scrollTo(0,0); }
     window.scrollTo(0, 0);
     // disable scrolling until splash screen is hidden
-    // disableScrolling();
+    disableScrolling();
     hideSplashScreen();
     // we want to prevent rendering child components
     // until the main app is initialized because positioning

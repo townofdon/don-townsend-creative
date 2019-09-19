@@ -25,4 +25,14 @@
 .thanks {
   position: relative;
   z-index: 4321;
+
+  .text {
+    padding-top: 13em;
+    padding-top: 30vh;
+  }
+
+  .button {
+    margin-top: 3em;
+    margin-top: 15vh;
+  }
 }
