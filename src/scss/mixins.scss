@@ -72,6 +72,10 @@
   @include transition(all $time ease-in-out);
 }
 
+@mixin ease-in-out-bezier($time) {
+  @include transition(all $time cubic-bezier(.75,.01,.25,1));
+}
+
 /**
  * calculates size relative to document root with px fallback
  */

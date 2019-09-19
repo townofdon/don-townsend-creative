@@ -1,19 +1,18 @@
 
 
-import React, { useState } from 'react';
+import React from 'react';
 import cx from 'classnames';
 
 import ScrollSection from '../../components/scroll/ScrollSection';
 import Container from '../../components/grid/Container';
 import DecoBottom from '../../components/decoration/DecoBottom';
-import PortfolioThumbnails from '../../components/portfolio/PortfolioThumbnails';
+import PortfolioItems from '../../components/portfolio/PortfolioItems';
 // import ScrollItem from '../../components/scroll/ScrollItem';
 // import BlurItem from '../../components/scroll/BlurItem';
 
 import './04-Portfolio.style.scss';
 
 const SectionPortfolio = () => {
-  const [selectedItem, setSelectedItem] = useState(null);
   return (
     <ScrollSection
       id="portfolio"
@@ -34,15 +33,6 @@ const SectionPortfolio = () => {
         winWidth,
         winHeight,
       }) => {
-        // const scrollItemProps = {
-        //   pctProgressStart: 100,
-        //   pctProgressEnd: 190,
-        //   pctProgressSection,
-        //   sectionWidth: width,
-        //   sectionHeight: height,
-        //   winWidth,
-        //   winHeight,
-        // };
         const isFixed = isSectionInView && pctProgressSection < 100;
         return (
           <div
@@ -57,9 +47,9 @@ const SectionPortfolio = () => {
               <h2 className="text-center text-uppercase letter-spacing-1 pb-5">
                 Portfolio
               </h2>
-
-              <PortfolioThumbnails setSelectedItem={setSelectedItem} />
-
+              <PortfolioItems />
+              <div className="pt-5" />
+              <div className="pt-lg-5" />
             </Container>
             <DecoBottom />
           </div>

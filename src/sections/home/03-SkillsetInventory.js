@@ -30,7 +30,7 @@ const SectionSkills = () => {
       id="skillset-inventory"
       theme="dark"
       backgroundColor="silver"
-      className="section-skillset-inventory"
+      className="section-skillset-inventory mb-3"
       classNameContent="w-100"
       viewHeight={1}
       scrollToOffset={200}

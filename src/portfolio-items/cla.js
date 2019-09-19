@@ -4,6 +4,8 @@ export default {
   name: 'Christian Light Academy',
   subHeading: 'Worldwide Homeschool Database App',
   img: '/img/pf-cla-lg.png',
+  imgWidth: 800,
+  imgHeight: 673,
   url: 'https://www.clp.org/',
   tags: [
     'React + Redux',
@@ -12,7 +14,7 @@ export default {
   ],
   paragraphs: [
     `
-    [Christian Light Publications](https://www.clp.org/) enlisted [Chiedo Labs](https://labs.chiedo.com) to rebuild their system for tracking student academic
+    Christian Light Publications enlisted Chiedo Labs (where I work) to rebuild their system for tracking student academic
     progress for home-school families. They needed the app to be accessible anywhere in the world,
     and they wanted it to be built using modern technologies.
     `,
@@ -46,14 +48,9 @@ export default {
         'Roles and Permissions',
         'PDF Generation',
         'Academic Data Analysis',
-        'Academic Data Entry',
         'Academic Projection',
-      ],
-    },
-    {
-      name: 'Languages',
-      items: [
-        'Javascript',
+        'Dynamic Forms',
+        'Validation',
       ],
     },
   ],

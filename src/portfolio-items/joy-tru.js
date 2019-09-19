@@ -4,6 +4,8 @@ export default {
   name: 'Joy Tru',
   subHeading: 'Singer/Songwriter from Roanoke, VA',
   img: '/img/pf-joytru-lg.png',
+  imgWidth: 800,
+  imgHeight: 673,
   url: 'http://joytruskowski.com/',
   paragraphs: [
     `
@@ -22,28 +24,23 @@ export default {
   credits: [],
   attributes: [
     {
-      name: 'Platform',
-      items: ['WordPress CMS'],
+      name: 'Technologies',
+      items: [
+        'WordPress',
+        'HTML5 + CSS3',
+        'PHP',
+        'JQuery',
+      ],
     },
     {
       name: 'Features',
       items: [
         'Slider',
         'Mobile Responsive Design',
-        'Embedded audio/video',
         'Masonry Gallery',
         'Events Manager',
         'Contact Form',
         'Blog',
-      ],
-    },
-    {
-      name: 'Languages',
-      items: [
-        'HTML5 + CSS3',
-        'PHP',
-        'Javascript',
-        'JQuery',
       ],
     },
   ],

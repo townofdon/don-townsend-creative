@@ -1,0 +1,68 @@
+
+@import '../../scss/vars.scss';
+@import '../../scss/mixins.scss';
+
+$pulseDuration: 2s;
+
+@include keyframes('button-hyperdrive-pulse') {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@mixin animatePulse() {
+  -webkit-animation-name: button-hyperdrive-pulse;
+  -webkit-animation-duration: $pulseDuration;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-name: button-hyperdrive-pulse;
+  animation-duration: $pulseDuration;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+$widthButtonHyperdrive: 150px;
+.btn-hyperdrive-container {
+  position: relative;
+  width: $widthButtonHyperdrive;
+  height: $widthButtonHyperdrive;
+  border-radius: 100%;
+
+  @include ease-in-out-bezier(1s);
+
+  &.hide {
+    
+    @include transform(translateY($widthButtonHyperdrive * 2) scale3d(1.2,0.8,1));
+  }
+}
+
+.btn-hyperdrive {
+  position: absolute;
+  width: $widthButtonHyperdrive;
+  height: $widthButtonHyperdrive;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 100%;
+  display: inline-block;
+  background-image: url('/img/btn-hyper-drive-sprite.png');
+  background-repeat: no-repeat;
+  background-position: -5px -165px;
+
+  &.offline {
+    background-position: -5px -165px;
+  }
+
+  &.ready {
+    background-position: -5px -325px;
+    opacity: 1;
+
+    @include animatePulse();
+  }
+
+  &.active {
+    background-position: -5px -5px;
+  }
+}
+

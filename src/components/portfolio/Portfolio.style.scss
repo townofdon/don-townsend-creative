@@ -1,0 +1,118 @@
+
+
+@import '../../scss/vars.scss';
+@import '../../scss/mixins.scss';
+
+$bgPortfolioItem: #dbdbdb;
+$bgPortfolioItemHover: rgba(245, 242, 220, 0.96);
+.section-portfolio .portfolio-item {
+  position: relative;
+  z-index: 7;
+
+  img {
+    position: relative;
+    z-index: 7;
+    height: auto;
+    max-width: 100%;
+  }
+
+  ul {
+    padding-left: 1.4em!important;
+  }
+
+  .bg {
+    background: $bgPortfolioItem;
+    fill: $bgPortfolioItem;
+  }
+
+  .titles {
+
+    @include respond($BREAKPOINT_DESKTOP) {
+      position: absolute;
+      z-index: 7;
+      top: 4.5%;
+      left: 4.5%;
+      right: 4.3%;
+      bottom: 30.1%;
+      border-radius: 2px;
+      background: $bgPortfolioItemHover;
+      opacity: 0;
+
+      @include ease-in-out(0.3s);
+    }
+  }
+
+  .info {
+
+    @include respond($BREAKPOINT_DESKTOP) {
+      position: absolute;
+      z-index: 1;
+      top: 0%;
+      bottom: 14.4%;
+      width: 50%;
+      background: $bgPortfolioItem;
+
+      @include ease-in-out-bezier(0.5s);
+    }
+  }
+}
+
+.portfolio-item-wrap {
+
+  @include hover() {
+
+    .titles {
+      opacity: 1;
+    }
+  }
+}
+
+.portfolio-item.even .portfolio-item-wrap {
+
+  .info {
+    left: 50%;
+  }
+
+  .info:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    width: 20px;
+    background-color: inherit;
+  }
+
+  @include hover() {
+
+    .info {
+      left: 100%;
+    }
+  }
+}
+
+.portfolio-item.odd .portfolio-item-wrap {
+
+  .info {
+    right: 50%;
+  }
+
+  .info:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    width: 20px;
+    background-color: inherit;
+  }
+
+  @include hover() {
+
+    .info {
+      right: 100%;
+    }
+  }
+}
+
+

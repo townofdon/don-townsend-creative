@@ -4,6 +4,8 @@ export default {
   name: 'Delaplane',
   subHeading: 'Acoustic Folk Band from Richmond, VA',
   img: '/img/pf-delaplane-lg.png',
+  imgWidth: 800,
+  imgHeight: 673,
   url: 'https://delaplanemusic.com/',
   paragraphs: [
     `
@@ -28,27 +30,21 @@ export default {
   ],
   attributes: [
     {
-      name: 'Platform',
-      items: ['WordPress CMS'],
+      name: 'Technologies',
+      items: [
+        'WordPress',
+        'SoundManager2 API',
+        'HTML5 + CSS3',
+        'PHP',
+        'JQuery',
+      ],
     },
     {
       name: 'Features',
       items: [
-        'Audio Player - SoundManager2 API',
-        'Full Page Background',
+        'Audio Player',
         'Minimalist Theme',
-        'Events Manager',
-        'Contact Form',
-        'Lightbox',
-      ],
-    },
-    {
-      name: 'Languages',
-      items: [
-        'HTML5 + CSS3',
-        'PHP',
-        'Javascript',
-        'JQuery',
+        'Photo Lightbox',
       ],
     },
   ],

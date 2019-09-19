@@ -4,6 +4,8 @@ export default {
   name: 'Fort Lewis Lodge',
   subHeading: 'Virginia Rural Retreat',
   img: '/img/pf-fortlewis-lg.png',
+  imgWidth: 800,
+  imgHeight: 673,
   url: 'http://www.fortlewislodge.com/',
   tags: [
     'WordPress',
@@ -37,8 +39,13 @@ export default {
   ],
   attributes: [
     {
-      name: 'Platform',
-      items: ['WordPress CMS'],
+      name: 'Technologies',
+      items: [
+        'WordPress CMS',
+        'HTML5 + CSS3',
+        'PHP',
+        'JQuery',
+      ],
     },
     {
       name: 'Features',
@@ -47,15 +54,6 @@ export default {
         'Custom WordPress Theme',
         'Lazy Image Loading',
         'Mobile Responsive',
-      ],
-    },
-    {
-      name: 'Languages',
-      items: [
-        'HTML5 + CSS3',
-        'PHP',
-        'Javascript',
-        'JQuery',
       ],
     },
   ],

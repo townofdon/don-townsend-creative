@@ -3,19 +3,19 @@
 // height and width are the same val.
 $heightDeco: 20px;
 $offsetDeco: 250px;
+
 .deco-top,
-.deco-bottom {
+.deco-bottom,
+.deco-left,
+.deco-right {
   position: absolute;
   z-index: 77;
-  left: 0;
-  right: 0;
 
   svg,
   .fill,
   .l-1-fill,
   .l-2-fill {
     position: absolute;
-    height: $heightDeco;
   }
 
   svg,
@@ -31,6 +31,22 @@ $offsetDeco: 250px;
   }
 }
 
+.deco-top,
+.deco-bottom {
+  left: 0;
+  right: 0;
+
+  svg,
+  .fill,
+  .l-1-fill,
+  .l-2-fill {
+    height: $heightDeco;
+  }
+}
+
+//
+// D E C O   T O P
+//
 .deco-top {
   bottom: 100%;
   height: $heightDeco * 2;
@@ -57,7 +73,7 @@ $offsetDeco: 250px;
 
   .l-1-fill {
     // left: $heightDeco;
-    // right: $heightDeco
+    // right: $heightDeco;
     left: 0;
     right: 0;
     bottom: 0;
@@ -70,6 +86,9 @@ $offsetDeco: 250px;
   }
 }
 
+//
+// D E C O   B O T T O M
+//
 .deco-bottom {
   top: 100%;
   height: $heightDeco;
@@ -88,5 +107,99 @@ $offsetDeco: 250px;
     left: $offsetDeco;
     right: $offsetDeco;
     bottom: 0;
+  }
+}
+
+$offsetDecoSide: 100px;
+.deco-left,
+.deco-right {
+  top: 0;
+  bottom: 0;
+
+  svg,
+  .fill,
+  .l-1-fill,
+  .l-2-fill {
+    width: $heightDeco;
+  }
+}
+
+//
+// D E C O   L E F T
+//
+.deco-left {
+  right: 100%;
+  width: $heightDeco * 2;
+
+  .l-1-tri-top {
+    right: 0;
+    top: 0;
+  }
+
+  .l-1-tri-bottom {
+    right: 0;
+    bottom: 0;
+  }
+
+  .l-2-tri-top {
+    right: $heightDeco;
+    top: $offsetDecoSide;
+  }
+
+  .l-2-tri-bottom {
+    right: $heightDeco;
+    bottom: $offsetDecoSide;
+  }
+
+  .l-1-fill {
+    top: $heightDeco;
+    bottom: $heightDeco;
+    right: 0;
+  }
+
+  .l-2-fill {
+    top: $heightDeco + $offsetDecoSide;
+    bottom: $heightDeco + $offsetDecoSide;
+    right: $heightDeco;
+  }
+}
+
+//
+// D E C O   R I G H T
+//
+.deco-right {
+  left: 100%;
+  width: $heightDeco * 2;
+
+  .l-1-tri-top {
+    left: 0;
+    top: 0;
+  }
+
+  .l-1-tri-bottom {
+    left: 0;
+    bottom: 0;
+  }
+
+  .l-2-tri-top {
+    left: $heightDeco;
+    top: $offsetDecoSide;
+  }
+
+  .l-2-tri-bottom {
+    left: $heightDeco;
+    bottom: $offsetDecoSide;
+  }
+
+  .l-1-fill {
+    top: $heightDeco;
+    bottom: $heightDeco;
+    left: 0;
+  }
+
+  .l-2-fill {
+    top: $heightDeco + $offsetDecoSide;
+    bottom: $heightDeco + $offsetDecoSide;
+    left: $heightDeco;
   }
 }
