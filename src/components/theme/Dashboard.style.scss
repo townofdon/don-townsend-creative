@@ -392,14 +392,7 @@
 // H Y P E R D R I V E   S T A T U S
 //
 .hyperdrive-status {
-  opacity: 1;
   text-shadow: none;
-
-  @include ease-in-out(0.3s);
-
-  .dashboard.transparent-theme & {
-    opacity: 0;
-  }
 }
 
 .text-hyperdrive-offline {

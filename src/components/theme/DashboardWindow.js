@@ -188,17 +188,11 @@ const DashboardWindow = () => {
             <DashboardItem
               className="hyperdrive-status pl-3 pr-4 button-panel-controls"
             >
+              <i className="fas fa-space-shuttle fa-rotate-270"></i>&nbsp;&nbsp;
               <small>HYPERDRIVE STATUS:&nbsp;&nbsp;</small>
               <span className={cx(getHyperDriveStatusClass())}>
                 {getHyperdriveStatusText()}
               </span>
-            </DashboardItem>
-            <DashboardItem
-              className="pl-3 pr-4 button-panel-controls"
-              title="Go To Warp"
-            >
-              <i className="fas fa-space-shuttle fa-rotate-270"></i>&nbsp;&nbsp;
-              <strong>CONTROLS</strong>
             </DashboardItem>
           </ul>
         )}

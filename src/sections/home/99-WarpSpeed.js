@@ -1,6 +1,6 @@
 
 
-import React, { useContext, useRef } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import cx from 'classnames';
 
 import disableScrolling from '../../utils/scroll/disable-scrolling';
@@ -24,10 +24,12 @@ const SectionWarpSpeed = () => {
     setIsShowingThanks,
   } = useContext(ControlContext);
 
+  const [isShowingButton, setIsShowingButton] = useState(true);
   const refVideo = useRef(null);
   const timeout = {
     thanks: useRef(null),
     reset: useRef(null),
+    button: useRef(null),
   };
 
   const playVideo = () => {
@@ -38,12 +40,12 @@ const SectionWarpSpeed = () => {
     disableScrolling();
   };
 
-  const pauseVideo = () => {
-    if (!refVideo || !refVideo.current) { return; }
-    // see: https://www.w3schools.com/tags/ref_av_dom.asp
-    refVideo.current.pause();
-    enableScrolling();
-  };
+  // const pauseVideo = () => {
+  //   if (!refVideo || !refVideo.current) { return; }
+  //   // see: https://www.w3schools.com/tags/ref_av_dom.asp
+  //   refVideo.current.pause();
+  //   enableScrolling();
+  // };
 
   const reset = () => {
     setIsVideoPlaying(false);
@@ -57,15 +59,13 @@ const SectionWarpSpeed = () => {
   };
 
   const handleGoToWarpSpeed = () => {
-    clearTimeout(timeout.thanks.current);
     if (isVideoPlaying) {
-      setTheme('blue');
-      pauseVideo();
       return;
     }
     setTheme('light');
     setIsVideoPlaying(true);
-    timeout.thanks.current = setTimeout(() => { sayThankYou(); }, 13000);
+    timeout.thanks.current = setTimeout(() => { sayThankYou(); }, 12000);
+    timeout.button.current = setTimeout(() => { setIsShowingButton(false); }, 2400);
     playVideo();
   }
 
@@ -80,7 +80,7 @@ const SectionWarpSpeed = () => {
         pctProgressSection,
       }) => {
         return (
-          <div style={{ overflow: 'hidden' }}>
+          <>
             <VideoWarpSpeed
               isPlaying={isVideoPlaying}
               isShowingThanks={isShowingThanks && currentSection === 'warp-speed'}
@@ -88,20 +88,22 @@ const SectionWarpSpeed = () => {
               isRollingLeft={isRollingLeft}
               isRollingRight={isRollingRight}
             />
-            <div
-              className={cx('btn-hyperdrive-container', {
-                hide: isShowingThanks,
-                'cursor-pointer': !isVideoPlaying,
-              })}
-              onClick={handleGoToWarpSpeed}
-            >
-              <div class="btn-hyperdrive offline" />
-              <div class="btn-hyperdrive ready" />
-              <div class={cx('btn-hyperdrive active', {
-                'd-none': !isVideoPlaying,
-              })} />
+            <div style={{ overflow: 'hidden' }}>
+              <div
+                className={cx('btn-hyperdrive-container', {
+                  hide: !isShowingButton || isShowingThanks,
+                  'cursor-pointer': !isVideoPlaying,
+                })}
+                onClick={handleGoToWarpSpeed}
+              >
+                <div class="btn-hyperdrive offline" />
+                <div class="btn-hyperdrive ready" />
+                <div class={cx('btn-hyperdrive active', {
+                  'd-none': !isVideoPlaying,
+                })} />
+              </div>
             </div>
-          </div>
+          </>
         );
       }}
     />

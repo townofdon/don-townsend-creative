@@ -1,8 +1,9 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 
 import Container from '../grid/Container';
+import ContactPanel from '../contact/ContactPanel';
 
 import './VideoWarpSpeed.style.scss';
 
@@ -13,6 +14,11 @@ const WarpSpeed = ({
   isRollingRight,
   isRollingLeft,
 }) => {
+  const [isShowingContact, setIsShowingContact] = useState(false);
+  const handleDocking = (ev) => {
+    ev.preventDefault();
+    setIsShowingContact(true);
+  };
   return (
     <>
       <div className="video-contain">
@@ -38,12 +44,16 @@ const WarpSpeed = ({
             <h2 className="color-white mb-5">Produced by Don Townsend</h2>
           </div>
           <h4 className="color-white button">
-            <button className="border border-white rounded btn btn-outline-light">
+            <button
+              className="border border-white rounded btn btn-outline-light px-4 py-2"
+              onClick={handleDocking}
+            >
               INITIATE DOCKING PROCEDURE
             </button>
           </h4>
         </Container>
       </div>
+      <ContactPanel isShowing={isShowingContact} setIsShowing={setIsShowingContact} />
     </>
   );
 };

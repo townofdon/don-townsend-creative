@@ -74,7 +74,7 @@ const NavigationPanel = () => {
           Skillset Inventory
         </Item>
         <Item sectionId="portfolio">
-          View Mission Log
+          Portfolio
         </Item>
         <Item sectionId="warp-speed">
           Go To Warp&nbsp;&nbsp;<span className="icon-space-shuttle"></span>

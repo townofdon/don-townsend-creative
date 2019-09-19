@@ -22,7 +22,7 @@ $dashboardTimeTransition: 500ms;
 $themeLightColorBg: rgba(0,0,0,0.7);
 $themeLightColorFg: #fefefe;
 
-$themeTransColorBg: transparent;
+$themeTransColorBg: rgba(0,0,0,0.3);
 $themeTransColorBgButton: rgba(255, 255, 255, 0.5);
 $themeTransColorFg: #fefefe;
 
@@ -33,6 +33,7 @@ $themeSilverColorBg: transparentize($colorSilver, 0.2);
 $themeSilverColorFg: #fff;
 
 $themeBlueColorBg: rgba(52, 128, 177, 0.57);
+$themeBlueColorBg: rgba(45, 88, 115, 0.57);
 $themeBlueColorFg: #c8e9f7;
 $themeBlueColorFgShadow: rgba(202, 235, 255, 0.81);
 
