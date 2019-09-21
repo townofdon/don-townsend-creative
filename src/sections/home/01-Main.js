@@ -115,7 +115,7 @@ const SectionMain = () => {
               <div className="over-fullscreen">
                 <div className="main-title-01-nudge-right">
                   <h2
-                    className="main-title-01 d-inline-block mb-5"
+                    className="main-title-01 d-inline-block mb-2 mb-md-5"
                   >
                     <ScrollItem
                       startPercentLeft={20}
@@ -151,7 +151,9 @@ const SectionMain = () => {
                   className="main-title-03 mb-5"
                 >
                   <span className="the-reveal">
-                    Full-Stack Web&nbsp;
+                    Full-Stack
+                    <br className="d-md-none" />
+                    Web&nbsp;
                   </span>
                   <ScrollItem
                     startOffsetLeft={-6}

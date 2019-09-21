@@ -182,6 +182,8 @@
   ul {
     line-height: 40px;
     color: inherit;
+    margin: 0;
+    padding: 0;
   }
 
   .inner {
@@ -191,13 +193,21 @@
   }
 
   > .left > .inner {
-    margin-right: 140px;
+    margin-right: $dashOffsetMob;
+
+    @include respond($BREAKPOINT_TABLET) {
+      margin-right: $dashOffsetDesk;
+    }
 
     @include prefix((border-top-right-radius: 2px), webkit moz);
   }
 
   > .right > .inner {
-    margin-left: 140px;
+    margin-left: $dashOffsetMob;
+
+    @include respond($BREAKPOINT_TABLET) {
+      margin-left: $dashOffsetDesk;
+    }
 
     @include prefix((border-top-right-radius: 2px), webkit moz);
   }

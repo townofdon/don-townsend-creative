@@ -30,7 +30,7 @@ const DashboardBar = ({
         <div className="inner bg">
           {right}
           <div className="diagonal bg" />
-          <div className={cx('tooltip p-2', { show: !!tooltip })}>
+          <div className={cx('tooltip p-2 d-none d-md-block', { show: !!tooltip })}>
             &nbsp;{tooltip}
           </div>
         </div>

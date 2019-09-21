@@ -115,6 +115,9 @@ const DashboardWindow = () => {
     }
   };
 
+  const cxLeft = 'd-flex justify-content-center justify-content-md-start pl-2 pl-md-4 pl-lg-5 text-center text-md-left';
+  const cxRight = 'd-flex justify-content-center justify-content-md-end pr-2 pr-md-4 pr-lg-5 text-center text-md-right';
+
   return (
     <>
       <DashboardBar
@@ -122,28 +125,34 @@ const DashboardWindow = () => {
         theme={theme}
         isShowing={isShowing}
         left={(
-          <ul>
+          <ul className={cxLeft}>
             <DashboardItem
               className="text-uppercase color-bg-transparent"
               onClick={handleClickHome}
             >
               <strong>
-                Don Townsend
+                <span>D</span>
+                <span className="d-none d-lg-inline">on</span>
+                <span>&nbsp;</span>
+                <span>T</span>
+                <span className="d-none d-lg-inline">ownsend</span>
               </strong>
             </DashboardItem>
             <DashboardItem>
-              &bull;
+              <span className="d-none d-md-inline">
+                &bull;
+              </span>
             </DashboardItem>
             <DashboardItem
               className="text-uppercase color-bg-transparent"
               onClick={handleClickPortfolio}
             >
-              Portfolio
+              <span className="d-none d-md-inline">Portfolio</span>
             </DashboardItem>
           </ul>
         )}
         right={(
-          <ul className="text-right pr-2 pr-md-4 pr-lg-5">
+          <ul className={cxRight}>
             <DashboardItem
               href={urlResume}
               alt="Download Resume"
@@ -173,20 +182,26 @@ const DashboardWindow = () => {
         theme={theme}
         isShowing={isShowing}
         left={(
-          <ul className="d-flex justify-content-start">
+          <ul className={cxLeft}>
             <DashboardItem
               onClick={handleToggleNavigation}
               className="px-4 button-panel-navigation"
             >
-              <strong>NAVIGATION</strong>
-              &nbsp;&nbsp;<i className="icon-atom"></i>
+              <strong>
+                <span className="d-none d-md-inline">NAV</span>
+                <span className="d-none d-lg-inline">IGATION</span>
+              </strong>
+              <span className="d-none d-lg-inline">
+                &nbsp;&nbsp;
+              </span>
+              <i className="icon-atom"></i>
             </DashboardItem>
           </ul>
         )}
         right={(
-          <ul className="d-flex justify-content-end pl-0 pr-2 pr-md-4 pr-md-5">
+          <ul className={cxRight}>
             <DashboardItem
-              className="hyperdrive-status pl-3 pr-4 button-panel-controls"
+              className="hyperdrive-status button-panel-controls"
             >
               <i className="fas fa-space-shuttle fa-rotate-270"></i>&nbsp;&nbsp;
               <small>HYPERDRIVE STATUS:&nbsp;&nbsp;</small>
