@@ -3,15 +3,14 @@
 @import '../../scss/mixins.scss';
 
 $navPanelOffset: 5px;
-$rightOffset: 140px;
+$dashOffsetDesk: 140px;
 $dashboardHeight: 40px;
 
 .navigation-panel {
   position: fixed;
   z-index: 7777;
 
-  padding-right: $rightOffset!important;
-  width: calc(50% - 5px);
+  width: calc(100% - 20px);
 
   bottom: $dashboardHeight + $navPanelOffset;
   left: $navPanelOffset;
@@ -19,7 +18,14 @@ $dashboardHeight: 40px;
 
   // ease-out
   @include transition(transform 0.5s cubic-bezier(.84,.09,.91,.71));
-  @include transform(translate(0, 50vh));
+  @include transform(translate(0, 75vh));
+
+  @include respond($BREAKPOINT_TABLET) {
+    padding-right: $dashOffsetDesk!important;
+    width: calc(50% - 5px);
+
+    @include transform(translate(0, 50vh));
+  }
 
   &.showing {
     // ease-in
@@ -39,9 +45,12 @@ $dashboardHeight: 40px;
   }
 
   .bg-position {
-    margin-right: $rightOffset;
     border-radius: 2px;
     border-top-right-radius: 0;
+
+    @include respond($BREAKPOINT_TABLET) {
+      margin-right: $dashOffsetDesk!important;
+    }
   }
 
   .inner {
@@ -89,9 +98,13 @@ $dashboardHeight: 40px;
 .navigation-panel .svg-top {
   position: absolute;
   left: 0;
-  right: $rightOffset;
+  right: 0;
   bottom: 100%;
   height: 20px;
+
+  @include respond($BREAKPOINT_TABLET) {
+    right: $dashOffsetDesk;
+  }
 
   .tri-left {
     position: absolute;
@@ -141,10 +154,14 @@ $dashboardHeight: 40px;
 
 .navigation-panel .svg-right {
   position: absolute;
-  left: calc(100% - 140px);
+  left: 100%;
   top: 0;
   bottom: 30px;
   width: 20px;
+
+  @include respond($BREAKPOINT_TABLET) {
+    left: calc(100% - #{$dashOffsetDesk});
+  }
 
   .tri {
     position: absolute;

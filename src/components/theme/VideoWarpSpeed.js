@@ -31,7 +31,7 @@ const WarpSpeed = ({
           })}
           ref={refVideo}
         >
-          <source src="/vid/demo-entering-hyperspace-2.mp4" type="video/mp4" />
+          <source src="/vid/entering-hyperspace.mp4" type="video/mp4" />
         </video>
       </div>
       <div className={cx('fullscreen thanks align-items-center', {

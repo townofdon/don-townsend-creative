@@ -1,8 +1,12 @@
 
+@import '../../scss/vars.scss';
+@import '../../scss/mixins.scss';
+
 // since the viewboxes are square, both
 // height and width are the same val.
 $heightDeco: 20px;
 $offsetDeco: 250px;
+$offsetDecoMob: 75px;
 
 .deco-top,
 .deco-bottom,
@@ -62,13 +66,21 @@ $offsetDeco: 250px;
   }
 
   .l-2-tri-left {
-    left: $offsetDeco - $heightDeco;
+    left: $offsetDecoMob - $heightDeco;
     bottom: $heightDeco;
+
+    @include respond($BREAKPOINT_TABLET) {
+      left: $offsetDeco - $heightDeco;
+    }
   }
 
   .l-2-tri-right {
-    right: $offsetDeco - $heightDeco;
+    right: $offsetDecoMob - $heightDeco;
     bottom: $heightDeco;
+
+    @include respond($BREAKPOINT_TABLET) {
+      right: $offsetDeco - $heightDeco;
+    }
   }
 
   .l-1-fill {
@@ -80,9 +92,14 @@ $offsetDeco: 250px;
   }
 
   .l-2-fill {
-    left: $offsetDeco;
-    right: $offsetDeco;
+    left: $offsetDecoMob;
+    right: $offsetDecoMob;
     bottom: $heightDeco;
+
+    @include respond($BREAKPOINT_TABLET) {
+      left: $offsetDeco;
+      right: $offsetDeco;
+    }
   }
 }
 
@@ -94,19 +111,32 @@ $offsetDeco: 250px;
   height: $heightDeco;
 
   .tri-left {
-    left: $offsetDeco - $heightDeco;
+    left: $offsetDecoMob - $heightDeco;
     bottom: 0;
+
+    @include respond($BREAKPOINT_TABLET) {
+      left: $offsetDeco - $heightDeco;
+    }
   }
 
   .tri-right {
-    right: $offsetDeco - $heightDeco;
+    right: $offsetDecoMob - $heightDeco;
     bottom: 0;
+
+    @include respond($BREAKPOINT_TABLET) {
+      right: $offsetDeco - $heightDeco;
+    }
   }
 
   .fill {
-    left: $offsetDeco;
-    right: $offsetDeco;
+    left: $offsetDecoMob;
+    right: $offsetDecoMob;
     bottom: 0;
+
+    @include respond($BREAKPOINT_TABLET) {
+      left: $offsetDeco;
+      right: $offsetDeco;
+    }
   }
 }
 

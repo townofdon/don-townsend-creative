@@ -80,15 +80,15 @@ const SectionWarpSpeed = () => {
         />
         <div style={{ overflow: 'hidden' }}>
           <div
-            className={cx('btn-hyperdrive-container', {
+            className={cx('btn-hyperdrive-container mb-4 mb-md-0', {
               hide: !isShowingButton || isShowingThanks,
               'cursor-pointer': !isVideoPlaying,
             })}
             onClick={handleGoToWarpSpeed}
           >
-            <div class="btn-hyperdrive offline" />
-            <div class="btn-hyperdrive ready" />
-            <div class={cx('btn-hyperdrive active', {
+            <div className="btn-hyperdrive offline" />
+            <div className="btn-hyperdrive ready" />
+            <div className={cx('btn-hyperdrive active', {
               'd-none': !isVideoPlaying,
             })} />
           </div>

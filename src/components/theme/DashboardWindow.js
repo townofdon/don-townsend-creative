@@ -115,8 +115,23 @@ const DashboardWindow = () => {
     }
   };
 
-  const cxLeft = 'd-flex justify-content-center justify-content-md-start pl-2 pl-md-4 pl-lg-5 text-center text-md-left';
-  const cxRight = 'd-flex justify-content-center justify-content-md-end pr-2 pr-md-4 pr-lg-5 text-center text-md-right';
+  const getHyperDriveIndicatorLightClass = () => {
+    switch (getHyperdriveStatusText()) {
+      case 'engaged':
+        return 'status-purple';
+      case 'online':
+      case 'ready':
+        return 'status-green';
+      case 'powering up':
+        return 'status-yellow';
+      case 'offline':
+      default:
+        return 'status-red';
+    }
+  };
+
+  const cxLeft = 'd-flex justify-content-start pl-2 pl-md-4 pl-lg-5 text-left';
+  const cxRight = 'd-flex justify-content-end pr-2 pr-md-4 pr-lg-5 text-right';
 
   return (
     <>
@@ -154,6 +169,7 @@ const DashboardWindow = () => {
         right={(
           <ul className={cxRight}>
             <DashboardItem
+              classNameListItem="mr-3 mr-md-0"
               href={urlResume}
               alt="Download Resume"
               setTooltip={setTooltip}
@@ -161,6 +177,7 @@ const DashboardWindow = () => {
               <i className="fas fa-user-astronaut"></i>
             </DashboardItem>
             <DashboardItem
+              classNameListItem="d-none d-md-inline-block"
               href={urlGitHub}
               alt="GitHub"
               setTooltip={setTooltip}
@@ -191,7 +208,7 @@ const DashboardWindow = () => {
                 <span className="d-none d-md-inline">NAV</span>
                 <span className="d-none d-lg-inline">IGATION</span>
               </strong>
-              <span className="d-none d-lg-inline">
+              <span className="d-none d-md-inline">
                 &nbsp;&nbsp;
               </span>
               <i className="icon-atom"></i>
@@ -203,11 +220,18 @@ const DashboardWindow = () => {
             <DashboardItem
               className="hyperdrive-status button-panel-controls"
             >
-              <i className="fas fa-space-shuttle fa-rotate-270"></i>&nbsp;&nbsp;
-              <small>HYPERDRIVE STATUS:&nbsp;&nbsp;</small>
-              <span className={cx(getHyperDriveStatusClass())}>
+              <i className="fas fa-space-shuttle fa-rotate-270"></i>
+              &nbsp;
+              <small className="d-none d-md-inline">&nbsp;</small>
+              <small className="d-none d-md-inline">HYPERDRIVE STATUS:&nbsp;&nbsp;</small>
+              <span className={cx('d-none d-md-inline', getHyperDriveStatusClass())}>
                 {getHyperdriveStatusText()}
               </span>
+            </DashboardItem>
+            <DashboardItem
+              classNameListItem="d-inline-flex d-md-none align-items-center justify-content-center"
+            >
+              <span className={cx('hyperdrive-status-indicator-light', getHyperDriveIndicatorLightClass())} />
             </DashboardItem>
           </ul>
         )}

@@ -24,13 +24,13 @@ const ContactPanel = ({
           setIsShowing(false);
         }}
       >
-        <i class="fas fa-times"></i>
+        <i className="fas fa-times"></i>
       </div>
       <div className="text-left">
 
         <div className="py-3" />
 
-        <h5 className="mb-5">
+        <h5 className="mb-0 mb-md-5 text-center text-md-left">
           <strong>
             Don Townsend
           </strong>
@@ -43,7 +43,7 @@ const ContactPanel = ({
         <div className="py-4" />
 
         <p className="mb-4">
-          <Link className="btn btn-light" href={urlEmail}>
+          <Link className="btn btn-light w-100" href={urlEmail}>
             <i className="icon-envelope"></i>
             &nbsp;
             donald.k.townsend@gmail.com
@@ -51,7 +51,7 @@ const ContactPanel = ({
         </p>
 
         <p className="mb-4">
-          <Link className="btn btn-light" href={urlLinkedIn}>
+          <Link className="btn btn-light w-100" href={urlLinkedIn}>
             <i className="fab fa-linkedin-in"></i>
             &nbsp;
             View LinkedIn Profile
@@ -59,7 +59,7 @@ const ContactPanel = ({
         </p>
 
         <p className="mb-4">
-          <Link className="btn btn-light" href={urlGitHub}>
+          <Link className="btn btn-light w-100" href={urlGitHub}>
             <i className="icon-github"></i>
             &nbsp;
             View GitHub Profile
@@ -67,7 +67,7 @@ const ContactPanel = ({
         </p>
 
         <p className="mb-5">
-          <Link className="btn btn-light" href={urlResume}>
+          <Link className="btn btn-light w-100" href={urlResume}>
             <i className="fas fa-user-astronaut"></i>
             &nbsp;
             Download Resume
@@ -75,7 +75,7 @@ const ContactPanel = ({
         </p>
 
         <p className="pt-3">
-          <Link className="btn btn-dark color-white" href={urlSource}>
+          <Link className="btn btn-dark color-white w-100" href={urlSource}>
             <strong>
               <i className="icon-space-invaders"></i>
               &nbsp;

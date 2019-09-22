@@ -95,7 +95,7 @@ const SectionMain = () => {
           pctProgressSection,
         };
         return (
-          <div className={cx('section-main d-flex text-center align-items-center justify-content-center', {
+          <div className={cx('section-main d-flex text-center align-items-start align-items-md-center justify-content-center', {
             fullscreen: isSectionInView,
             'show-the-reveal': pctProgressSection >= pctProgressEnd,
             'color-white': pctProgressSection >= pctProgressEnd,
@@ -114,8 +114,9 @@ const SectionMain = () => {
             >
               <div className="over-fullscreen">
                 <div className="main-title-01-nudge-right">
+                  <div className="pt-5 pb-5 mt-md-0 mb-md-0" />
                   <h2
-                    className="main-title-01 d-inline-block mb-2 mb-md-5"
+                    className="main-title-01 d-block d-md-inline-block mb-0 mb-md-5"
                   >
                     <ScrollItem
                       startPercentLeft={20}
@@ -127,11 +128,14 @@ const SectionMain = () => {
                     >
                       D
                     </ScrollItem>
-                    <span className="the-reveal">ON&nbsp;</span>
+                    <span className="the-reveal">
+                      ON
+                      <span className="d-none d-md-inline">&nbsp;</span>
+                    </span>
                   </h2>
 
                   <h2
-                    className="main-title-02 d-inline-block mb-5"
+                    className="main-title-02 d-block d-md-inline-block mb-4 mb-md-5"
                   >
                     <ScrollItem
                       startPercentLeft={80}
@@ -148,7 +152,7 @@ const SectionMain = () => {
                 </div>
 
                 <h3
-                  className="main-title-03 mb-5"
+                  className="main-title-03 mb-4 mb-md-5"
                 >
                   <span className="the-reveal">
                     Full-Stack

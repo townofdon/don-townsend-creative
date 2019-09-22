@@ -418,3 +418,32 @@
 .text-hyperdrive-engaged {
   color: #a728a3;
 }
+
+//
+// H Y P E R D R I V E   I N D I C A T O R   L I G H T   ( M O B I L E )
+//
+.hyperdrive-status-indicator-light {
+  background-image: url('/img/img-hyperdrive-status-sprite.png');
+  background-repeat: no-repeat;
+  display: block;
+  width: 27px;
+  height: 30px;
+  // default to red
+  background-position: -5px -85px;
+
+  &.status-green {
+    background-position: -5px -5px;
+  }
+
+  &.status-yellow {
+    background-position: -5px -125px;
+  }
+
+  &.status-red {
+    background-position: -5px -85px;
+  }
+
+  &.status-purple {
+    background-position: -5px -45px;
+  }
+}

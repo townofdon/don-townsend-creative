@@ -9,6 +9,7 @@ import './NavigationPanel.style.scss';
 
 const Item = ({
   children,
+  className,
   sectionId,
 }) => {
   const {
@@ -23,7 +24,7 @@ const Item = ({
     }
   };
   return (
-    <p className="nav-panel-item">
+    <p className={cx('nav-panel-item', className)}>
       <button
         className="btn-link"
         onClick={handleClick}
@@ -67,7 +68,7 @@ const NavigationPanel = () => {
       </div>
       <div className="fill-absolute bg bg-position" />
       <div className="inner p-4">
-        <Item sectionId="story">
+        <Item sectionId="story" className="d-none d-md-block">
           Coding Philosophy
         </Item>
         <Item sectionId="skillset-inventory">

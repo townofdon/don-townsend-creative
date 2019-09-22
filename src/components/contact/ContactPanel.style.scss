@@ -29,8 +29,13 @@ $bgContact: lighten($colorSilver, 15%);
 
   .close {
     position: absolute;
-    top: 100px;
-    right: 100px;
+    top: 55px;
+    right: 25px;
     cursor: pointer;
+
+    @include respond($BREAKPOINT_TABLET) {
+      top: 100px;
+      right: 100px;
+    }
   }
 }

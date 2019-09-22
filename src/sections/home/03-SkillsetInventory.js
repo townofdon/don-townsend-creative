@@ -37,14 +37,14 @@ const SectionSkills = () => {
         </h2>
         <div className="pb-5" />
         <Row className="pb-4 pb-lg-5 mb-lg-5">
-          <Col cx={12} md>
+          <Col xs={12} md>
             <Skill percentage={90}>Javascript</Skill>
             <Skill percentage={98}>React</Skill>
             <Skill percentage={92}>Redux</Skill>
             <Skill percentage={97}>Node.js</Skill>
             <Skill percentage={80}>Ruby On Rails</Skill>
           </Col>
-          <Col cx={12} md>
+          <Col xs={12} md>
             <Skill percentage={95}>Git</Skill>
             <Skill percentage={82}>Mocha + Jest Unit Testing</Skill>
             <Skill percentage={81}>WordPress + PHP</Skill>

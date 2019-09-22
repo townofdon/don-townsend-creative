@@ -14,7 +14,7 @@ const SectionMain = () => {
     <ScrollSection
       id="story"
       theme="transparent"
-      className="color-bg-black color-white"
+      className="color-bg-black color-white d-none d-md-block"
       backgroundColor="#000"
       viewHeight={4}
       scrollToOffset={800}
