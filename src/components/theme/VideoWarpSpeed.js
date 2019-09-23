@@ -32,7 +32,7 @@ const WarpSpeed = ({
           ref={refVideo}
           // required to comply with IOS standards
           // see: https://webkit.org/blog/6784/new-video-policies-for-ios/
-          playsinline
+          playsInline
         >
           <source src="/vid/entering-hyperspace.mp4" type="video/mp4" />
         </video>
