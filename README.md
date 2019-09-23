@@ -22,6 +22,19 @@ I have a strong committment to User Experience (UX). I believe that
 websites and apps should be highly intuitive and not require a lot of
 🤔.
 
+### Known Issues
+
+This is a demo. There were some known issues that, for the sake of brevity and getting my portfolio live, I let live to be squashed another day:
+
+- Items not repositioned properly on screen resize
+  - Re-calculating DOM elements proved to be much more of a :bear: of a task than I realized.
+  - 95% of users never re-size their screen or open dev-tools anyways
+  - So I just removed the onResize event handler
+- The Video was giving me all sorts of trouble to get the sizing exactly right, so I just slapped a max-height or max-width depending on the media query.
+- The main text after the splash screen jerks around if the user scrolls too fast. I suppose I could disable scrolling temporarily but when I user-tested this site with my friends, they _all_ scrolled slowly. Usually it's just me scrolling fast while working on the site (trying to get to the nesxt section).
+
+
+
 
 
 ---
