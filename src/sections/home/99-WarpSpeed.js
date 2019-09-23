@@ -1,6 +1,6 @@
 
 
-import React, { useState, useContext, useRef } from 'react';
+import React, { useState, useContext, useRef, useEffect, useCallback } from 'react';
 import cx from 'classnames';
 
 import disableScrolling from '../../utils/scroll/disable-scrolling';
@@ -32,12 +32,15 @@ const SectionWarpSpeed = () => {
     button: useRef(null),
   };
 
+  const pauseVideo = () => {
+    if (!refVideo || !refVideo.current) { return; }
+    refVideo.current.pause();
+  };
+
   const playVideo = () => {
     if (!refVideo || !refVideo.current) { return; }
     // see: https://www.w3schools.com/tags/ref_av_dom.asp
     refVideo.current.play();
-    setIsShowingThanks(false);
-    disableScrolling();
   };
 
   const reset = () => {
@@ -60,7 +63,22 @@ const SectionWarpSpeed = () => {
     timeout.thanks.current = setTimeout(() => { sayThankYou(); }, 12000);
     timeout.button.current = setTimeout(() => { setIsShowingButton(false); }, 2400);
     playVideo();
+    setIsShowingThanks(false);
+    disableScrolling();
   }
+
+  const guaranteeVideoIsShowingOnPageLoad = useCallback(() => {
+    // play video for 0.1s to guarantee that the initial frame is
+    // visible on ios devices
+    playVideo();
+    setTimeout(() => {
+      pauseVideo();
+    }, 100);
+  }, []);
+
+  useEffect(() => {
+    guaranteeVideoIsShowingOnPageLoad();
+  }, [guaranteeVideoIsShowingOnPageLoad])
 
   return (
     <ScrollSection
