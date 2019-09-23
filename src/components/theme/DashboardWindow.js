@@ -229,8 +229,10 @@ const DashboardWindow = () => {
               </span>
             </DashboardItem>
             <DashboardItem
-              classNameListItem="d-inline-flex d-md-none align-items-center justify-content-center"
-              className="d-inline-block"
+              classNameListItem=""
+              className="d-flex align-items-center h-100"
+              styleListItem={{ height: 40 }}
+              style={{ height: 40 }}
             >
               <span className={cx('hyperdrive-status-indicator-light', getHyperDriveIndicatorLightClass())} />
             </DashboardItem>

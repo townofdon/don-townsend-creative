@@ -8,11 +8,13 @@ const DashboardItem = ({
   children,
   className = '',
   classNameListItem = '',
+  styleListItem,
+  style,
   alt,
   download = false,
   setTooltip = () => {},
 }) => (
-  <li className={cx(classNameListItem)}>
+  <li className={cx(classNameListItem)} style={styleListItem}>
     {(typeof onClick === 'function' || href) ? (
       <a
         onClick={(ev) => {
@@ -33,11 +35,12 @@ const DashboardItem = ({
         onMouseLeave={() => {
           if (alt) { setTooltip(''); }
         }}
+        style={style}
       >
         {children}
       </a>
     ) : (
-      <span className={cx(className)}>
+      <span className={cx(className)} style={style}>
         {children}
       </span>
     )}

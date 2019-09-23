@@ -12,3 +12,7 @@
 #section-skillset-inventory { z-index: 8; }
 #section-portfolio { z-index: 4; }
 #section-warp-speed { z-index: 1; }
+
+
+// hack - guarantee last section can get scrolled to
+#section-warp-speed { min-height: 101vh; }

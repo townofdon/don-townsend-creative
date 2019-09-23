@@ -69,15 +69,17 @@ const SectionWarpSpeed = () => {
       className="color-md-white d-flex align-items-end justify-content-center"
       viewHeight={1}
       backgroundColor="transparent"
-    >
-      <>
+      before={(
         <VideoWarpSpeed
           isPlaying={isVideoPlaying}
-          isShowingThanks={isShowingThanks && currentSection === 'warp-speed'}
+          isShowingThanks={isShowingThanks && (currentSection === 'warp-speed')}
           refVideo={refVideo}
           isRollingLeft={isRollingLeft}
           isRollingRight={isRollingRight}
         />
+      )}
+    >
+      <>
         <div style={{ overflow: 'hidden' }}>
           <div
             className={cx('btn-hyperdrive-container mb-4 mb-md-0', {

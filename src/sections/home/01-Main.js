@@ -27,9 +27,6 @@ const SectionMain = () => {
   }, []);
   useEffect(() => {
     const handleWheel = (ev) => {
-      const winWidth = window.innerWidth;
-      // disable for mobile devices
-      if (winWidth < 768) { return; }
       if (isScrolling) { return; }
       // only trigger scroll-to-next-section if near top of page
       if (window.scrollY > 200) { return; }

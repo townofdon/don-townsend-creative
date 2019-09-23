@@ -2,28 +2,24 @@
 @import '../../scss/vars.scss';
 @import '../../scss/mixins.scss';
 
-.video-contain {
-    position: fixed;
-    top: -50%;
-    left: -105%;
-    width: 200%;
-    height: 200%;
-
-    @include respond ($BREAKPOINT_TABLET) {
-      left: -50%;
-    }
-}
-
 .video-warp-speed {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  min-height: 50%;
+  position: fixed;
+  top: 50%; left: 50%;
+  z-index: 1;
   min-width: 50%;
-  max-height: 100vh;
+  min-height: 50%;
+  min-width: 50vw;
+  min-height: 50vh;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+
+  @include transform(translate(-50%, -50%));
+
+  @include respond($BREAKPOINT_LAPTOP) {
+    max-height: none;
+    max-width: 100%;
+  }
 
   &.playing {
     z-index: 4321;
@@ -37,10 +33,20 @@
   .text {
     padding-top: 13em;
     padding-top: 30vh;
+
+    @include respond($BREAKPOINT_LAPTOP) {
+      padding-top: 13em;
+      padding-top: 30vh;
+    }
   }
 
   .button {
-    margin-top: 3em;
-    margin-top: 15vh;
+    margin-top: 2em;
+    margin-top: 10vh;
+
+    @include respond($BREAKPOINT_LAPTOP) {
+      margin-top: 13em;
+      margin-top: 30vh;
+    }
   }
 }

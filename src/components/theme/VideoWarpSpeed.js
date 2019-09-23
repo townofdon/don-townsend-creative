@@ -21,22 +21,20 @@ const WarpSpeed = ({
   };
   return (
     <>
-      <div className="video-contain">
-        <video
-          muted
-          className={cx('video-warp-speed section-background', {
-            'playing': isPlaying,
-            'roll-left': isRollingLeft,
-            'roll-right': isRollingRight,
-          })}
-          ref={refVideo}
-          // required to comply with IOS standards
-          // see: https://webkit.org/blog/6784/new-video-policies-for-ios/
-          playsInline
-        >
-          <source src="/vid/entering-hyperspace.mp4" type="video/mp4" />
-        </video>
-      </div>
+      <video
+        muted
+        className={cx('video-warp-speed section-background', {
+          'playing': isPlaying,
+          'roll-left': isRollingLeft,
+          'roll-right': isRollingRight,
+        })}
+        ref={refVideo}
+        // required to comply with IOS standards
+        // see: https://webkit.org/blog/6784/new-video-policies-for-ios/
+        playsInline
+      >
+        <source src="/vid/entering-hyperspace.mp4" type="video/mp4" />
+      </video>
       <div className={cx('fullscreen thanks align-items-center', {
         'd-none': true || !isShowingThanks,
         'd-block': isShowingThanks,
