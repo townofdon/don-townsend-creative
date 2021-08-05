@@ -3,6 +3,7 @@ version: "3.7"
 services:
   dontownsend-creative-portfolio:
     container_name: dontownsend-creative-portfolio
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile
