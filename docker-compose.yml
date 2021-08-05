@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  dontownsend-creative-portfolio:
+  dontownsendcreativeportfolio:
     container_name: dontownsend-creative-portfolio
     restart: always
     build:
@@ -9,3 +9,16 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+    depends_on:
+      - dontownsendcreativeportfolio
+    command: certonly --webroot --webroot-path=/usr/share/nginx/html --email donjuancodes@gmail.com --agree-tos --no-eff-email --staging -d dontownsendcreative.com  -d www.dontownsendcreative.com
+
+volumes:
+  certbot-etc:
+  certbot-var:
