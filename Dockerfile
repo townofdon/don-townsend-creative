@@ -11,6 +11,7 @@ RUN npm run build
 
 # production environment
 FROM nginx:stable-alpine
+ARG CACHEBUST=1
 COPY --from=build /app/build /usr/share/nginx/html
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
