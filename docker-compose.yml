@@ -9,9 +9,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
-    environment:
-      # will bust the cache after `ARG CACHEBUST=1`
-      - CACHEBUST=2
   certbot:
     image: certbot/certbot
     container_name: certbot
