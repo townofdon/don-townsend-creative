@@ -15,10 +15,9 @@ COPY . ./
 # production environment
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
+COPY /etc/letsencrypt/live /etc/letsencrypt/live
+COPY /var/lib/letsencrypt /var/lib/letsencrypt
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
-
-VOLUME /etc/letsencrypt/live /etc/letsencrypt/live
-VOLUME /var/lib/letsencrypt /var/lib/letsencrypt
 
 EXPOSE 80
 EXPOSE 443
