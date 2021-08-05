@@ -33,9 +33,14 @@ This is a demo. There were some known issues that, for the sake of brevity and g
 - The Video was giving me all sorts of trouble to get the sizing exactly right, so I just slapped a max-height or max-width depending on the media query.
 - The main text after the splash screen jerks around if the user scrolls too fast. I suppose I could disable scrolling temporarily but when I user-tested this site with my friends, they _all_ scrolled slowly. Usually it's just me scrolling fast while working on the site (trying to get to the nesxt section).
 
+### Deployment
 
+First, SSH to into your Digital Ocean server. Git pull any changes that need to be pulled in.
 
-
+```
+# start docker in detached mode
+docker-compose up -d
+```
 
 ---
 
