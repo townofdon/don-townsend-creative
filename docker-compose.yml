@@ -18,7 +18,3 @@ services:
     depends_on:
       - dontownsendcreativeportfolio
     command: certonly --webroot --webroot-path=/usr/share/nginx/html --email donjuancodes@gmail.com --agree-tos --no-eff-email --staging -d dontownsendcreative.com  -d www.dontownsendcreative.com
-
-volumes:
-  certbot-etc:
-  certbot-var:
