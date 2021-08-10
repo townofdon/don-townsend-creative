@@ -1,16 +1,18 @@
+# This is just a backup of the app-specific nginx config on Digital Ocean
+# sourced at: /etc/nginx/sites-available/dontownsendcreative.com
 
 server {
-        listen 80;
-        listen [::]:80;
+    listen 80;
+    listen [::]:80;
 
-        root /var/www/dontownsendcreative.com/html;
-        index index.html index.htm index.nginx-debian.html;
+    root /var/www/dontownsendcreative.com/html;
+    index index.html index.htm index.nginx-debian.html;
 
-        server_name dontownsendcreative.com www.dontownsendcreative.com;
+    server_name dontownsendcreative.com www.dontownsendcreative.com;
 
-        location / {
-                try_files $uri $uri/ =404;
-        }
+    location / {
+            try_files $uri $uri/ =404;
+    }
 
     listen [::]:443 ssl ipv6only=on; # managed by Certbot
     listen 443 ssl; # managed by Certbot
