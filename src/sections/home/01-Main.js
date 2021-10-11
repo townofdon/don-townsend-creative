@@ -26,27 +26,13 @@ const SectionMain = () => {
     }, timeMainTextWaitBeforeShow);
   }, []);
   useEffect(() => {
-    const handleWheel = (ev) => {
-      if (isScrolling) { return; }
-      // only trigger scroll-to-next-section if near top of page
-      if (window.scrollY > 200) { return; }
-      // see: https://stackoverflow.com/a/51276012/4262653
-      if (ev.deltaY > 0) {
-        setIsScrolling(true);
-        scrollToSection('main-b', () => {
-          setIsScrolling(false);
-        });
-      }
-    };
     const handleScroll = (ev) => {
       if (isScrolling) { ev.preventDefault(); }
     }
-    window.addEventListener('wheel', handleWheel, false);
     window.addEventListener('scroll', handleScroll, false);
     // cleanup
     return () => {
-      window.removeEventListener('wheel', handleWheel, false);
-      window.removeEventListener('scroll', handleWheel, false);
+      window.removeEventListener('scroll', handleScroll, false);
     };
   }, [isScrolling, setIsScrolling]);
   return (
@@ -114,7 +100,7 @@ const SectionMain = () => {
             >
               <div className="over-fullscreen">
                 <div className="main-title-01-nudge-right">
-                  <div className="pt-5 pb-5 mt-md-0 mb-md-0" />
+                  <div className="pt-0 pb-0 mt-md-0 mb-md-0" />
                   <h2
                     className="main-title-01 d-block d-md-inline-block mb-0 mb-md-5"
                   >
@@ -155,9 +141,9 @@ const SectionMain = () => {
                   className="main-title-03 mb-4 mb-md-5"
                 >
                   <span className="the-reveal">
-                    Full-Stack
+                    Full-Stack&nbsp;
                     <br className="d-md-none" />
-                    Web&nbsp;
+                    Software&nbsp;
                   </span>
                   <ScrollItem
                     startOffsetLeft={-6}

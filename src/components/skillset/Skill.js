@@ -9,7 +9,7 @@ const Skill = ({ children, percentage }) => {
       <h5>
         {children}
       </h5>
-      <ProgressBar percentage={percentage} />
+      <ProgressBar percentage={percentage} offset={25} />
     </>
   );
 };

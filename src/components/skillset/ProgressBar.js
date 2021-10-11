@@ -11,6 +11,7 @@ import isNumeric from '../../utils/math/is-numeric';
 
 const ProgressBar = ({
   percentage = 50,
+  offset = 0,
   currentScrollY,
   winHeight,
 }) => {
@@ -19,6 +20,7 @@ const ProgressBar = ({
   const refRect = useRef(null);
   const [position, setPosition] = useState({});
   const [pctProgressElem, setPctProgressElem] = useState(0);
+  const _offset = Number(offset) || 0;
   useEffect(() => {
     if (!refContainer.current) { return; }
     refSvg.current = d3.select(refContainer.current)
@@ -61,14 +63,14 @@ const ProgressBar = ({
     setPosition(_position);
   }, []);
   useEffect(() => {
-    setPctProgressElem(getScrollProgress(currentScrollY, position.top, position.top + winHeight, winHeight));
+    setPctProgressElem(getScrollProgress(currentScrollY, position.top, position.top + winHeight, winHeight) - _offset);
     // use the golden ratio
     const width = getPercent((pctProgressElem) / 20) * position.width * (percentage / 100) * .95;
     if (!isNumeric(width)) {
       return;
     }
     refRect.current.attr('width', width);
-  }, [percentage, currentScrollY, pctProgressElem, setPctProgressElem, position.width, position.top, position.bottom, winHeight]);
+  }, [percentage, currentScrollY, pctProgressElem, setPctProgressElem, position.width, position.top, position.bottom, winHeight, offset]);
   return (
     <p>
       <span className="d-block" ref={refContainer}></span>

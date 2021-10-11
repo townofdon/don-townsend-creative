@@ -10,9 +10,9 @@ import vas from './vas';
 // which portfolio items will appear.
 export default [
   delaplane,
-  cla,
+  // cla,
   hdr,
   fortLewisLodge,
   joyTru,
-  vas,
+  // vas,
 ];

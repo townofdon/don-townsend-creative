@@ -60,24 +60,33 @@ const SectionMain = () => {
               >
                 <ScrollItem
                   className="d-block"
-                  startNudgeTop={2400}
+                  startNudgeTop={2600}
                   endNudgeTop={-1000}
                   easing="linear"
                   {...scrollItemProps}
                 >
                   <div className="story-text text-justify">
                     <h2 className="text-center font-sans-condensed">DON TOWNSEND</h2>
-                    <h3 className="text-center">A NEW HOPE FOR UX</h3>
+                    <h3 className="text-center">TECH STACK AWAKENS</h3>
                     <p>
                       There is unrest in the galatic empire
-                      of web development. The bad UX implementors
-                      have grasped control over the galactic senate
-                      and it seems their victory is at hand.
+                      of software engineering. Anarchy grips
+                      the industry and threatens to bring the
+                      entire internet ecosystem to a grinding halt.
                     </p>
                     <p>
-                      But unbeknownst to them, a new force emerges,
-                      a new hope for user experience and modular,
-                      reusable code - UX Jedi master Don.
+                      But some have joined the RESISTANCE. These
+                      freedom fighters strive tirelessly to impart
+                      the ancient teachings long-forgotten, about
+                      the ways of THE FORCE - a mystical and deep
+                      understanding about USER EXPERIENCE and
+                      SOLID ARCHITECTURAL PLANNING.
+                    </p>
+                    <p>
+                      Among these combatants, a humble programmer from
+                      the planet REACTIA known as DON TOWNSEND learns
+                      to harness THE FORCE and use his powers in the
+                      quest for good.
                     </p>
                     <p className="text-center text-uppercase"><strong>Top Coding Priorities</strong>:</p>
                     <ul className="text-center">
@@ -88,10 +97,11 @@ const SectionMain = () => {
                       <li className="text-uppercase"><small>Plan early and often</small></li>
                     </ul>
                     <p>
-                      With luck and with the assistance of the rebel fleet,
-                      Don joins the Resistance against bad UX and vows to bring
-                      an end to their evil tyranny!
+                      With guidance from mentors and a little luck,
+                      Don and his comrades are committed
+                      to their ever-present mission:
                     </p>
+                    <p className="text-center text-uppercase"><strong>CODE THE UNIVERSE</strong></p>
                   </div>
                 </ScrollItem>
               </BlurItem>
