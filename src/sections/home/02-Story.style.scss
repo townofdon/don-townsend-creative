@@ -4,16 +4,31 @@
 
 /* shamelessly borrowed from https://www.sitepoint.com/css3-starwars-scrolling-text/ */
 
+
+// I could not figure out a good way to calculate the position of the transformed element, so a magic number is a temporary solution
+$STORY_HEIGHT_SM: 3300px;
+$STORY_HEIGHT_MD: 3300px;
+$STORY_HEIGHT_LG: 3300px;
+$STORY_HEIGHT_XL: 3400px;
+$STORY_HEIGHT_XXL: 3700px;
+
 .story-container {
   position: absolute;
   width: 18em;
-  height: 425vh;
+  // height: 425vh;
   bottom: 0;
   left: 50%;
   margin-left: -9em;
   font-size: 350%;
   text-align: justify;
   overflow: hidden;
+
+  height: $STORY_HEIGHT_SM;
+  @include respond($BREAKPOINT_MOBILE) { height: $STORY_HEIGHT_SM; }
+  @include respond($BREAKPOINT_TABLET) { height: $STORY_HEIGHT_MD; }
+  @include respond($BREAKPOINT_LAPTOP) { height: $STORY_HEIGHT_LG; }
+  @include respond($BREAKPOINT_DESKTOP) { height: $STORY_HEIGHT_XL; }
+  @include respond($BREAKPOINT_DESKTOP_XL) { height: $STORY_HEIGHT_XXL; }
 
   @include prefix((transform-origin: 50% 100%), webkit moz ms o);
   @include prefix((transform: perspective(300px) rotateX(25deg)), webkit moz ms o);

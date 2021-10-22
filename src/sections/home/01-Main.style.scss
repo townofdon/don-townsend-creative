@@ -18,6 +18,10 @@
 }
 
 .section-main {
+  padding-top: 7em;
+  @include respond($BREAKPOINT_TABLET) {
+    padding-top: 0;
+  }
 
   .main-title-01,
   .main-title-02,

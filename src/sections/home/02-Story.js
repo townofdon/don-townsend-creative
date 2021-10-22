@@ -14,7 +14,7 @@ const SectionMain = () => {
     <ScrollSection
       id="story"
       theme="transparent"
-      className="color-bg-black color-white d-none d-md-block"
+      className="color-bg-black color-white"
       backgroundColor="#000"
       viewHeight={4}
       scrollToOffset={800}
@@ -53,14 +53,14 @@ const SectionMain = () => {
               <BlurItem
                 className="d-block"
                 pctProgressStart={100}
-                pctProgressEnd={110}
+                pctProgressEnd={120}
                 pctProgressSection={pctProgressSection}
                 startOpacity={0}
                 endOpacity={1}
               >
                 <ScrollItem
                   className="d-block"
-                  startNudgeTop={2600}
+                  startNudgeTop={3000}
                   endNudgeTop={-1000}
                   easing="linear"
                   {...scrollItemProps}
@@ -90,11 +90,11 @@ const SectionMain = () => {
                     </p>
                     <p className="text-center text-uppercase"><strong>Top Coding Priorities</strong>:</p>
                     <ul className="text-center">
-                      <li className="text-uppercase"><small>Do it right the first time</small></li>
-                      <li className="text-uppercase"><small>Always strive for excellence</small></li>
-                      <li className="text-uppercase"><small>Code should be easy to read</small></li>
-                      <li className="text-uppercase"><small>Think like the end-user</small></li>
-                      <li className="text-uppercase"><small>Plan early and often</small></li>
+                      <li className="text-uppercase"><small>Pursue Excellence</small></li>
+                      <li className="text-uppercase"><small>Avoid Hasty Abstractions</small></li>
+                      <li className="text-uppercase"><small>Write Self-Documenting Code</small></li>
+                      <li className="text-uppercase"><small>Think Like The End-User</small></li>
+                      <li className="text-uppercase"><small>Iterate Rapidly</small></li>
                     </ul>
                     <p>
                       With guidance from mentors and a little luck,

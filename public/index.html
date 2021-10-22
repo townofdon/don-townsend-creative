@@ -40,44 +40,90 @@
       2) Was a quick and dirty solution to initial css up-and-running
     -->
     <style>
+      :root {
+        --stop-color-0: white;
+        --stop-color-1: palegoldenrod;
+        --stop-color-2: yellow;
+        --stop-color-3: orange;
+        --stop-color-4: red;
+        --stop-color-5: #800080;
+        --stop-color-6: #1436cf;
+        --stop-color-7: #1c51c2;
+        --stop-color-8: #304677;
+        --stop-color-9: #383f4e;
+        --stop-color-10: #282c34;
+        --stop-opacity-0: 0;
+        --stop-opacity-1: 0.0758;
+        --stop-opacity-2: 0.1010;
+        --stop-opacity-3: 0.1347;
+        --stop-opacity-4: 0.1797;
+        --stop-opacity-5: 0.2396;
+        --stop-opacity-6: 0.3195;
+        --stop-opacity-7: 0.4260;
+        --stop-opacity-8: 0.5681;
+        --stop-opacity-9: 0.7575;
+        --stop-opacity-10: 1;
+        --bg-color-0: #000;
+        --bg-color-4: #0e1224;
+        --bg-color-5: #450c5f;
+        --bg-color-6: red;
+        --bg-color-7: orange;
+        --bg-color-8: yellow;
+        --bg-color-9: palegoldenrod;
+        --bg-color-10: white;
+      }
+
       /* see: https://www.w3schools.com/css/css3_animations.asp */
       @-webkit-keyframes splash-fade-from-black {
-        from { background-color: #000; }
+        /* from { background-color: #000; }
         20% { background-color: #000; }
-        to { background-color: #fefefe; }
+        to { background-color: #fefefe; } */
+        0%   { background-color: var(--bg-color-0); }
+        40%  { background-color: var(--bg-color-4); }
+        50%  { background-color: var(--bg-color-5); }
+        60%  { background-color: var(--bg-color-6); }
+        70%  { background-color: var(--bg-color-7); }
+        80%  { background-color: var(--bg-color-8); }
+        90%  { background-color: var(--bg-color-9); }
+        100% { background-color: var(--bg-color-10); }
       }
       @keyframes splash-fade-from-black {
-        from { background-color: #000; }
-        20% { background-color: #000; }
-        to { background-color: #fefefe; }
+        0%   { background-color: var(--bg-color-0); }
+        40%  { background-color: var(--bg-color-4); }
+        50%  { background-color: var(--bg-color-5); }
+        60%  { background-color: var(--bg-color-6); }
+        70%  { background-color: var(--bg-color-7); }
+        80%  { background-color: var(--bg-color-8); }
+        90%  { background-color: var(--bg-color-9); }
+        100% { background-color: var(--bg-color-10); }
       }
       @-webkit-keyframes splash-fade-in-title {
         /* slightly exponential scaling */
-        0% { opacity: 0; color: white; }
-        10% { opacity: 0.0758; color: palegoldenrod; }
-        20% { opacity: 0.1010; color: yellow; }
-        30% { opacity: 0.1347; color: orange; }
-        40% { opacity: 0.1797; color: red; }
-        50% { opacity: 0.2396; color: #800080; }
-        60% { opacity: 0.3195; color: #1436cf; }
-        70% { opacity: 0.4260; color: #1c51c2; }
-        80% { opacity: 0.5681; color: #304677; }
-        90% { opacity: 0.7575; color: #383f4e; }
-        100% { opacity: 1; color: #282c34; }
+        0%   { opacity: var(--stop-opacity-0); color: var(--stop-color-0); }
+        10%  { opacity: var(--stop-opacity-1); color: var(--stop-color-1); }
+        20%  { opacity: var(--stop-opacity-2); color: var(--stop-color-2); }
+        30%  { opacity: var(--stop-opacity-3); color: var(--stop-color-3); }
+        40%  { opacity: var(--stop-opacity-4); color: var(--stop-color-4); }
+        50%  { opacity: var(--stop-opacity-5); color: var(--stop-color-5); }
+        60%  { opacity: var(--stop-opacity-6); color: var(--stop-color-6); }
+        70%  { opacity: var(--stop-opacity-7); color: var(--stop-color-7); }
+        80%  { opacity: var(--stop-opacity-8); color: var(--stop-color-8); }
+        90%  { opacity: var(--stop-opacity-9); color: var(--stop-color-9); }
+        100% { opacity: var(--stop-opacity-10); color: var(--stop-color-10); }
       }
       @keyframes splash-fade-in-title {
         /* slightly exponential scaling */
-        0% { opacity: 0; color: white; }
-        10% { opacity: 0.0758; color: palegoldenrod; }
-        20% { opacity: 0.1010; color: yellow; }
-        30% { opacity: 0.1347; color: orange; }
-        40% { opacity: 0.1797; color: red; }
-        50% { opacity: 0.2396; color: #800080; }
-        60% { opacity: 0.3195; color: #1436cf; }
-        70% { opacity: 0.4260; color: #1c51c2; }
-        80% { opacity: 0.5681; color: #304677; }
-        90% { opacity: 0.7575; color: #383f4e; }
-        100% { opacity: 1; color: #282c34; }
+        0%   { opacity: var(--stop-opacity-0); color: var(--stop-color-0); }
+        10%  { opacity: var(--stop-opacity-1); color: var(--stop-color-1); }
+        20%  { opacity: var(--stop-opacity-2); color: var(--stop-color-2); }
+        30%  { opacity: var(--stop-opacity-3); color: var(--stop-color-3); }
+        40%  { opacity: var(--stop-opacity-4); color: var(--stop-color-4); }
+        50%  { opacity: var(--stop-opacity-5); color: var(--stop-color-5); }
+        60%  { opacity: var(--stop-opacity-6); color: var(--stop-color-6); }
+        70%  { opacity: var(--stop-opacity-7); color: var(--stop-color-7); }
+        80%  { opacity: var(--stop-opacity-8); color: var(--stop-color-8); }
+        90%  { opacity: var(--stop-opacity-9); color: var(--stop-color-9); }
+        100% { opacity: var(--stop-opacity-10); color: var(--stop-color-10); }
       }
       @-webkit-keyframes splash-zoom-title {
         0% { opacity: 0; transform: scale(0.9, 0.9); }
@@ -88,19 +134,6 @@
         0% { opacity: 0; transform: scale(0.98, 0.98); }
         40% { opacity: 0; transform: scale(0.98, 0.98); }
         100% { opacity: 1; transform: scale(1, 1); }
-      }
-      @keyframes splash-fizzle-out {
-        0% { background-color: #fefefe; }
-        10% { background-color: palegoldenrod; }
-        20% { background-color: yellow; }
-        30% { background-color: orange; }
-        40% { background-color: red; }
-        50% { background-color: #800080; }
-        60% { background-color: #1436cf; }
-        70% { background-color: #1c51c2; }
-        80% { background-color: #304677; }
-        90% { background-color: #383f4e; }
-        100% { background-color: #282c34; }
       }
 
       .splash {
@@ -184,12 +217,23 @@
       }
 
       .splash h1,
-      .splash h2 {
+      .splash h2,
+      .splash h3,
+      .splash h4,
+      .splash h5,
+      .splash h6,
+      .splash p {
         opacity: 1;
         color: #495a69;
         -webkit-transition: color 265ms ease-in-out;
         transition: color 265ms ease-in-out;
         white-space: normal;
+      }
+
+      .splash .slogan {
+
+        margin-left: 0.2em;
+        margin-top: 3.7em;
       }
 
       .splash h2 {
@@ -209,7 +253,7 @@
       @media screen and (min-width: 992px) {
         .splash .sep {
           display: inline;
-          opacity: 0.1;
+          /* opacity: 0.1; */
         }
       }
 
@@ -220,7 +264,12 @@
       }
 
       .splash.hide h1,
-      .splash.hide h2 {
+      .splash.hide h2,
+      .splash.hide h3,
+      .splash.hide h4,
+      .splash.hide h5,
+      .splash.hide h6,
+      .splash.hide p {
         color: rgb(231, 66, 25);
       }
 
@@ -241,6 +290,17 @@
         animation-duration: 3s;
         animation-timing-function: cubic-bezier(0.165, 0.3, 0.5, 1);
       }
+
+      .splash-gradient-title {
+        background: linear-gradient(0deg, #FC466B 0%, #3F5EFB 100%);
+        background: -webkit-linear-gradient(0deg, #FC466B 0%, #3F5EFB 100%);
+
+        background: linear-gradient(90deg, #fd892d 0%, #3A1C71 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding-left: 0.15em;
+        padding-right: 0.15em;
+      }
     </style>
     <title>Don Townsend | Full Stack Software Dev</title>
   </head>
@@ -254,16 +314,15 @@
       <div class="inner">
       <div class="bg"></div>
         <section class="splash-fg">
-          <h1 class="splash-fade-in-title text-uppercase">
-            Don Townsend
-          </h1>
-          <h2 class="splash-fade-in-title splash-zoom-title text-uppercase">
-            Code<span class="stop">.</span>
-            <span class="sep">&nbsp;•&nbsp;</span>
-            The<span class="stop">.</span>
-            <span class="sep">&nbsp;•&nbsp;</span>
-            Universe<span class="stop">.</span>
-          </h2>
+          <div>
+            <h2 class="splash-fade-in-title text-uppercase d-inline-block">
+              Don Townsend
+            </h2>
+            <h2 class="splash-fade-in-title splash-zoom-title splash-gradient-title d-inline-block text-uppercase">
+              <strong>Portfolio</strong>
+            </h2>
+          </div>
+          <h6 class="slogan splash-fade-in-title splash-zoom-title text-uppercase">Code The Universe</h6>
         </section>
       </div>
       <div class="scroller"></div>

@@ -28,6 +28,8 @@ const WarpSpeed = ({
           'roll-left': isRollingLeft,
           'roll-right': isRollingRight,
         })}
+        width={2560}
+        height={1440}
         ref={refVideo}
         // required to comply with IOS standards
         // see: https://webkit.org/blog/6784/new-video-policies-for-ios/
@@ -39,12 +41,12 @@ const WarpSpeed = ({
         'd-none': true || !isShowingThanks,
         'd-block': isShowingThanks,
       })}>
-        <Container className="d-block h-100 w-100">
-          <div className="text">
-            <h1 className="color-white">THE END</h1>
-            <h2 className="color-white mb-5">Produced by Don Townsend</h2>
+        <Container className="d-flex h-100 py-5 justify-content-center align-items-center flex-column flex-wrap">
+          <div className="text d-flex flex-column justify-content-center align-items-center pt-4">
+            <h1 className="color-white">&lt; END SIMULATION /&gt;</h1>
+            <h6 className="color-white mb-5">Complete Spaceport Docking for pilot debriefing and personnel assignments.</h6>
           </div>
-          <h4 className="color-white button">
+          <h4 className="color-white button my-4">
             <button
               className="border border-white rounded btn btn-outline-light px-4 py-2"
               onClick={handleDocking}

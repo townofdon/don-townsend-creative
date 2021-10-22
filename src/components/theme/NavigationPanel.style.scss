@@ -24,6 +24,10 @@ $dashboardHeight: 40px;
     padding-right: $dashOffsetDesk!important;
     width: calc(50% - 5px);
 
+    @include transform(translate(0, 50vw));
+  }
+
+  @include respond($BREAKPOINT_LAPTOP) {
     @include transform(translate(0, 50vh));
   }
 

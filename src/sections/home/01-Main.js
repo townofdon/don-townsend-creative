@@ -172,7 +172,7 @@ const SectionMain = () => {
                   >
                     v
                   </ScrollItem>
-                  <span className="the-reveal">eloper</span>
+                  <span className="the-reveal d-none d-md-inline-block">eloper</span>
                 </h3>
 
                 <h5
