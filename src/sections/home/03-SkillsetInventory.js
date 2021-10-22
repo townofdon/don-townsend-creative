@@ -37,7 +37,7 @@ const SectionSkills = () => {
         </h2>
         <div>
           <p className="text-center text-uppercase">
-            <code style={{ color: '#3ee7e8' }}>checking power levels...</code>
+            <code>checking power levels...</code>
           </p>
         </div>
         <div className="pb-5" />
