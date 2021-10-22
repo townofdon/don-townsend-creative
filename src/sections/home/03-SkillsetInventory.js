@@ -18,7 +18,7 @@ const SectionSkills = () => {
     <ScrollSection
       id="skillset-inventory"
       theme="dark"
-      backgroundColor="silver"
+      // backgroundColor="#9f9e98"
       className="section-skillset-inventory mb-3"
       classNameContent="w-100"
       viewHeight={1}
@@ -38,18 +38,18 @@ const SectionSkills = () => {
         <div className="pb-5" />
         <Row className="pb-4 pb-lg-5 mb-lg-5">
           <Col xs={12} md>
-            <Skill percentage={90}>Javascript</Skill>
-            <Skill percentage={98}>React</Skill>
-            <Skill percentage={92}>Redux</Skill>
+            <Skill percentage={95}>Javascript</Skill>
+            <Skill percentage={98}>React + Redux</Skill>
             <Skill percentage={97}>Node.js</Skill>
             <Skill percentage={80}>Ruby On Rails</Skill>
+            <Skill percentage={90}>D3.js</Skill>
           </Col>
           <Col xs={12} md>
-            <Skill percentage={95}>Git</Skill>
+            <Skill percentage={95}>Git version control</Skill>
+            <Skill percentage={87}>React Native</Skill>
             <Skill percentage={82}>Mocha + Jest Unit Testing</Skill>
-            <Skill percentage={81}>WordPress + PHP</Skill>
             <Skill percentage={65}>AWS + Heroku Server Admin</Skill>
-            <Skill percentage={90}>HTML + CSS</Skill>
+            <Skill percentage={90}>CI + CD Pipeline Config</Skill>
           </Col>
         </Row>
       </Container>

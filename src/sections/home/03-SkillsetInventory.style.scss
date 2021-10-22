@@ -8,8 +8,12 @@
   // required to display the deco-bottom over the next section
   z-index: 8;
 
+  .section-background {
+    background-color: $colorGray!important;
+  }
+
   .bg {
-    background-color: $colorSilver;
-    fill: $colorSilver;
+    background-color: $colorGray;
+    fill: $colorGray;
   }
 }
