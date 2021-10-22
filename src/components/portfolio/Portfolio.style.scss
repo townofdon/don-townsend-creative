@@ -3,8 +3,9 @@
 @import '../../scss/vars.scss';
 @import '../../scss/mixins.scss';
 
+$colorPortfolioTitle : #fff;
 $bgPortfolioItem: #dbdbdb;
-$bgPortfolioItemHover: rgba(245, 242, 220, 0.96);
+$bgPortfolioItemHover: rgba(10, 10, 9, 0.96);
 .section-portfolio .portfolio-item {
   position: relative;
   z-index: 7;
@@ -31,13 +32,14 @@ $bgPortfolioItemHover: rgba(245, 242, 220, 0.96);
   }
 
   .titles {
+    color: $colorPortfolioTitle;
 
     @include respond($BREAKPOINT_DESKTOP) {
       position: absolute;
       z-index: 7;
       top: 4.5%;
-      left: 4.5%;
-      right: 4.3%;
+      left: 4.2%;
+      right: 4.2%;
       bottom: 30.1%;
       border-radius: 2px;
       background: $bgPortfolioItemHover;
@@ -48,7 +50,6 @@ $bgPortfolioItemHover: rgba(245, 242, 220, 0.96);
   }
 
   .info {
-
     @include respond($BREAKPOINT_DESKTOP) {
       position: absolute;
       z-index: 1;

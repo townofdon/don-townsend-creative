@@ -124,7 +124,14 @@ h3 { text-transform: uppercase; }
 // h6 {}
 
 
-code { @extend .font-monospace; }
+code {
+  @extend .font-monospace;
+  background-color: #3e3626;
+  color: #ffc107; 
+  padding-left: 1em; 
+  padding-right: 1em;
+  border-radius: 3px;
+}
 
 a {
   color: $colorBlueLight;

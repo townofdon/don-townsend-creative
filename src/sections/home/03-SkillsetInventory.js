@@ -35,6 +35,11 @@ const SectionSkills = () => {
         <h2 className="text-center text-uppercase letter-spacing-1 pb-5">
           Skillset Inventory
         </h2>
+        <div>
+          <p className="text-center text-uppercase">
+            <code style={{ color: '#3ee7e8' }}>checking power levels...</code>
+          </p>
+        </div>
         <div className="pb-5" />
         <Row className="pb-4 pb-lg-5 mb-lg-5">
           <Col xs={12} md>
